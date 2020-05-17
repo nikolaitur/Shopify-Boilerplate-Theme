@@ -11,7 +11,7 @@ The files from `sources` builds to `build` directory by our theme development to
 
 ### Main commands for theme development:
 1) You should run `npm i` command to install javascript libraries we're using in theme and another needed packages for our theme development tool. This needs to be runned only 1 time for each new project before you start development.
-2) Then you should run `gulp watch` command each time for theme development. Once this command called, it will be running in background mode and shows you log output of your development till you press `command+c` in your keyboard or till you kill terminal window. While this command runs, it only watches your code changes in `sources` folder, compiles such files to `build` folder and auto-upload the files to Shopify store. It also watches images and fonts you're adding to `sources/assets` and it compiles them too.
+2) Then you should use our main theme development tool command: `gulp watch`. You're using it each time for theme development. Once this command prompted, it will be running in background mode and shows you log output of your development till you press `command+c` in your keyboard or till you kill terminal window. While this command runs, it only watches your code changes in `sources` folder, compiles such files to `build` folder and auto-upload the files to Shopify store. It also watches images and fonts you're adding to `sources/assets` and it compiles them too.
 
 Additional commands:
 Run `gulp deploy` for theme deployment. Once this command runs, it builds theme from `sources` folder to `build` folder and deploys all theme files from `build` folder to Shopify store theme. 
