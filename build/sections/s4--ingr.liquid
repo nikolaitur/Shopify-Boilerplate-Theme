@@ -1,0 +1,167 @@
+{% comment %} ATTENTION!!! This is compiled version of s4--ingr.liquid and it is overriding automatically. You should use theme development tool and sources\sections\s4--ingr.liquid file to code and save your changes. {% endcomment %}
+{% assign set = section.settings %}
+{% if set.visible %}
+  <!-- Image with text section (s4) -->
+  {% render 's4-content', section: section, type: 2 %}
+  <!-- / Image with text section (s4) -->
+{% endif %}
+
+{% schema %}
+{
+  "name": "Image with text",
+  "tag": "section",
+  "class": "section s4",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Show section",
+      "default": true
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "ptop",
+      "label": "Top spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom",
+      "label": "Bottom spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "ptop_mob",
+      "label": "Top spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom_mob",
+      "label": "Bottom spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+
+
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "sectionbg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+
+    
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main image"
+    },
+    {
+      "type": "select",
+      "id": "image_pos",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Main image position"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Text align"
+    },
+    {
+      "id": "pretitle",
+      "type": "richtext",
+      "label": "Pre-title"
+    },
+    {
+      "id": "title",
+      "type": "richtext",
+      "label": "Title"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "Text"
+    },
+    
+    
+    {
+      "type": "header",
+      "content": "Link"
+    },
+    {
+      "type": "range",
+      "id": "btntop",
+      "label": "Top spacing",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "id": "btnu",
+      "type": "url",
+      "label": "Link Url"
+    },
+    {
+      "id": "btn",
+      "type": "text",
+      "label": "Link text",
+      "default": "READ MORE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text",
+      "category": "Promo"
+    }
+  ]
+}
+
+{% endschema %}

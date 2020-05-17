@@ -1,0 +1,32 @@
+{% comment %} ATTENTION!!! This is compiled version of before-after.liquid and it is overriding automatically. You should use theme development tool and sources\snippets\before-after.liquid file to code and save your changes. {% endcomment %}{% if object.image_before != blank and object.image_after != blank %}
+  <div class="before-after" data-ba-parent>
+    
+    <div class="before-after__before">
+      <div class="before-after__image" data-ba-image>
+        {% if no_rimage %}
+          <img src="{{ object.image_before }}" alt="">
+        {% else %}
+          {% render 'rimage', image: object.image_before, size: '500x' %}
+        {% endif %}
+      </div>
+      <div class="before-after__label">Before</div>
+    </div>
+
+    <div class="before-after__after">
+      <div class="before-after__image">
+        {% if no_rimage %}
+          <img src="{{ object.image_after }}" alt="">
+        {% else %}
+          {% render 'rimage', image: object.image_after, size: '500x' %}
+        {% endif %}
+      </div>
+      <div class="before-after__label">After</div>
+    </div>
+
+    <div class="before-after__shutter" data-ba-shutter>
+      <i class="icon-triangle-left"></i>
+      <i class="icon-triangle-right"></i>
+    </div>
+      
+  </div>
+{% endif %}

@@ -1,0 +1,188 @@
+{% comment %} ATTENTION!!! This is compiled version of ingredients.liquid and it is overriding automatically. You should use theme development tool and sources\sections\ingredients.liquid file to code and save your changes. {% endcomment %}{% assign set = section.settings %}
+{% if set.visible %}
+  {% render 'ingredients-content', section: section %}
+{% endif %}
+
+{% schema %}
+
+{
+  "name": "Ingredients",
+  "class": "section ingr",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Show section",
+      "default": true
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "ptop",
+      "label": "Top spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom",
+      "label": "Bottom spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "ptop_mob",
+      "label": "Top spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom_mob",
+      "label": "Bottom spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+
+
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "sectionbg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main image"
+    },
+    {
+      "type": "select",
+      "id": "image_pos",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Main image position"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "id": "pretitle",
+      "type": "richtext",
+      "label": "Pre-title"
+    },
+    {
+      "id": "title",
+      "type": "richtext",
+      "label": "Title"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "Text"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Link"
+    },
+    {
+      "type": "range",
+      "id": "btntop",
+      "label": "Top spacing",
+      "min": -200,
+      "max": 200,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "id": "btnu",
+      "type": "url",
+      "label": "Link Url"
+    },
+    {
+      "id": "btn",
+      "type": "text",
+      "label": "Link text",
+      "default": "View All Ingredients"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Section",
+      "category": "Promo",
+      "blocks":[
+        {
+          "type": "ingredient"
+        },
+        {
+          "type": "ingredient"
+        },
+        {
+          "type": "ingredient"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}

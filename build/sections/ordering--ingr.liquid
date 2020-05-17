@@ -1,0 +1,53 @@
+{% comment %} ATTENTION!!! This is compiled version of ordering--ingr.liquid and it is overriding automatically. You should use theme development tool and sources\sections\ordering--ingr.liquid file to code and save your changes. {% endcomment %}<style>
+  {% for block in section.blocks %}
+    .{{ block.type }} {
+      order: {{ forloop.index0 }}
+    }
+  {% endfor %}
+</style>
+
+
+{% schema %}
+
+{
+  "name": "Sections Ordering",
+  "blocks": [
+    {
+      "type": "section-hero",
+      "name": "Hero",
+      "limit": 1
+    },
+    {
+      "type": "s3",
+      "name": "Heading and icons",
+      "limit": 1
+    },
+    {
+      "type": "s8",
+      "name": "Text",
+      "limit": 1
+    },
+    {
+      "type": "cards",
+      "name": "Cards",
+      "limit": 1
+    },
+    {
+      "type": "circles",
+      "name": "Circles",
+      "limit": 1
+    },
+    {
+      "type": "s4",
+      "name": "Image with text",
+      "limit": 1
+    }
+  ]
+}
+
+{% endschema %}
+
+
+
+
+

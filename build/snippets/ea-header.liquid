@@ -1,0 +1,59 @@
+{% comment %} ATTENTION!!! This is compiled version of ea-header.liquid and it is overriding automatically. You should use theme development tool and sources\snippets\ea-header.liquid file to code and save your changes. {% endcomment %}<header class="site-header-container {{ class }}" data-site-header>
+
+  {% section 'ea-topbar' %}
+
+  <section class="site-header {{ class }}" id="site-header">
+    <div class="container">
+      <button class="btn site-header__toggle hide--desktop" data-open-menu><i class="icon-menu"></i> Menu</button>
+      <div class="site-header__logo">
+        <a href="/">
+          {% if settings.svglogo != blank %}
+            {{ settings.svglogo }}
+          {% elsif settings.logo != blank %}
+            <img src="{{ settings.logo | img_url: '200x' }}" alt="">
+          {% else %}
+            {{ shop.name }}
+          {% endif %}
+        </a>
+      </div>
+
+      <div class="site-header__nav hide--mobile">{% section 'ea-megamenu' %}</div>
+
+      <nav class="nav site-header__tools">
+        <ul class="nav__items">
+          <li class="nav__item hide--mobile">
+            <a class="nav__link m-level-1 m-login" href="/account">Sign In</a>
+          </li>
+          <li class="nav__item hide--mobile">
+            <a class="nav__link m-level-1 m-icon m-search" href="/search" data-trigger><i class="icon-search"></i></a>
+            <nav class="nav-dropdown m-wide" data-dropdown-parent>
+              <div class="container">
+                <form action="/search" class="search-form" method="get" role="search">
+                  <input type="search" class="input" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
+                  <input type="hidden" name="type" value="product" />
+                </form>
+              </div>
+            </nav>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link m-level-1 m-icon m-cart" href="/cart" data-minicart-toggle>
+              <i class="icon-cart"></i>
+              <span class="cart-count" data-cart-count>{{ cart.item_count }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav> <!-- /.site-header__tools -->
+    </div> <!-- /.container -->
+  </section> <!-- /.site-header -->
+</header> <!-- /.site-header-container -->
+
+<div class="sidenav hide--desktop">
+  <button class="sidenav__close btn m-icon-only" data-open-menu><i class="icon-close"></i></button>
+  <form action="/search" class="search-form" method="get" role="search">
+    <input type="search" class="input" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
+    <input type="hidden" name="type" value="product" />
+  </form>
+  {% section 'ea-megamenu' %}
+</div>
+<div class="sidenav-bg" data-open-menu></div>
+{% render 'minicart' %}

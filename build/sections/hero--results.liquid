@@ -1,0 +1,201 @@
+{% comment %} ATTENTION!!! This is compiled version of hero--results.liquid and it is overriding automatically. You should use theme development tool and sources\sections\hero--results.liquid file to code and save your changes. {% endcomment %}{% render 'ea-hero-content', section: section %}
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "class": "section-hero",
+  "max_blocks": 2,
+  "tag": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Please use 2 blocks for splitting, or 1 block for full-width section."
+    },
+    {
+      "type": "paragraph",
+      "content": "For splitting section the images must be same size or aspect ratio."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero",
+      "name": "Hero block",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "visible",
+          "label": "Show block",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "sectionbg",
+          "label": "Section background color",
+          "default": "#fff"
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "id": "hero_image",
+          "type": "image_picker",
+          "label": "Image desktop",
+          "info": "Full Width: 2000 x 1000 px."
+        },
+        {
+          "type": "range",
+          "id": "image_top_desktop",
+          "label": "Image top spacing on desktop",
+          "min": -500,
+          "max": 500,
+          "step": 10,
+          "default": 0
+        },
+        {
+          "id": "hero_image_mobile",
+          "type": "image_picker",
+          "label": "Image Mobile",
+          "info": "Full Width: 400 x 600 px."
+        },
+        {
+          "type": "range",
+          "id": "image_top_mobile",
+          "label": "Image top spacing on mobile",
+          "min": -500,
+          "max": 500,
+          "step": 10,
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Copy"
+        },
+        {
+          "type": "select",
+          "id": "text_pos",
+          "label": "Copy align on desktop",
+          "options": [
+            { "value": "left", "label": "left" },
+            { "value": "center", "label": "center" },
+            { "value": "right", "label": "right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "text_top",
+          "label": "Copy top spacing on desktop",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "text_left",
+          "label": "Copy left spacing on desktop",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "text_pos_mobile",
+          "label": "Copy align on mobile",
+          "options": [
+            { "value": "left", "label": "left" },
+            { "value": "center", "label": "center" },
+            { "value": "right", "label": "right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "text_top_mobile",
+          "label": "Copy top spacing on mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "text_left_mobile",
+          "label": "Copy left spacing on mobile",
+          "min": 0,
+          "max": 200,
+          "step": 2,
+          "default": 0
+        },
+        {
+          "id": "pretitle",
+          "type": "richtext",
+          "label": "Pre-title"
+        },
+        {
+          "id": "title",
+          "type": "richtext",
+          "label": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "title_large",
+          "label": "Make Title Large?"
+        },
+        {
+          "id": "subtitle",
+          "type": "richtext",
+          "label": "Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "subtitle_large",
+          "label": "Make Text Large?"
+        },
+        {
+          "type": "checkbox",
+          "id": "white_text",
+          "label": "Make Text White?"
+        },
+        {
+          "type": "header",
+          "content": "button"
+        },
+        {
+          "type": "range",
+          "id": "btntop",
+          "label": "Top spacing",
+          "min": -200,
+          "max": 200,
+          "step": 5,
+          "default": 45
+        },
+        {
+          "id": "btnu",
+          "type": "url",
+          "label": "Link"
+        },
+        {
+          "id": "btn",
+          "type": "text",
+          "label": "Label",
+          "default": "BUY"
+        },
+        {
+          "type": "checkbox",
+          "id": "white_btn",
+          "label": "Make Button White?"
+        },
+        {
+          "type": "checkbox",
+          "id": "large_btn",
+          "label": "Make Button Large?"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}

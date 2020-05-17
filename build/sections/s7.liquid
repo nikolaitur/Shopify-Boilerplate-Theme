@@ -1,0 +1,141 @@
+{% comment %} ATTENTION!!! This is compiled version of s7.liquid and it is overriding automatically. You should use theme development tool and sources\sections\s7.liquid file to code and save your changes. {% endcomment %}
+{% assign set = section.settings %}
+{% if set.visible %}
+  <!-- Our philosophy section (s7) -->
+  {% render 's7-content', section: section %}
+  <!-- / Our philosophy section (s7) -->
+{% endif %}
+
+{% schema %}
+{
+  "name": "Our philosophy",
+  "tag": "section",
+  "class": "section s7",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Show section",
+      "default": true
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "ptop",
+      "label": "Top spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom",
+      "label": "Bottom spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "ptop_mob",
+      "label": "Top spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom_mob",
+      "label": "Bottom spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+
+
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "sectionbg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+
+    
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "id": "pretitle",
+      "type": "richtext",
+      "label": "Pre-title"
+    },
+    {
+      "id": "title",
+      "type": "richtext",
+      "label": "Title"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Url"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "id": "title",
+          "type": "richtext",
+          "label": "Title"
+        },
+        {
+          "id": "subtitle",
+          "type": "richtext",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our philosophy",
+      "category": "About"
+    }
+  ]
+}
+
+{% endschema %}

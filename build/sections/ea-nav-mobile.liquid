@@ -1,0 +1,69 @@
+{% comment %} ATTENTION!!! This is compiled version of ea-nav-mobile.liquid and it is overriding automatically. You should use theme development tool and sources\sections\ea-nav-mobile.liquid file to code and save your changes. {% endcomment %}<nav class="sidenav hide--desktop">
+  <ul class="nav__items" data-accordions-container>
+    {% for link in linklists[section.settings.main_link_list].links %}
+      {%- assign outerLoopIndex = forloop.index -%}
+      {% if link.links != blank %}
+        <li class="nav__item accordion" data-accordion>
+      {% else %}
+        <li class="nav__item">  
+      {% endif %}
+        {% if link.links != blank %}
+          <a class="nav__link accordion__title {% if link.child_active %} is-active{% endif %}" data-accordion-button>
+            <span>{{ link.title }}</span>
+            <i class="icon-plus"></i><i class="icon-minus"></i>
+          </a>
+          <ul class="accordion__content nav__items" data-accordion-content>
+            {% for childlink in link.links %}
+              <li class="nav__item">
+                <a href="{{ childlink.url }}" class="nav__link m-level-2">
+                  <span class="nav__label">{{ childlink.title | escape }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <a href="{{ link.url }}" class="nav__link{% if link.active %} is-active{% endif %}">
+            <span class="nav__label">{{ link.title }}</span>
+          </a>
+        {% endif %}
+      </li> <!-- /.nav__item -->
+    {% endfor %}
+    <li class="nav__item">
+      {% if customer %}
+        <a href="/account" class="nav__link{% if link.active %} is-active{% endif %}">
+          <span class="nav__label">Account</span>
+        </a>
+      {% else %}
+        <a href="/account/login" class="nav__link{% if link.active %} is-active{% endif %}">
+          <span class="nav__label">Sign In</span>
+        </a>
+      {% endif %}
+    </li>  <!-- /.nav__item -->
+    <li class="nav__item accordion" data-accordion>
+      <a class="nav__link accordion__title" data-accordion-button>
+        <span class="nav__label">Search</span><i class="icon-search"></i>
+      </a>
+      <div class="accordion__content" data-accordion-content>
+        <form action="/search" class="search-form" method="get" role="search">
+          <input type="search" class="input" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
+          <input type="hidden" name="type" value="product" />
+        </form>
+      </div>
+    </li> <!-- /.nav__item -->
+  </ul> <!-- /.nav__items -->
+</nav> <!-- /.sidenav -->
+<div class="sidenav-bg" data-open-menu></div>
+
+
+{% schema %}
+{
+  "name": "Menu Mobile",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_link_list",
+      "label": "Primary Menu"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,115 @@
+{% comment %} ATTENTION!!! This is compiled version of __opt-js-theme.liquid and it is overriding automatically. You should use theme development tool and sources\snippets\__opt-js-theme.liquid file to code and save your changes. {% endcomment %}<script>
+
+(function () {
+	if ( typeof window.CustomEvent === "function" ) return false; //If not IE
+
+	function CustomEvent ( event, params ) {
+		params = params || { bubbles: false, cancelable: false, detail: undefined };
+		var evt = document.createEvent( 'CustomEvent' );
+		evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+		return evt;
+	}
+
+	CustomEvent.prototype = window.Event.prototype;
+
+	window.CustomEvent = CustomEvent;
+})();
+
+var view_mode = false;
+var md = new MobileDetect(window.navigator.userAgent);
+
+if(md.mobile())
+{
+	view_mode = 'mobile';
+}
+else
+{
+	view_mode = 'desktop';
+}
+
+if(md.tablet())
+{
+	view_mode = 'desktop';
+}
+
+document.addEventListener("DOMContentLoaded", function(event) 
+{
+	setTimeout(function(){
+		document.dispatchEvent(new CustomEvent('EndNprogress'));
+		$("#__loader").remove();
+		$("#__preloader").fadeTo( "fast", 1 );
+	}, 450);
+
+	if(view_mode == 'mobile')
+	{
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartKernelLoading'));
+		}, 3500);
+
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartScriptsLoading'));
+		}, 1400);
+
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartTrekkieLoading'));
+		}, 7500);		
+	}
+	else
+	{
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartKernelLoading'));
+		}, 1000);
+
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartScriptsLoading'));
+		}, 2000);	
+
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartTrekkieLoading'));
+		}, 2400);
+	}
+
+	setTimeout(function(){
+		document.dispatchEvent(new CustomEvent('StartOtherLoading'));
+	}, 6500);	
+
+	setTimeout(function(){
+		document.dispatchEvent(new CustomEvent('StartAsyncLoading'));
+	}, 8500);
+});
+
+document.addEventListener("StartScriptsLoading", function(event)
+{
+	if(view_mode == 'mobile')
+	{
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartScriptsLoaded'));
+		}, 1000);
+	}
+	else
+	{
+		setTimeout(function(){
+			document.dispatchEvent(new CustomEvent('StartScriptsLoaded'));
+		}, 5000);
+	}
+});
+
+document.addEventListener("StartScriptsLoaded", function(event)
+{
+  
+
+   $(".iframe-lazyload").addClass('lazyload');
+
+});
+
+
+document.addEventListener("StartOtherLoading", function(event)
+{
+	
+  
+  
+});
+
+</script>
+
+

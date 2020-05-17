@@ -1,0 +1,69 @@
+{% comment %} ATTENTION!!! This is compiled version of ingredients-content.liquid and it is overriding automatically. You should use theme development tool and sources\snippets\ingredients-content.liquid file to code and save your changes. {% endcomment %}{% assign set = section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+<div class="container">
+  {% if set.pretitle != blank %}
+    <h3 class="pretitle ta-center">{{ set.pretitle }}</h3>
+  {% endif %}
+  {% if set.title != blank %}
+    <h2 class="title ta-center">{{ set.title }}</h2>
+  {% endif %}
+  {% if set.subtitle != blank %}
+    <div class="subtitle ta-center">{{ set.subtitle }}</div>
+  {% endif %}
+
+  <div class="section__content">
+
+    {%- capture ingrItems -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == "ingredient" -%}
+          {%- assign bset = block.settings -%}
+          <div class="col-md-6 ingr__item">
+            <div class="ingr__item-inner">
+              <div class="ingr__image"><img src="{{ bset.image | img_url: 'master' }}" alt=""></div>
+              <h4 class="ingr__title">{{ bset.title }}</h4>
+              <div class="ingr__text">{{ bset.text }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    <div class="ingr-content m-image-pos-{{ set.image_pos }}"">
+      {% if set.image != blank %}
+        <div class="ingr-content__image">
+          {% render 'rimage', image: set.image, size: '500x' %}
+        </div>
+      {% endif %}
+      <div class="ingr-content__text">
+        {% if ingrItems != blank %}
+          <div class="ingr__items">
+            <div class="row">
+              {{ ingrItems }}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="ingr__btn">
+          {% render 'button', {
+            top: set.btntop,
+            id: section.id,
+            text: set.btn,
+            url: set.btnu,
+            class: 'm-underline'
+          } %}
+        </div>
+      </div> <!-- /.ingr-content__text -->
+    </div> <!-- /.ingr-content -->
+  </div> <!-- /.section__content -->
+</div>  <!-- /.container -->

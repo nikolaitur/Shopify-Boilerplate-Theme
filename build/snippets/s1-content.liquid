@@ -1,0 +1,51 @@
+{% comment %} ATTENTION!!! This is compiled version of s1-content.liquid and it is overriding automatically. You should use theme development tool and sources\snippets\s1-content.liquid file to code and save your changes. {% endcomment %}{% assign set = section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="slider" data-slider="{{ section.id }}"
+    data-hor-slider
+    data-dots="false" 
+    data-arrows="false" 
+    data-slides-to-show="1" 
+    data-slides-to-scroll="1">
+    {% for block in section.blocks %}
+      {% assign bset = block.settings %}
+      {% if bset.text != blank %}
+        <h2 class="title m-black h2 ta-center not-animated {% if forloop.first %}is-active{% endif %} ">{{ bset.text }}</h2>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="section__content">
+    <div class="slider s1__slider" 
+      {% comment %} data-hor-slider
+      data-as-nav-for="{{ section.id }}"
+      data-dots="false" 
+      data-arrows="false" 
+      data-slides-to-show="4" 
+      data-slides-to-show-mob="2" 
+      data-slides-to-scroll="1"
+      data-centermode="true"
+      data-autoplay="true" {% endcomment %}
+      >
+      {% for block in section.blocks %}
+        {% assign bset = block.settings %}
+        <div class="s1__item">
+          {% if bset.img != blank  %}
+            <img src="{{ bset.img | img_url: '200x' }}">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

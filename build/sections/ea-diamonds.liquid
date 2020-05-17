@@ -1,0 +1,93 @@
+{% comment %} ATTENTION!!! This is compiled version of ea-diamonds.liquid and it is overriding automatically. You should use theme development tool and sources\sections\ea-diamonds.liquid file to code and save your changes. {% endcomment %}
+{% assign set = section.settings %}
+{% if set.visible %}
+  {% include 'ea-diamonds-content' %}
+{% endif %}
+
+{% schema %}
+
+{
+  "name": "Diamonds",
+  "class": "ea-diamonds",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "sectionbg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "bgimage",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "bgwidth",
+      "label": "Background width",
+      "min": 1,
+      "unit": "%",
+      "max": 100,
+      "step": 1,
+      "default": 25
+    },
+    {
+      "type": "select",
+      "id": "bgpos",
+      "label": "Background position",
+      "options": [
+        { "value": "left", "label": "left" },
+        { "value": "right", "label": "right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "bgtop",
+      "label": "Background top spacing",
+      "min": 0,
+      "unit": "%",
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "bgedge",
+      "label": "Background edge spacing",
+      "min": -50,
+      "unit": "%",
+      "max": 50,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_content",
+      "label": "Content image"
+    }
+  ]
+}
+
+{% endschema %}
