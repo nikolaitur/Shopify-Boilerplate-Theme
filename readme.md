@@ -5,12 +5,13 @@ The files from `sources` compiles to `build` directory by our theme development 
 ## Quick Start
 #### To use this starter theme and theme development tool, Node.js and Gulp v4 should be installed in your system.
 
-First 4 steps are one-time installation steps for each project. 5th step is repeatable step during theme development.
+First 5 steps are one-time installation steps for each project, they takes up to 15 minutes. 6th step is repeatable step during theme development.
 1) Clone this starter theme to your pc: `git clone git@gitlab.com:binaery-team/goats-theme.git`
 2) Create project repository in Gitlab
 3) Change git origin url from this starter theme url to project git url you've just created: `git remote set-url origin <project-repository-url>`
 4) You should run `npm i` command to install javascript libraries we're using in theme and another needed packages for our theme development tool.
-5) Then you should use our main theme development tool command: `gulp watch`. Once this command prompted, it will be running in background mode and showing you log output of your development till you cancel it from your terminal. But the main aim of this command is watching your code changes in `sources` folder, compiles such files to `build` folder and auto-upload the files to Shopify store. It also watches images and fonts you're adding to `sources/assets` and it compiles them too.
+5) Open config.yml and enter credentials for shopify store's theme you plan to work with. We have 3 environments: development, staging and production, please read more below.
+6) Then you should use our main theme development tool command: `gulp watch`. Once this command prompted, it will be running in background mode and showing you log output of your development till you cancel it from your terminal. But the main aim of this command is watch your code changes in `sources` folder, do their compilation to `build` folder and then upload the compiled files into Shopify store's theme. It also watches images and fonts you're adding to `sources/assets` and copies them to `build/assets` folder.
 
 Additional commands:
 Run `gulp deploy` to make full theme deployment (the key difference from `gulp watch` is that watch is doing partial deployment and only for files which you're changing while this command is running in your terminal). Once this command runs, it compiles theme from `sources` folder to `build` folder and deploys all theme files from `build` folder to Shopify store theme.
