@@ -39,10 +39,12 @@ This is our current minus of using theme development workflow and @Maksim is wor
 
 ### Assets splitting
 `sources/assets`
+
 By default, Shopify hasn't ability to split theme assets (styles, javascripts, images, fonts) to multiple folders, so the theme assets folder doesn't looks good and it takes time to find the file you plan to work with. With TDT we have better organisation for our assets.
 
 ### Styles
 `sources/assets/styles`
+
 TDT allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean and we don't miss css vendor prefixes. 
 
 TODO: Update our scss to use it with Shopify scss.liquid variables, and we can use all power of Shopify theme settings for theme styles.
@@ -50,6 +52,7 @@ TODO: Update our scss to use it with Shopify scss.liquid variables, and we can u
 
 ### Javascripts
 `sources/assets/javascripts`
+
 TDT allows us to use all modern javascript practices, such as es6 modules for code splitting, arrow functions, array expands etc. At same time, this code will be cross-browser because it's using Babel transpiler.
 
 TODO: Javascript refactoring
@@ -63,7 +66,9 @@ TODO: add image optimizer package
 
 ##### SVG icons
 Place any svg files icons you want to use to `sources/assets/images`. Then just include these icons by this code: 
+
 `<svg src="icon-name.svg"></svg>` 
+
 inside .liquid files markup. TDT will replace this shortcode to svg file internal code.
 
 TODO: Add svg css inliner to theme development tool. Some svg files are using css classes and styles in svg files which are using same class names are overlapping between them. SVGO package has such inliner.
