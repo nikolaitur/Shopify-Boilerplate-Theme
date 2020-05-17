@@ -35,12 +35,25 @@ This is our current minus of using theme development workflow and @Maksim is wor
 For example: `gulp watch --staging`
 
 
+### Styles
+`sources/assets/styles`
+Our theme development tool allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean and we don't miss css vendor prefixes. 
+TODO: Update our scss to use it with Shopify scss.liquid variables, and we can use all power of Shopify theme settings for theme styles.
+
+### Javascripts
+`sources/assets/javascripts`
+Our theme development tool allows us to use all modern javascript practices, such as es6 modules for code splitting, arrow functions, array expands etc. At same time, this code will be cross-browser because it's using Babel transpiler.
+TODO: Javascript refactoring
+
+
 ### Images
 `sources/assets/images`
+TODO: add image optimizer package to theme development tool
+
 
 ##### SVG icons
 Place any svg files icons you want to use to `sources/assets/images`. Then just include these icons by this code: `<svg src="icon-name.svg"></svg>` inside .liquid files markup. Our theme development tool will replace this shortcode to svg file internal code.
-
+TODO: Add svg css inliner to theme development tool. Some svg files are using css classes and styles in svg files which are using same class names are overlapping between them. SVGO package has such inliner.
 
 ### Fonts
-Place font files to `sources/assets/fonts` and include them to `sources/assets/styles/base/_fonts.scss`, or use typekit, whatever is better for the project you're working on
+Place font files to `sources/assets/fonts` and include them in `sources/assets/styles/base/_fonts.scss`, or use typekit, whatever is better for the project you're working on.
