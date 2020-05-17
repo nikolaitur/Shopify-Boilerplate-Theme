@@ -16,7 +16,7 @@ The contents of the ea-press.liquid template can be found in /sections/ea-press.
 
 {% if set.visible %}
 <div class="section team">
-  {% include 'ea-section-foreground-image' %}
+  {% render 'ea-section-foreground-image', section: section %}
   <div class="container">
     {% if set.title != blank %}
       <h3 class="title ta-center">{{ set.title }}</h3>

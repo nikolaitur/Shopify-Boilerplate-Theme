@@ -117,7 +117,7 @@ const accordions = function() {
     event.preventDefault();
     const $container = $(this).closest('[data-accordions-container]');
 
-    if ($container.data('mobile-only') == "1" && $(window).outerWidth() > 989 ) {
+    if ($container.data('accordions-mobile-only') == "1" && $(window).outerWidth() > 989 ) {
       return false;
     }
 
@@ -233,7 +233,4 @@ $(document).ready(() => {
   register(minicart);
   register(misc);
   register(btnSectionScroll);
-
-
-
 });

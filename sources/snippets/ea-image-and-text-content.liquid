@@ -1,4 +1,5 @@
 {% assign set = section.settings %}
+
 {%- capture customStyles -%}
   {%- if set.image_bg -%}
     #shopify-section-{{ section.id }} {
@@ -6,7 +7,9 @@
     }
   {%- endif -%}
 {%- endcapture -%}
-{% render 'section-styles', section: section, customStyles: customStyles %}
+{% render 'ea-section-styles', section: section, customStyles: customStyles %}
+
+{% render 'ea-section-foreground-image', section: section %}
 
 {%- capture imageCellClass -%}
   {%- if type == 'big-image' -%}col-md-7{%- else -%}col-md-6{%- endif -%}

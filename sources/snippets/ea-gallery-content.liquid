@@ -1,5 +1,21 @@
-{% assign set = object.settings %}
-{% render 'section-styles', section: object %}
+{% assign set = section.settings %}
+
+{%- capture customStyles -%}
+  {% assign opacity = set.color_overlay_alpha | divided_by: 100.0 %}
+  #shopify-section-{{ section.id }} .card .title {
+    color: {{ set.color_overlay_text }};
+  }
+  #shopify-section-{{ section.id }} .card__inner .card__content {
+    background-color: {{ set.color_overlay | hex_to_rgba: opacity }};
+  }
+  #shopify-section-{{ section.id }} .card__inner:hover .card__content {
+    background-color: {{ set.color_overlay_hover | hex_to_rgba: opacity }};
+  }
+{%- endcapture -%}
+{% render 'ea-section-styles', section: section, customStyles: customStyles %}
+
+{% render 'ea-section-foreground-image', section: section %}
+
 
 <div class="container {% if set.full_width %}container-fluid{% endif %} {% unless set.section_padding %}no-padding{% endunless %}">
   <div class="section__content">
@@ -13,7 +29,7 @@
       Calculate how the number of rows based on the targetted images per row
       Use the remainder to create a different grid layout for the first row
     {% endcomment %}
-    {%- assign total_blocks = object.blocks.size -%}
+    {%- assign total_blocks = section.blocks.size -%}
     <!-- total_blocks {{ total_blocks }} -->
     {%- assign target_per_row = set.images_per_row -%}
     <!-- target_per_row {{ target_per_row }} -->
@@ -44,7 +60,7 @@
     {% endcase %}
     {%- assign last_row_start = total_blocks | minus: target_per_row | plus: 1 -%}
     <div class="row {% if set.gutter == false %}no-gutters{% endif %}">
-      {% for block in object.blocks limit: object.blocks.size %}
+      {% for block in section.blocks limit: section.blocks.size %}
         {% assign bset = block.settings %}
         {% if forloop.index <= first_row_size %}
           {%- assign block_grid_item_width = first_grid_item_width -%}
@@ -78,17 +94,3 @@
   </div> <!-- /.section__content -->
 </div> <!-- /.container -->
 
-{% assign opacity = set.color_overlay_alpha | divided_by: 100.0 %}
-<!-- opacity {{ opacity }} -->
-<!-- set.color_overlay {{ set.color_overlay }} -->
-<style>
-  #shopify-section-{{ object.id }} .card .title {
-    color: {{ set.color_overlay_text }};
-  }
-  #shopify-section-{{ object.id }} .card__inner .card__content {
-    background-color: {{ set.color_overlay | hex_to_rgba: opacity }};
-  }
-  #shopify-section-{{ object.id }} .card__inner:hover .card__content {
-    background-color: {{ set.color_overlay_hover | hex_to_rgba: opacity }};
-  }
-</style>

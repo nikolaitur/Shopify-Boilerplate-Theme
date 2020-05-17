@@ -1,5 +1,8 @@
 {% assign set = section.settings %}
-{% render 'section-styles' %}
+
+{% render 'ea-section-styles', section: section %}
+
+{% render 'ea-section-foreground-image', section: section %}
 
 <div class="container ta-center">
   <div class="section__header">

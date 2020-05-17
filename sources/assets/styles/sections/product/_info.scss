@@ -204,12 +204,11 @@
     position: relative;
     padding-left: $gutter*2;
     &:before {
-      content: $icon-checkmark-solid; 
+      content: "✓"; 
       position: absolute;
       top: 0;
       left: 0;
       font-size: $fz-4;
-      font-family: $icomoon-font-family;
       color: $color-blue;
     }
     +li {

@@ -18,11 +18,11 @@
 <header class="blog-header">
   <div class="container">
     <h3 class="title m-black not-animated ta-center">{{ blog.title }}</h3>
+    {%- comment -%} OPTIONAL: ea-blog-menu.liquid {%- endcomment -%}
   </div>
-
 </header>  <!-- /.blog-header -->
 
 {% if blog.handle != 'press' %}
-  {% section 'blog-featured' %}
+  {% section 'ea-blog-featured' %}
 {% endif %}
-{% section 'blog-main' %}
+{% section 'ea-blog-main' %}

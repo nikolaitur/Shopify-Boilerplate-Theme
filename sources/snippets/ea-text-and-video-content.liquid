@@ -1,10 +1,13 @@
 {% assign set = section.settings %}
+
 {%- capture customStyles -%}
   #shopify-section-{{ section.id }} .video-item:before {
     background-image: url({{ set.bgimage | img_url: '1000x' }});
   }
 {%- endcapture -%}
-{% render 'section-styles', section: section, customStyles: customStyles %}
+{% render 'ea-section-styles', section: section, customStyles: customStyles %}
+
+{% render 'ea-section-foreground-image', section: section %}
 
 <div class="text-video">
   <div class="container">

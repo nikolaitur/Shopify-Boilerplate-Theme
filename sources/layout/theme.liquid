@@ -5,7 +5,7 @@
 
   <head>
     {{ content_for_header }}
-    {% include 'head' %}
+    {% include 'ea-head' %}
   </head>
 
   <body class="template-{{ template.name }} {% if settings.animations_on %} animations-on {% endif %} {% if template == 'product' %}product-page--{{ product.handle }}{% endif %}">

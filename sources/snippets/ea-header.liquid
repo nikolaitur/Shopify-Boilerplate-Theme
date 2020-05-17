@@ -17,7 +17,7 @@
         </a>
       </div>
 
-      <div class="site-header__nav hide--mobile">{% section 'ea-nav-desktop' %}</div>
+      <div class="site-header__nav hide--mobile">{% section 'ea-megamenu' %}</div>
 
       <nav class="nav site-header__tools">
         <ul class="nav__items">
@@ -53,7 +53,7 @@
     <input type="search" class="input" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
     <input type="hidden" name="type" value="product" />
   </form>
-  {% section 'ea-nav-desktop' %}
+  {% section 'ea-megamenu' %}
 </div>
 <div class="sidenav-bg" data-open-menu></div>
 {% render 'minicart' %}

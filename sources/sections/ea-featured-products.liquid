@@ -1,7 +1,6 @@
 
-{% assign set = section.settings %}
-{% if set.visible %}
-  {% render 'featured-products-content', section: section %}
+{% if section.settings.visible %}
+  {% render 'ea-featured-products-content', section: section %}
 {% endif %}
 
 {% schema %}

@@ -16,6 +16,7 @@
   }
 </style>
 
+
 <header class="article-header">
   {% if article.image %}
     <div class="article-header__image"><img src="{{ article.image | img_url: 'master' }}" alt=""></div>
@@ -38,7 +39,8 @@
       <div class="article__sidebar">
         {% if set.sidebar_title != blank %}<h3 class="title m-black not-animated h2">{{ set.sidebar_title }}</h3>{% endif %}
         {% for block in section.blocks %}
-          {% include 'product-cell', 
+          {% render 'product-cell', 
+            section: section,
             product: all_products[block.settings.product], 
             showInfo: set.show_product_info, 
             showPrice: set.show_product_price,

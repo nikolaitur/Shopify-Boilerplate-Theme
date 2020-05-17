@@ -1,3 +1,5 @@
+{% assign set = section.settings %}
+
 {% if blog.handle == 'press' %}
   {%- assign external_link = false -%}
 
@@ -7,7 +9,7 @@
   
   <article class="post-cell m-press">
     
-    <a href="{% if external_link %}{{ external_link }}{% else %}{{ article.url }}{% endif %}" class="post-cell__image no-hover-link">{% include 'rimage', image: article.image %}</a>
+    <a href="{% if external_link %}{{ external_link }}{% else %}{{ article.url }}{% endif %}" class="post-cell__image no-hover-link">{% render 'rimage', image: article.image %}</a>
     <!-- /.image -->
 
     <div class="post-cell__content">
@@ -25,14 +27,14 @@
 
   <article class="post-cell {% if type == 'featured' %} post-cell--featured {% endif %} ">
     
-    <a href="{{ article.url }}" class="post-cell__image no-hover-link">{% include 'rimage', image: article.image %}</a>
+    <a href="{{ article.url }}" class="post-cell__image no-hover-link">{% render 'rimage', image: article.image %}</a>
     <!-- /.image -->
 
     <div class="post-cell__content">
       <h3 class="post-cell__title title h2 m-black not-animated"><a href="{{ article.url }}" class="no-hover-link">{{ article.title }}</a></h3>
       <div class="post-cell__bottom">
         <div class="post-cell__meta">
-          {%- if article.content != blank -%}{%- include 'blog__read-time' -%}{%- endif -%}
+          {%- if article.content != blank -%}{%- render 'ea-blog__read-time', article: article -%}{%- endif -%}
           <span class="circle-dot"></span>
           {{ article.published_at | date: "%b %d, %Y" }}
         </div>

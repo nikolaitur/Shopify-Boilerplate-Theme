@@ -282,7 +282,7 @@
   
   
     {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
+    {% render 'pagination', paginate: paginate %}
     {% endif %}
   
     {% endpaginate %}

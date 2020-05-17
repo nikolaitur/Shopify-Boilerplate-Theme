@@ -30,15 +30,15 @@ context: <string>
         {% assign next_url = paginate.next.url %}
         {% if pagination_type == 'load_more' %}
           {% comment %} Incremental load more button {% endcomment %}
-          {% include 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-more data-custom-pagination', class: 'pagination-button__load-more', style: 'button--primary'  %}
+          {% render 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-more data-custom-pagination', class: 'pagination-button__load-more', style: 'button--primary'  %}
         {% elsif pagination_type == 'infinite_scroll' %}
           {% comment %} Button turned into loading icon {% endcomment %}
-          {% include 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-infinite-scroll data-load-infinite data-custom-pagination', class: 'is-loading is-loading--icon-only', style: 'button--primary'  %}
+          {% render 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-infinite-scroll data-load-infinite data-custom-pagination', class: 'is-loading is-loading--icon-only', style: 'button--primary'  %}
         {% elsif pagination_type == 'infinite_load_more' %}
           {% comment %} Infinite load more button {% endcomment %}
-          {% include 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-more-infinite', class: 'pagination-button__load-more-infinite', style: 'button--primary'  %}
+          {% render 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-more-infinite', class: 'pagination-button__load-more-infinite', style: 'button--primary'  %}
           {% comment %} Button turned into loading icon {% endcomment %}
-          {% include 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-infinite data-custom-pagination', class: 'is-loading is-loading--icon-only is-hidden', style: 'button--primary'  %}
+          {% render 'button', label: load_more_text, type: "link", href: next_url, attribute: 'data-load-infinite data-custom-pagination', class: 'is-loading is-loading--icon-only is-hidden', style: 'button--primary'  %}
         {% endif %}
 
       {% endif %}

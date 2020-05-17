@@ -1,9 +1,7 @@
 
-{% assign set = section.settings %}
-{% if set.visible %}
+{% if section.settings.visible %}
   {% render 'ea-logo-list-content', section: section %}
 {% endif %}
-
 
 {% schema %}
   @@include('ea-logo-list.json')

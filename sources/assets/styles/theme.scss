@@ -6,8 +6,6 @@
 // Vendors
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
 @import "../../../node_modules/perfect-scrollbar/css/perfect-scrollbar.css";
-@import "vendor/icomoon/variables";
-@import "vendor/icomoon/style.scss";
 
 // Base
 @import 'base/reboot';
@@ -52,9 +50,9 @@
 @import 'sections/s4';
 @import 'sections/s5';
 @import 'sections/s6';
+@import 'sections/ceo';
 @import 'sections/how-to-videos';
 @import 'sections/newsletter';
-@import 'sections/brand-info';
 @import 'sections/collection';
 @import 'sections/products-slider';
 @import 'sections/results';
@@ -62,17 +60,11 @@
 @import 'sections/promo';
 @import 'sections/instagram-feed';
 @import 'sections/benefits';
-@import 'sections/diamonds';
 @import 'sections/testimonials';
 @import 'sections/team';
-@import 'sections/ingredients';
 @import 'sections/page';
-@import 'sections/clinical';
-@import 'sections/cards';
-@import 'sections/circles';
 @import 'sections/featured-text';
 @import 'sections/text-video';
-@import 'sections/made-in';
 @import 'sections/image-and-text';
 
 // Product

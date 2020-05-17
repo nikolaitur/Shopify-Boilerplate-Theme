@@ -1,6 +1,6 @@
 {% comment %}
   Snippet can be used in section or block
-  eg. {% include 'include-meta-info-list' %}
+  eg. {% render 'render-meta-info-list' %}
 {% endcomment %}
 
 {% comment %}Assign object as block or section{% endcomment %}
@@ -30,7 +30,7 @@
   {% endif %}
   {% if blog_read_time %}
     <li class="meta-info-list__item">
-      {% include 'blog__read-time', article: article %}
+      {% render 'ea-blog__read-time', article: article %}
     </li>
   {% endif %}
   {% if settings.disqus_enabled and blog_comment_count %}

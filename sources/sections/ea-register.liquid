@@ -50,7 +50,7 @@
             </div>
 
             <div class="login__buttons">
-              {% include 'button', {
+              {% render 'button', {
                 top: set.btntop,
                 id: section.id,
                 text: set.btn,
@@ -72,66 +72,5 @@
 
 
 {% schema %}
-
-{
-  "name": "Register",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Background"
-    },
-    {
-      "type": "color",
-      "id": "sectionbg",
-      "label": "Section background color",
-      "default": "#ffffff"
-    },
-
-    {
-      "type": "header",
-      "content": "Content"
-    },
-    {
-      "id": "title",
-      "type": "richtext",
-      "label": "Title"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    }, 
-
-
-    {
-      "type": "header",
-      "content": "Links"
-    }, 
-    {
-      "type": "textarea",
-      "id": "login_text",
-      "label": "Login text",
-      "default": "Already have an account?"
-    },
-    {
-      "type": "textarea",
-      "id": "login_text_button",
-      "label": "Login button text",
-      "default": "Sign up"
-    },
-
-
-    {
-      "type": "header",
-      "content": "button"
-    },
-    {
-      "id": "btn",
-      "type": "text",
-      "label": "Button text",
-      "default": "SIGN UP"
-    }
-  ]
-}
-
+  @@include('ea-register.json')
 {% endschema %}
