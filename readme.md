@@ -2,7 +2,7 @@
 
 ## Introduction
 All theme sources are in `sources` directory and this is our main folder where we do our development.
-The files from `sources` compiles to `build` directory by our theme development tool. We use theme development tool and compilation from sources, because our theme source code contains all modern features and best practices which are not supported by Shopify theme editor. Also with theme development tool we can use our favorite code editor to navigate quickly inside theme code. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time the developer works with theme's source code. There is only 1 case when you should work with `build` folder, described below in deployment warning.
+The files from `sources` compiles to `build` directory by our theme development tool. We use theme development tool and compilation from sources, because our theme source code contains all modern features and best practices which are not supported by Shopify theme editor. Also with theme development tool we can use our favorite code editor to navigate quickly inside theme code. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time the developer works with theme's source code. There is only 1 case when you should work with `build` folder described below in deployment warning.
 
 ## Quick Start
 First 4 steps are one-time installation steps for each project. 5th step is repeatable step during theme development.
