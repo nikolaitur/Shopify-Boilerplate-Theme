@@ -44,17 +44,20 @@ By default, Shopify hasn't ability to split theme assets (styles, javascripts, i
 ### Styles
 `sources/assets/styles`
 TDT allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean and we don't miss css vendor prefixes. 
+
 TODO: Update our scss to use it with Shopify scss.liquid variables, and we can use all power of Shopify theme settings for theme styles.
 
 
 ### Javascripts
 `sources/assets/javascripts`
 TDT allows us to use all modern javascript practices, such as es6 modules for code splitting, arrow functions, array expands etc. At same time, this code will be cross-browser because it's using Babel transpiler.
+
 TODO: Javascript refactoring
 
 
 ### Images
 For now, TDT is just copying all images from `sources/assets/images` to `build/assets`.
+
 TODO: add image optimizer package
 
 
@@ -62,6 +65,7 @@ TODO: add image optimizer package
 Place any svg files icons you want to use to `sources/assets/images`. Then just include these icons by this code: 
 `<svg src="icon-name.svg"></svg>` 
 inside .liquid files markup. TDT will replace this shortcode to svg file internal code.
+
 TODO: Add svg css inliner to theme development tool. Some svg files are using css classes and styles in svg files which are using same class names are overlapping between them. SVGO package has such inliner.
 
 
@@ -71,6 +75,7 @@ Place font files to `sources/assets/fonts` and include them in `sources/assets/s
 
 ### Advanced sections
 TDT allows us to split sections `schema` configurations to their own json files. This is very helpfull to have clean code, fast navigation between markup and settings, our code editors shows better syntax highlighting and main part of this feautre is now it's easy to clone (and then maintain) sections to have unique content from each individual section on multiples pages.
+
 TODO: 
 1. add background and foreground svg images
 2. split theme sections settings to 3 levels, so we can show only 25%, 50% or 100% of settings depending on project and client's aims.
