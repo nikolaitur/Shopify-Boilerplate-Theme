@@ -1,0 +1,93 @@
+.instagram-feed {
+  margin: 0 -5px;
+  &.is-hidden {
+    visibility: hidden;
+  }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .slick-prev {
+    left: -30px;
+  }
+  .slick-next {
+    right: -30px;
+  }
+}
+.instagram-feed__post {
+  margin-top: 10px;
+  display: block;
+  padding: 0 5px;
+  width: 20%;
+  float: left;
+  outline: none;
+  position: relative;
+  @include mobile {
+    width: 33.3333333%;
+  }
+  &:first-child {
+    width: 40%;
+    @include mobile {
+      width: 100%;
+    }
+  }
+  &:hover {
+    &:after,
+    span {
+      visibility: visible;
+    }
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    z-index: 1;
+    visibility: hidden;
+  }
+  span {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: $color-white;
+    font-size: 14px;
+    z-index: 2;
+    visibility: hidden;
+  }
+  i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    position: relative;
+    top: 1.5px;
+  }
+  b+b {
+    margin-left: 25px;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+@include mobile {
+  .section.m-instagram {
+    .subtitle {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+  .instagram-feed {
+    margin: 0 -$gutter;
+    overflow: hidden;
+    .slick-list {
+      margin: 0 -100px;
+    }
+
+  }
+}

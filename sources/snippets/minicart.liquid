@@ -1,0 +1,31 @@
+<aside data-minicart class="minicart">
+  <div class="minicart__header">
+    <span>CART ({ cart.item_count })</span>
+    <button class="minicart__close btn m-icon-only" data-minicart-toggle><i class="icon-close"></i></button>
+  </div>
+  <div class="minicart__items">
+    <div class="minicart__item" rv-each-item="cart.items">
+      <a rv-href="item.url | convert item.original_handle" class="minicart__item-image no-hover-link"><img class="minicart__item-image" rv-src="item.image" alt=""></a>
+      <div class="minicart__item-info">
+        <h5 class="minicart__item-title"><a rv-href="item.url | convert item.original_handle">{ item.product_title }</a></h5>
+        <div class="minicart__item-options" rv-unless="item.variant_options.0 | isDefaultTitle">
+          { item.variant_options.0 } <span rv-if="item.variant_options.1">/ { item.variant_options.1 }</span>
+        </div>
+        <div class="minicart__item-price">
+          <div>{ item.quantity } x <span>{ item.original_price | formatMoney }</span></div>
+        </div>
+        <button class="btn m-underline" data-remove-from-cart rv-data-line="$index">Remove</button>
+      </div>
+    </div>
+  </div>
+  <div class="minicart__footer" rv-if="cart.total_price">
+    <div class="minicart__subtotal">
+      <span>Subtotal: </span>
+      { cart.total_price | formatMoney }
+    </div>
+    <div class="minicart__buttons">
+      <a rv-on-click="setRedirect" href="/cart" class="btn add-to-cart m-primary">CHECKOUT</a>
+    </div>
+  </div>
+</aside>
+<div class="minicart-bg" data-minicart-toggle></div>

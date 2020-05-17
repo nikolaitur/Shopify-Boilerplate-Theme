@@ -1,0 +1,7 @@
+<div class="product-images {% if product.images.size > 1 %}is-multiple{% endif %} ">
+  <div class="slider product-slider" data-ps>
+    {% for image in product.images %}
+      <img src="{{ image.src | img_url: '1000x' }}" data-variant="{{ image.variants[0].title | handle }}" data-index="{{ forloop.index0 }}" alt="{{ image.alt | escape }}">
+    {% endfor %}
+  </div>
+</div>

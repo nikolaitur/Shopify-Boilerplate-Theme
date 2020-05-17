@@ -1,0 +1,97 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Cuvee",
+    "theme_version": "1.0.0",
+    "theme_author": "Binaery",
+    "theme_documentation_url": "https:\/\/binaery.com",
+    "theme_support_url": "https:\/\/binaery.com"
+  },
+  {
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "logosvg",
+        "label": "SVG Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }
+    ]
+  },
+  {
+    "name": "Animations",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "animations_on",
+        "label": "Enable animations",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "url",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      }
+    ]
+  },
+  {
+    "name": "Brand info",
+    "settings": [
+      {
+        "type": "color",
+        "id": "brand_info_bg",
+        "label": "Section background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand_info_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "richtext",
+        "id": "brand_info",
+        "label": "Info"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  }
+]

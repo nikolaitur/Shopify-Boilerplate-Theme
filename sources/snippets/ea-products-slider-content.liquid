@@ -1,0 +1,14 @@
+
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+{% include 'products-slider', collection: collections[set.collection], class %}

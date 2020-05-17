@@ -1,0 +1,64 @@
+.sections-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.section {
+  font-size: $fz-section;
+  position: relative;
+  z-index: 2;
+  @include mobile {
+    .add-to-cart {
+      width: 100%;
+    }
+    &:not(.has-sticky) {
+      overflow: hidden;
+    }
+  }
+  &.has-overlay {
+    &:before {
+      @include overlay {
+        opacity: 0.05;
+        background: url('../images/bg-texture.jpg') center center no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+  p, li:not(.nav__item) {
+    margin: 1em 0 0;
+    line-height: 1.32;
+  }
+  .title,
+  .subtitle,
+  .pretitle,
+  .rte {
+    p {
+      margin: 0;
+      line-height: inherit;
+    }
+  }
+  .list {
+    margin-top: $gutter*4;
+    @include mobile {
+      margin-top: $gutter*2;
+    }
+  }
+  .btn {
+    margin-top: $gutter*3;
+  }
+}
+.section__content {
+  padding-top: $gutter*5;
+  @include mobile {
+    padding-top: $gutter*2;
+  }
+  &.m-spacing-2 {
+    padding-top: $gutter;
+  }
+}
+.section__foreground-image {
+  position: absolute;
+  top: 0;
+}
+

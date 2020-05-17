@@ -1,0 +1,32 @@
+{% if block.settings.shop_all_image != blank and block.settings.shop_all_url != blank %}
+  <div class="nav-dropdown__feature-item m-primary">
+    <a href="{{ block.settings.shop_all_url }}" class="ingr__item">
+      <div class="ingr__item-inner">
+        <div class="ingr__image"><img src="{{ block.settings.shop_all_image | img_url: 'master' }}" alt=""></div>
+        <h4 class="ingr__title">{{ block.settings.shop_all_title }}</h4>
+        <div class="ingr__text">{{ block.settings.shop_all_text }}</div>
+      </div>
+    </a>
+  </div>
+{% endif %}
+
+
+{%- for i in (1..6) -%}
+  {%- capture image -%}ingr_{{ i }}{%- endcapture -%}
+  {%- capture title -%}ingr_{{ i }}_title{%- endcapture -%}
+  {%- capture url -%}ingr_{{ i }}_url{%- endcapture -%}
+  {%- assign _image = block.settings[image] -%}
+  {%- assign _title = block.settings[title] -%}
+  {%- assign _url = block.settings[url] -%}
+
+  {% if _image != blank %}
+    <div class="nav-dropdown__feature-item">
+      <a href="{{ _url }}" class="ingr__item">
+        <div class="ingr__item-inner">
+          <div class="ingr__image"><img src="{{ _image | img_url: '400x' }}" alt=""></div>
+          <h4 class="ingr__title">{{ _title }}</h4>
+        </div>
+      </a>
+    </div>
+  {% endif %}
+{%- endfor -%}

@@ -1,0 +1,51 @@
+.s4__content {
+  display: flex;
+  align-items: center;
+  @include mobile {
+    display: block;
+  }
+  &.m-image-pos-right {
+    .s4__image {
+      order: 1;
+    }
+    .s4__text {
+      order: 0;
+    }
+  }
+}
+
+.s4__image {
+  min-width: 500px;
+  max-width: 500px;
+  @include mobile {
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+.s4__text {
+  flex: 1;
+  padding: $gutter*6 $gutter*3;
+  .s4__image + & {
+    @include mobile {
+      margin: -150px $gutter*2 0;
+      padding: 20px;
+      position: relative;
+    }
+  }
+  .title {
+    +.subtitle {
+      margin-top: $gutter;
+    }
+  }
+  .pretitle {
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+  .subtitle {
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+}

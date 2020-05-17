@@ -1,0 +1,64 @@
+{% assign set = section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+<div class="container ta-center">
+  {% if set.pretitle != blank %}
+    <h3 class="pretitle">{{ set.pretitle }}</h3>
+  {% endif %}
+  {% if set.title != blank %}
+    <h2 class="title">{{ set.title }}</h2>
+  {% endif %}
+  {% if set.subtitle != blank %}
+    <div class="subtitle">{{ set.subtitle }}</div>
+  {% endif %}
+
+  <div class="section__content">
+    <div class="row" data-hor-slider data-slides-to-show="1" data-custom-controls="1" data-mobile-only="1">
+      {% for block in section.blocks %}
+        <div class="col-md-4">
+          {% assign bset = block.settings %}
+          <div class="cta-card">
+            <a href="{{ bset.btnu }}" class="cta-card__link no-hover-link">{% render 'rimage', image: bset.image, size: '370x' %}</a>
+            <div class="cta-card__text">
+              {% if bset.pretitle != blank %}
+                <h4 class="pretitle m-accent">{{ bset.pretitle }}</h4>
+              {% endif %}
+              {% if bset.title != blank %}
+                <h3 class="title h2 m-black">{{ bset.title }}</h3>
+              {% endif %}
+              {% if bset.subtitle != blank %}
+                <div class="subtitle">{{ bset.subtitle }}</div>
+              {% endif %}
+              {% render 'button', {
+                top: bset.btntop,
+                id: section.id,
+                text: bset.btn,
+                url: bset.btnu,
+                class: 'm-underline'
+              } %}
+            </div> <!-- /.cta-card__text -->
+          </div> <!-- /.cta-card -->
+        </div>
+      {% endfor %}
+    </div> <!-- /.row -->
+    
+    <div class="hide--desktop">
+      <div class="slider-controls">
+        <button class="slider-arrow slider-prev m-icon" data-hor-slider-prev><i class="icon-left-arrow"></i></button>
+        <div class="slider-dots" data-hor-slider-dots></div>
+        <button class="slider-arrow slider-next m-icon" data-hor-slider-next><i class="icon-right-arrow"></i></button>
+      </div>
+    </div>
+
+  </div>
+</div>

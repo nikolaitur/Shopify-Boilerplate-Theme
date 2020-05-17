@@ -1,0 +1,32 @@
+.section.m-testimonials {
+  .container {
+    max-width: $container-s;
+  }
+  .slick-arrow {
+    margin-top: -40px;
+  }
+}
+
+.testimonials__item {
+  font-size: $fz-4;
+}
+.testimonials__text {
+  max-width: 320px;
+  margin: $gutter*2 auto 0;
+}
+.testimonials__author {
+  margin-top: $gutter*4;
+  font-weight: 600;
+}
+
+@include mobile {
+  .testimonials__item {
+    padding: 0 $gutter;
+  }
+  .testimonials__text {
+    font-size: 14px;
+  }
+  .testimonials__author {
+    font-weight: bold;
+  }
+}

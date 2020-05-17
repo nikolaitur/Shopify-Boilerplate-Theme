@@ -1,0 +1,17 @@
+
+<div class="section section--ingredients-page ingredients-page" style="background-color: {{ set.sectionbg }};">
+  <div class="container ingredients-page__container ta-center">
+    <h3 class="title">
+      <span class="ff-{{ set.titlefont}}" style="color: {{ set.titlecolor }}; font-family: {{ set.titlefont }}">{{ set.title }}</span>
+      <span class="ff-{{ set.titlefont2}}" style="color: {{ set.titlecolor2 }}; font-family: {{ set.titlefont2 }}">{{ set.title2 }}</span>
+    </h3>
+    <div class="subtitle">{{ set.text }}</div>
+    {% if set.image %}
+      <img src="{{ set.image | img_url: '1600x' }}" alt="{{ set.alt }}" class="ingredients-page__image">
+    {% endif %}
+    <h3 class="title title--bottom">
+      <span class="ff-{{ set.subtitlefont}}" style="color: {{ set.subtitlecolor }}">{{ set.subtitle }}</span>
+      <span class="ff-{{ set.subtitlefont2}}" style="color: {{ set.subtitlecolor2 }}">{{ set.subtitle2 }}</span>
+    </h3>
+  </div>
+</div>

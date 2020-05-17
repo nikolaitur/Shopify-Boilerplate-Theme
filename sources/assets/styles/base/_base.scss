@@ -1,0 +1,64 @@
+html {
+  font-size: $fz-body;
+}
+body {
+  color: $color-body;
+  font-family: $ff-body;
+  font-size: $fz-body;
+  font-weight: normal;
+  position: relative;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+}
+
+.no-js {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.desktop--hide,
+.hide--desktop {
+  display: none !important;
+}
+
+@include mobile {
+  body {
+    padding-top: 60px;
+  }
+  .small--hide,
+  .hide--mobile {
+    display: none !important;
+  }
+  .desktop--hide,
+  .hide--desktop {
+    display: block !important;
+  }
+
+}
+
+
+
+/* Recharge page sections */
+.product-main__left {
+  @include mobile {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+.product-info {
+  @include mobile {
+    width: 95% !important;
+    margin: 0 auto;
+  }
+}
+// .skewed-shape {
+//   @include mobile {
+//     -webkit-clip-path: polygon(0 0, 92% 0%, 85% 100%, 0% 100%) !important;
+//     clip-path: polygon(0 0, 92% 0%, 85% 100%, 0% 100%) !important;
+//   }
+// }

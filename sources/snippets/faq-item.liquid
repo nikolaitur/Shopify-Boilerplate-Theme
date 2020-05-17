@@ -1,0 +1,12 @@
+{% if blockString contains blockType %}
+  <div class="faq-section m-{{ blockType }} {% if blockType == 'shipping' %}is-active{% endif %} " data-accordions-container data-faq-section="{{ blockType }}">
+    {% for block in section.blocks %}
+      {% if block.type == blockType %}
+        <div class="faq-item accordion" data-accordion>
+          <h3 class="faq-item__title accordion__title" data-accordion-button><span>{{ block.settings.title }}</span><i class="icon-plus"></i><i class="icon-minus"></i></h3>
+          <div class="faq-item__content accordion__content" data-accordion-content>{{ block.settings.answer }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,25 @@
+.text-video-section {
+  position: relative;
+
+  .title, .subtitle {
+    @include mobile {
+      text-align: center;
+    }
+  }
+  .video-item {
+    padding: 0 105px 105px;
+    position: relative;
+    @include mobile {
+      padding: 0;
+      margin-top: 100px;
+    }
+    &:before {
+      @include overlay {
+        top: -60px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+    }
+  }
+}

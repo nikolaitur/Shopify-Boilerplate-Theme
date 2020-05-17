@@ -1,0 +1,38 @@
+.banner {
+  position: relative;
+}
+.banner__img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.banner__bg {
+  width: 100%;
+}
+.banner__fg {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: contain;
+  @include mobile {
+    height: 75%;
+    left: 42%;
+    right: 8%;
+    width: auto;
+    transform: translate(0, -50%);
+  }
+}
+
+
+// Reviews section styles
+.reviews-section {
+  .banner__bg {
+    height: 200px;
+    @include mobile {
+      height: 90px !important;
+    }
+  }
+}

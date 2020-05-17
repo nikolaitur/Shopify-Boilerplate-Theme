@@ -1,0 +1,111 @@
+<div class="featured-text section-standard" data-section-id="{{ section.id }}" data-section-type="featured-text-section">
+  <div class="contain-full-width">
+    <div class="wrapper">
+
+      <div class="content align-{{ section.settings.alignment }} rte">
+        {% if section.settings.title != blank %}
+          <h2>{{ section.settings.title | escape }}</h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div class="richtext">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% for block in section.blocks %}
+        <div class="content content-page rte">
+          {% case block.type %}
+            {% when 'page' %}
+              {% if block.settings.show_title %}
+                <h2 class="align-{{ section.settings.alignment }}">{{ pages[block.settings.page].title }}</h2>
+              {% endif %}
+              <div class="richtext">{{ pages[block.settings.page].content }}</div>
+            {% when 'richtext' %}
+              {% if block.settings.title != blank %}
+                <h2 class="align-{{ section.settings.alignment }}">{{ block.settings.title | escape }}</h2>
+              {% endif %}
+              <div class="richtext">{{ block.settings.text }}</div>
+          {% endcase %}
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Rich text",
+  "class": "featured-text-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Rich text"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "default": "center",
+      "options": [
+        {"value": "left", "label": "Left"},
+        {"value": "center", "label": "Center"},
+        {"value": "right", "label": "Right"}
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Page content"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show title",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Rich text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Rich text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

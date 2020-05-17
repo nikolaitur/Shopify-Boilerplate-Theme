@@ -1,0 +1,183 @@
+<div id="section-{{ section.id }}" class="{{ section.settings.section_style }}" data-section-id="{{ section.id }}" data-section-type="custom-html-section">
+  <div class="{% if section.settings.padding_section %}box{% endif %}">
+    <div class="wrapper{{ section.settings.wrapper_size }}">
+
+      
+      {% if section.blocks.size > 0 %}
+        <div class="custom-content">
+          
+          <!-- Blocks -->
+          {% for block in section.blocks %}
+            {% case block.settings.width %}
+              {% when '25%' %}
+                {%- assign block_width = 'small--one-whole one-quarter' -%}
+              {% when '33%' %}
+                {%- assign block_width = 'small--one-whole one-third' -%}
+              {% when '50%' %}
+                {%- assign block_width = 'small--one-whole one-half' -%}
+              {% when '66%' %}
+                {%- assign block_width = 'small--one-whole two-thirds' -%}
+              {% when '75%' %}
+                {%- assign block_width = 'small--one-whole three-quarters' -%}
+              {% when '100%' %}
+                {%- assign block_width = 'one-whole' -%}
+            {% endcase %}
+            <div class="custom__item {{ block_width }}" {{ block.shopify_attributes }}>
+              <div class="custom__item-inner custom__item-inner--{{ block.type }}">
+                {% case block.type %}
+                  {% when 'html' %}
+                    {% if block.settings.code != blank %}
+                      <div class="{{ block.settings.text_alignment }}">
+                        {{ block.settings.code }}
+                      </div>
+                    {% else %}
+                      <div class="text-center">
+                        {{ 'home_page.onboarding.no_content' | t }}
+                      </div>
+                    {% endif %}
+                {% endcase %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if section.blocks.size == 0 %}
+        {% include 'no-blocks' %}
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom HTML",
+	"class": "custom-html-section",
+    "max_blocks": 9,
+	"settings": [
+	  {
+        "type": "checkbox",
+        "id": "padding_section",
+        "label": "Add padding",
+		"default": true
+      },
+      {
+        "type": "select",
+        "id": "section_style",
+        "label": "Section style",
+        "default": "",
+        "options": [
+          {
+            "value": "",
+            "label": "Default"
+          },
+		  {
+            "value": "bg-section",
+            "label": "Add background color"
+          },
+          {
+            "value": "border-section",
+            "label": "Add border top"
+          }
+        ]
+      },
+	  {
+        "type": "select",
+        "id": "wrapper_size",
+        "label": "Wrapper size",
+		"default": "",
+        "options": [
+		  {
+            "value": "",
+            "label": "Default"
+          },
+	      {
+            "value": "-fluid",
+            "label": "Fluid"
+          },
+		  {
+            "value": "-full",
+            "label": "Full"
+          }
+        ]
+      }
+	],
+    "blocks": [
+      {
+        "type": "html",
+        "name": "Custom HTML",
+        "settings": [
+          {
+            "type": "html",
+            "id": "code",
+            "label": "HTML",
+			"default": "<p class='fas fa-code fa-3x'></p><h2>Custom HTML!</h2><p>This section can be used to code your own custom layout.</p>"
+          },
+          {
+            "type": "select",
+            "id": "width",
+            "label": "Container width",
+            "default": "100%",
+            "options": [
+              {
+                "value": "25%",
+                "label": "25%"
+              },
+              {
+                "value": "33%",
+                "label": "33%"
+              },
+              {
+                "value": "50%",
+                "label": "50%"
+              },
+              {
+                "value": "66%",
+                "label": "66%"
+              },
+              {
+                "value": "75%",
+                "label": "75%"
+              },
+              {
+                "value": "100%",
+                "label": "100%"
+              }
+            ]
+          },
+		  {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text alignment",
+            "default": "text-center",
+            "options": [
+              {
+                "value": "text-left",
+                "label": "Left"
+              },
+              {
+                "value": "text-center",
+                "label": "Center"
+              },
+              {
+                "value": "text-right",
+                "label": "Right"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom HTML",
+        "category": "Advanced layout",
+        "blocks": [
+          {
+            "type": "html"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

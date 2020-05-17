@@ -1,0 +1,59 @@
+{% assign set = section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  #shopify-section-{{ section.id }} .before-after__label {
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+
+<div class="container no-padding-mobile">
+  {% if set.pretitle != blank %}
+    <h3 class="pretitle not-animated ta-center">{{ set.pretitle }}</h3>
+  {% endif %}
+  {% if set.title != blank %}
+    <h2 class="title not-animated ta-center">{{ set.title }}</h2>
+  {% endif %}
+  {% if set.subtitle != blank %}
+    <div class="subtitle h4 not-animated ta-center">{{ set.subtitle }}</div>
+  {% endif %}
+  <div class="section__content">
+    <div class="results" data-tabs>
+      <!-- {{ product.metafields.customer_results.enabled }} -->
+      <!-- {{ product.metafields.clinical_results.enabled }} -->
+      {% if product.metafields.customer_results.enabled == 'true' and product.metafields.clinical_results.enabled == 'true'  %}  
+        <div class="results__tabs tabs">
+          <button class="tab m-tab is-active" data-tab="1">Consumer Results</button>
+          <button class="tab m-tab" data-tab="2">Clinical Results</button>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.customer_results.enabled == 'true' %}        
+        <div class="tab-content is-active" data-tab-content="1">
+          <div class="results__content">
+            <div class="results__images">{% render 'before-after', object: product.metafields.consumer_results, no_rimage: true %}</div>
+            <div class="results__text">{{ product.metafields.consumer_results.description }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.clinical_results.enabled == 'true' %}
+        <div class="tab-content {% unless product.metafields.customer_results.enabled == 'true' %}is-active{% endunless %}" data-tab-content="2">
+          <div class="results__content">
+            <div class="results__images">{% render 'before-after', object: product.metafields.clinical_results, no_rimage: true %}</div>
+            <div class="results__text">{{ product.metafields.clinical_results.description }}</div>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

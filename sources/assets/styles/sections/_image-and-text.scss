@@ -1,0 +1,78 @@
+.image-and-text-section {
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &.has-dark-overlay {
+    height: 530px;
+    z-index: 3;
+    @include mobile {
+      height: auto;
+    }
+    &:before {
+      @include overlay {
+        background-color: rgba(0, 0, 0, 1);
+        opacity: 0.5;
+      }
+    }
+  }
+  .container {
+    max-width: $container-m;
+  }
+  .skewed-shape {
+    padding-left: $gutter;
+    clip-path: polygon(0 0, 60% 0%, 53% 100%, 0% 100%);
+    @include mobile {
+      clip-path: none;
+    }
+  }
+  .skewed-shape + .title {
+    margin-top: $gutter*2;
+  }
+  .title {
+    @include mobile {
+      text-align: center;
+    }
+  }
+  .subtitle {
+    @include mobile {
+      text-align: center;
+      font-size: $fz-5;
+    }
+  }
+}
+
+.image-and-text__image {
+  @include mobile {
+    margin-top: $gutter*2;
+  }
+}
+
+.image-and-text__image.m-big-image {
+  @include mobile {
+    margin-top: 0;
+  }
+  img {
+    max-width: none;
+    width: 800px;
+    margin-top: -80px;
+    margin-bottom: -100px;
+    position: relative;
+    left: -160px;
+    @include mobile {
+      max-width: 100%;
+      width: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+      position: static;
+      left: auto;
+    }
+  }
+}
+
+.image-and-text__text {
+  &.m-white {
+    .title, .subtitle {
+      color: $color-white
+    }
+  }
+}

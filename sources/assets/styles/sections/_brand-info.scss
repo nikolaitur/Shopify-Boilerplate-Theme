@@ -1,0 +1,10 @@
+.brand-info {
+  padding: 10px 0 10px;
+  background-color: #f1d9b2;
+  @include mobile {
+    font-size: 12px;
+  }
+  p {
+    margin: 0;
+  }
+}

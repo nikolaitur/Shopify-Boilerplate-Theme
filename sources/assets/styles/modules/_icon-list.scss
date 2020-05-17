@@ -1,0 +1,19 @@
+.list-icons {
+  margin: 0 -#{$gutter};
+  display: flex;
+  justify-content: center;
+  @include mobile {
+    display: block;
+    margin: 0;
+  }
+}
+.list-icons__item {
+  margin: 0 $gutter;
+  flex: 1;
+  max-width: 80px;
+  @include mobile {
+    padding: 0;
+    max-width: 75px;
+    min-width: 75px;
+  }
+}

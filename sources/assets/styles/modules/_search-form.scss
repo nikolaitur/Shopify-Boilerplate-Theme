@@ -1,0 +1,25 @@
+.search-form {
+  padding: $gutter 0 0;
+  display: block;
+  width: 100%;
+  @include mobile {
+    width: auto;
+    padding-top: 0;
+  }
+  .input {
+    height: 60px;
+    display: block;
+    width: 100%;
+    color: $color-body;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    font-size: $fz-3;
+    @include mobile {
+      padding: 0 $gutter;
+      height: 40px;
+      width: 100%;
+      margin: 0;
+      font-size: $fz-6;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.account {
+  padding: $gutter*10 0;
+  table {
+    width: 100%;
+  }
+
+  h2, h3, h4 {
+    @extend .mt-4;
+  }
+}
+
+.customer-information {
+  h1 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 5px;
+  }
+  .divider {
+    color: $color-blue-grey;
+    padding: 0 10px;
+  }
+  a {
+    text-decoration: underline;
+  }
+}
+.order-product-img {
+  max-width: 100px;
+}
+.desktop-text-center {
+  text-align: center;
+  @include media-query(small) {
+    text-align: right;
+  }
+}
+
+.new-address-wrapper {
+  margin-top: 40px;
+}
+
+
+
+
+
+
+
+/*============================================================================
+  Responsive tables, defined with .responsive-table on table element.
+==============================================================================*/
+@include mobile {
+  .responsive-table {
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+    }
+
+    // IE9 table layout fixes
+    tr,
+    td {
+      float: left;
+      clear: both;
+      width: 100%;
+    }
+
+    th,
+    td {
+      display: block;
+      text-align: right;
+      padding: $gutter / 2 0;
+      margin: 0;
+    }
+
+    td::before {
+      content: attr(data-label);
+      float: left;
+      text-align: center;
+      padding-right: 10px;
+    }
+  }
+
+  // Add a keyline between rows
+  .responsive-table-row + .responsive-table-row,
+  tfoot > .responsive-table-row:first-child {
+    position: relative;
+    margin-top: 10px;
+    padding-top: $gutter / 2;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: $gutter / 2;
+      right: $gutter / 2;
+      border-bottom: 1px solid $color-light-grey;
+    }
+  }
+}

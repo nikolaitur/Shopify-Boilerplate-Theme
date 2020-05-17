@@ -1,0 +1,52 @@
+{% assign set = section.settings %}
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+  }
+  #shopify-section-{{ section.id }} .s5__text,
+  #shopify-section-{{ section.id }} .before-after__label {
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+
+<div class="container no-padding-mobile">
+  <div class="s5__slider" data-hor-slider data-slides-to-show="1" data-dots="false" data-draggable="false" data-custom-controls="1">
+    {% for block in section.blocks %}
+      {% assign bset = block.settings %}
+      <div class="s5__slide">
+        <div class="s5__image">
+          {% render 'before-after', object: bset %}
+        </div>  <!-- /.s5__image -->
+        <div class="s5__text">
+          {% if bset.pretitle != blank %}
+            <h3 class="pretitle not-animated">{{ bset.pretitle }}</h3>
+          {% endif %}
+          {% if bset.title != blank %}
+            <h2 class="title not-animated">{{ bset.title }}</h2>
+          {% endif %}
+          {% if bset.subtitle != blank %}
+            <div class="subtitle h4 not-animated">{{ bset.subtitle }}</div>
+          {% endif %}
+          {% render 'button', {
+            top: bset.btntop,
+            id: section.id,
+            text: bset.btn,
+            url: bset.btnu,
+            class: 'm-underline'
+          } %}
+          <div class="s5__product-image">{% render 'rimage', image: bset.image, size: '500x' %}</div>
+        </div> <!-- /.s5__text -->
+      </div>
+    {% endfor %}
+  </div> <!-- /.s5__slider -->
+  <div class="slider-controls">
+    <button class="slider-arrow slider-prev m-icon" data-hor-slider-prev><i class="icon-left-arrow"></i></button>
+    <button class="slider-arrow slider-next m-icon" data-hor-slider-next><i class="icon-right-arrow"></i></button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+<div class="section m-cta {{ class }}">
+  {% include 'ea-section-foreground-image' %}
+  <div class="container ta-center">
+    {% if set.title != blank %}
+      <h3 class="title">{{ set.title }}</h3>
+    {% endif %}
+    {% if set.text != blank %}
+      <div class="subtitle">{{ set.text }}</div>
+    {% endif %}
+    {% include 'button', {
+      top: set.btntop,
+      id: section.id,
+      text: set.btn,
+      url: set.btnu,
+      class: 'm-primary m-animated'
+    } %}
+  </div>
+</div>

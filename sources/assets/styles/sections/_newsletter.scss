@@ -1,0 +1,69 @@
+.newsletter {
+  padding: $gutter*2 0;
+  background: $color-newsletter-bg;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title {
+    margin: 0;
+    font-weight: normal;
+  }
+  .pretitle {
+    margin: 10px 0 0 0;
+    letter-spacing: 0.05em;
+    @include mobile {
+      text-transform: none;
+      font-stretch: normal;
+      font-weight: 100;
+      letter-spacing: initial;
+      font-size: $fz-6;
+    }
+  }
+  .form-field {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: $color-newsletter-input-bg;
+  }
+  .input {
+    width: 300px;
+    padding: 0 $gutter;
+    background: $color-newsletter-input-bg;
+    border-color: transparent;
+    border-radius: 0;
+
+    @include placeholder {
+      color: $color-body;
+    }
+  }
+  .btn {
+    margin-right: $gutter;
+    border-bottom: 1px solid currentColor;
+    font-weight: 500;
+    font-size: 14px;
+    font-stretch: normal;
+  }
+}
+
+
+@include mobile {
+  .newsletter {
+    .container {
+      display: block;
+    }
+    .form-field {
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .input {
+      width: auto;
+      flex: 1;
+      font-size: 14px;
+    }
+    .btn {
+      letter-spacing: initial;
+    }
+  }
+}

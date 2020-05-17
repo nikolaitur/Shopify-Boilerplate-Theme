@@ -1,0 +1,52 @@
+{% assign set = section.settings %}
+{% render 'section-styles', set: set, section: section %}
+
+<div class="container">
+  {% if set.pretitle != blank %}
+    <h3 class="pretitle ta-center">{{ set.pretitle }}</h3>
+  {% endif %}
+  {% if set.title != blank %}
+    <h2 class="title ta-center">{{ set.title }}</h2>
+  {% endif %}
+  {% if set.subtitle != blank %}
+    <div class="subtitle ta-center">{{ set.subtitle }}</div>
+  {% endif %}
+
+  <div class="section__content">
+
+    {%- capture circles -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == "circle" -%}
+          {%- assign bset = block.settings -%}
+          <div class="circle">
+            <div class="circle__inner">
+              {% if bset.image != blank %}
+                <div class="circle__image"><img src="{{ bset.image | img_url: '300x' }}" alt=""></div>
+              {% endif %}
+
+              <div class="circle__content">
+                {% if bset.title != blank %}
+                  <h4 class="title m-black h4 not-animated">{{ bset.title }}</h4>
+                {% endif %}
+                {% if bset.text != blank %}
+                  <div class="circle__text">{{ bset.text }}</div>
+                {% endif %}
+              </div>
+
+              {% if bset.text_hover != blank %}
+                <div class="circle__hover"><div class="circle__content">{{ bset.text_hover }}</div></div>
+              {% endif %}
+  
+            </div> <!-- /.circle__inner -->
+          </div> <!-- /.circle -->
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {% if circles != blank %}
+      <div class="circles-grid">
+        {{ circles }}
+      </div> <!-- /.circles-grid -->
+    {% endif %}
+  </div> <!-- /.section__content -->
+</div>  <!-- /.container -->

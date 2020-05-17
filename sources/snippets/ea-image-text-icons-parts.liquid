@@ -1,0 +1,59 @@
+{%- capture image -%}
+  <div class="promo__img-wrap {% if set.image.height > set.image.width %}svg-vertical{% endif %} {% if set.image_pos == 'left' %}is-left {% else %}is-right{% endif %}">
+    <img class="promo__img" src="{{ set.image | img_url: 'master' }}" alt="{{ set.alt }}">
+  </div>
+{%- endcapture -%}
+
+{%- capture content -%}
+  <div class="promo__info {% if set.image_pos == 'left' %}is-right {% else %}is-left{% endif %}">
+    <div class="promo__info__inner">
+      {% if set.title %}
+        <h3 class="title">{{ set.title }}</h3>
+      {% endif %}
+      {% if set.text != '' %}
+        <div class="subtitle">{{ set.text }}</div>
+      {% endif %}
+      {% assign icon_size = set.icon_size | default: 'small' %}
+      {%- capture items -%}
+        {%- for block in section.blocks -%}
+          {%- assign bset = block.settings -%}
+          <li class="list__item">
+            <div class="list__icon">
+              <img src="{{ bset.icon | img_url: 'master' }}" alt="{{ bset.alt }}">
+            </div>
+            <div class="list__text">
+              {%- if bset.title -%}
+                <h4 class="list__title">{{ bset.title }}</h4>
+              {%- endif -%}
+              {%- if bset.text -%}
+                {{ bset.text }}
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+      {%- endcapture -%}
+      {% if items != blank and items != "" %}
+        <ul class="list list--ico {% if icon_size == 'large' %}list--large{% endif %} ">
+          {{ items }}
+        </ul>
+      {% endif %}
+      {% include 'button', {
+        top: set.btntop,
+        id: section.id,
+        text: set.btn,
+        url: set.btnu,
+        class: 'btn--primary'
+      } %}
+      {% if set.show_review %}
+      <span class=" stamped-product-reviews-badge" 
+        data-product-sku="{{ set.product.handle }}" 
+        data-id="{{ set.product.id }}" 
+        data-product-type="{{set.product.type}}" 
+        data-product-title="{{set.product.title}}"  
+        style="display:block;">{{ set.product.metafields.stamped.badge }}
+      </span>
+      {% endif %}
+
+    </div>
+  </div>
+{%- endcapture -%}

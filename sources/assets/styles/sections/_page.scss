@@ -1,0 +1,53 @@
+.page-section {
+  margin-top: $gutter*6;
+  padding: $gutter*2 0;
+  @include mobile {
+    margin-top: 0;
+  }
+}
+.page-content {
+  margin-top: 1em;
+  @include smoothShow(0, 25px, 0.25);
+  h1 {
+    font-size: $fz-1;
+    @include mobile {
+      font-size: $fz-2;
+    }
+  }
+  h2 {
+    font-size: $fz-2;
+    @include mobile {
+      font-size: $fz-4;
+    }
+  }
+  h3 {
+    font-size: $fz-3;
+    @include mobile {
+      font-size: $fz-5;
+    }
+  }
+  h4 {
+    font-size: $fz-4;
+    @include mobile {
+      font-size: $fz-5;
+    }
+  }
+  h5 {
+    font-size: $fz-5;
+    @include mobile {
+      font-size: $fz-6;
+    }
+  }
+  h6 {
+    font-size: $fz-6;
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+  p {
+    margin-bottom: 1em;
+  }
+  iframe {
+    max-width: 100%;
+  }
+}

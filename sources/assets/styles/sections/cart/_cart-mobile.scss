@@ -1,0 +1,113 @@
+@include mobile {
+  .cart-wrapper {
+    .title.ta-center {
+      text-align: left;
+    }
+    table, tbody, th, td {
+      display: block;
+    }
+    .cart-table {
+      margin: $gutter*2 0;
+      .responsive-table-row + .responsive-table-row::after, tfoot > .responsive-table-row:first-child::after {
+        display: none;
+      }
+      tr {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 115px;
+        position: relative;
+      }
+      td {
+        padding: 5px 0;
+        width: 100%;
+        &.m-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100px;
+        }
+        &.m-info {
+          width: 100%;
+          line-height: 1.2;
+        }
+        &.m-long {
+          width: 100%;
+        }
+        &.m-variants {
+          width: 60%;
+        }
+        &.m-qty {
+          padding-left: 10px;
+          width: 40%;
+          .field {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .label {
+            margin-left: 0;
+            position: absolute;
+          }
+        }
+        &.m-price {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          text-align: left;
+        }
+      } // td
+      .label {
+        top: -8px;
+      }
+      .select,
+      .input {
+        width: 100%;
+        font-size: 14px;
+      }
+      .qty-selector {
+        width: auto;
+        .e-input {
+          font-size: 14px;
+        }
+      }
+      .link {
+        border-bottom-width: 2px;
+      }
+      .cart-product-image img {
+        max-width: 100%;
+      }
+    } //.cart-table
+    .cart-price {
+      margin-top: 10px;
+      font-size: $fz-4;
+    }
+  } //.cart-wrapper
+  .cart-summary {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    .prices-summary {
+      width: auto;
+      margin: 0 0 25px 0;
+    }
+    .subtitle {
+      margin-top: $gutter;
+      order: 1;
+    }
+    .order-summary-box {
+      order: 0;
+      .label {
+        display: none;
+      }
+      .d-flex > div {
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+        margin: 0;
+      }
+      .link {
+        margin-top: 25px;
+      }
+    }
+  }
+} // mobile

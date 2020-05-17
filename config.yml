@@ -1,0 +1,11 @@
+
+development:
+  password: 396d5f2e40bb5bdd0a5860bd8297b1a0
+  theme_id: 49045373009
+  store: research-liquid.myshopify.com
+  directory: build
+  ignore_files:
+    - config/settings_data.json
+
+
+    

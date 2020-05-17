@@ -1,0 +1,72 @@
+{% assign set = section.settings %}
+{%- capture customStyles -%}
+  #shopify-section-{{ section.id }} .made-in__top {
+    background-color: #fff;
+  }
+  #shopify-section-{{ section.id }} .made-in__top:before {
+    background-color: {{ set.sectionbg }};
+  }
+  #shopify-section-{{ section.id }} {
+    background-color: #fff;
+  }
+{%- endcapture -%}
+{% render 'section-styles', section: section, customStyles: customStyles %}
+
+<div class="made-in">
+  <div class="made-in__top {% if section.blocks.size %}has-bottom{% endif %}">
+    <div class="container">
+      {% if set.title != blank %}
+        <h2 class="title m-heavy h1">{{ set.title }}</h2>
+      {% endif %}
+      <div class="made-in__subheading">
+        {% if set.text != blank %}
+          <div class="subtitle">{{ set.text }}</div>
+        {% endif %}
+        <div class="animated-right animated-delay-1">
+          {% render 'button', {
+            top: set.btntop,
+            id: section.id,
+            text: set.btn,
+            url: set.btnu,
+            class: 'btn add-to-cart m-long'
+          } %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if section.blocks.size %}
+    <div class="made-in__bottom">
+      <div class="container">
+        <div class="made-in__blocks">
+          <div class="made-in__block">
+            {%- for block in section.blocks -%}
+              {%- assign bset = block.settings -%}
+              {% if bset.pos == 'left' %}
+                {%- if bset.text != blank -%}
+                  <div class="made-in__text rte">{{ bset.text }}</div>
+                {%- endif -%}
+                {%- if bset.image != blank -%}
+                  <div class="made-in__image"><img src="{{ bset.image | img_url: '500x' }}" alt=""></div>
+                {%- endif -%}
+              {% endif %}
+            {%- endfor -%}
+          </div>
+          <div class="made-in__block">
+            {%- for block in section.blocks -%}
+              {%- assign bset = block.settings -%}
+              {% if bset.pos == 'right' %}
+                {%- if bset.text != blank -%}
+                  <div class="made-in__text rte">{{ bset.text }}</div>
+                {%- endif -%}
+                {%- if bset.image != blank -%}
+                  <div class="made-in__image"><img src="{{ bset.image | img_url: '500x' }}" alt=""></div>
+                {%- endif -%}
+              {% endif %}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>

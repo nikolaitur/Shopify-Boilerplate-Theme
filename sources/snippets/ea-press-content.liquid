@@ -1,0 +1,34 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    padding: {{ set.ptop }}px 0 {{ set.pbottom }}px;
+    background-color: {{ set.sectionbg }};
+  }
+  @media (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      padding: {{ set.ptop_mob }}px 0 {{ set.pbottom_mob }}px;
+    }
+  }
+</style>
+
+
+<div class="section section--press" id="section-press">
+  {% include 'ea-section-foreground-image' %}
+  <div class="container">
+    {% if set.title != blank %}
+      <h3 class="title ta-center">{{ set.title }}</h3>
+    {% endif %}
+    <div class="section__content">
+      <div class="slider press__slider" data-hor-slider data-slides-to-show="5" data-slides-to-show-mob="3" data-infinite="false">
+        {% for block in section.blocks %}
+          {% assign bset = block.settings %}
+          <div class="press__item">
+            <img alt="{{ bset.alt }}" src="{{ bset.img | img_url: 'master' }}">
+          </div>
+        {% endfor %}
+      </div>
+      {% if set.text != blank %}
+        <div class="subtitle ta-center">{{ set.text }}</div>
+      {% endif %}
+    </div>
+  </div>
+</div>

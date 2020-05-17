@@ -1,0 +1,314 @@
+{% assign set = section.settings %}
+{% if set.visible %}
+  {% include 'ea-ingredients-page-content' %}
+{% endif %}
+
+{% schema %}
+
+{
+  "name": "Ingredients Page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "visible",
+      "label": "Show section",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "sectionbg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title 1",
+      "default": "Title"
+    }, {
+      "type": "color",
+      "id": "titlecolor",
+      "label": "Color For Title 1",
+      "default": "#000000"
+    }, {
+      "type": "select",
+      "id": "titlefont",
+      "options": [
+        {
+          "value": "proxima",
+          "label": "Proxima Nova, sans-serif"
+        }, {
+          "value": "utopia",
+          "label": "UtopiaStd Disp, serif"
+        }, {
+          "value": "cursive",
+          "label": "Seaweed Script, cursive"
+        }, 
+        {
+          "value": "ProximaNova-Light",
+          "label": "ProximaNova-Light"
+        },
+        {
+          "value": "ProximaNova-SemiboldIt",
+          "label": "ProximaNova-SemiboldIt"
+        },
+        {
+          "value": "ProximaNova-Bold",
+          "label": "ProximaNova-Bold"
+        },
+        {
+          "value": "ProximaNova-Extrabld",
+          "label": "ProximaNova-Extrabld"
+        },
+        {
+          "value": "ProximaNova-Black",
+          "label": "ProximaNova-Black"
+        },
+        {
+          "value": "ProximaNovaACond-Regular",
+          "label": "ProximaNovaACond-Regular"
+        },
+        {
+          "value": "ProximaNovaCond-Semibold",
+          "label": "ProximaNovaCond-Semibold"
+        },
+        {
+          "value": "ProximaNovaACond-Bold",
+          "label": "ProximaNovaACond-Bold"
+        },
+        {
+          "value": "ProximaNovaACond-Black",
+          "label": "ProximaNovaACond-Black"
+        }
+      ],
+      "default": "proxima",
+      "label": "Font For Title 1"
+    }, {
+      "id": "title2",
+      "type": "text",
+      "label": "Title 2",
+      "default": "Title"
+    }, {
+      "type": "color",
+      "id": "titlecolor2",
+      "label": "Color For Title 2",
+      "default": "#000000"
+    }, {
+      "type": "select",
+      "id": "titlefont2",
+      "options": [
+        {
+          "value": "proxima",
+          "label": "Proxima Nova, sans-serif"
+        }, {
+          "value": "utopia",
+          "label": "UtopiaStd Disp, serif"
+        }, {
+          "value": "cursive",
+          "label": "Seaweed Script, cursive"
+        }, 
+        {
+          "value": "ProximaNova-Light",
+          "label": "ProximaNova-Light"
+        },
+        {
+          "value": "ProximaNova-SemiboldIt",
+          "label": "ProximaNova-SemiboldIt"
+        },
+        {
+          "value": "ProximaNova-Bold",
+          "label": "ProximaNova-Bold"
+        },
+        {
+          "value": "ProximaNova-Extrabld",
+          "label": "ProximaNova-Extrabld"
+        },
+        {
+          "value": "ProximaNova-Black",
+          "label": "ProximaNova-Black"
+        },
+        {
+          "value": "ProximaNovaACond-Regular",
+          "label": "ProximaNovaACond-Regular"
+        },
+        {
+          "value": "ProximaNovaCond-Semibold",
+          "label": "ProximaNovaCond-Semibold"
+        },
+        {
+          "value": "ProximaNovaACond-Bold",
+          "label": "ProximaNovaACond-Bold"
+        },
+        {
+          "value": "ProximaNovaACond-Black",
+          "label": "ProximaNovaACond-Black"
+        }
+      ],
+      "default": "proxima",
+      "label": "Font For Title 2"
+    }, 
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Text",
+      "default": "<p>Add your text here</p>"
+    }, 
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "alt",
+      "label": "Image Alt"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Title"
+    },
+    {
+      "id": "subtitle",
+      "type": "text",
+      "label": "Bottom Title 1",
+      "default": "Title"
+    }, {
+      "type": "color",
+      "id": "subtitlecolor",
+      "label": "Color For Bottom Title 1",
+      "default": "#000000"
+    }, {
+      "type": "select",
+      "id": "subtitlefont",
+      "options": [
+        {
+          "value": "proxima",
+          "label": "Proxima Nova, sans-serif"
+        }, {
+          "value": "utopia",
+          "label": "UtopiaStd Disp, serif"
+        }, {
+          "value": "cursive",
+          "label": "Seaweed Script, cursive"
+        }, 
+        {
+          "value": "ProximaNova-Light",
+          "label": "ProximaNova-Light"
+        },
+        {
+          "value": "ProximaNova-SemiboldIt",
+          "label": "ProximaNova-SemiboldIt"
+        },
+        {
+          "value": "ProximaNova-Bold",
+          "label": "ProximaNova-Bold"
+        },
+        {
+          "value": "ProximaNova-Extrabld",
+          "label": "ProximaNova-Extrabld"
+        },
+        {
+          "value": "ProximaNova-Black",
+          "label": "ProximaNova-Black"
+        },
+        {
+          "value": "ProximaNovaACond-Regular",
+          "label": "ProximaNovaACond-Regular"
+        },
+        {
+          "value": "ProximaNovaCond-Semibold",
+          "label": "ProximaNovaCond-Semibold"
+        },
+        {
+          "value": "ProximaNovaACond-Bold",
+          "label": "ProximaNovaACond-Bold"
+        },
+        {
+          "value": "ProximaNovaACond-Black",
+          "label": "ProximaNovaACond-Black"
+        }
+      ],
+      "default": "proxima",
+      "label": "Font For Bottom Title 1"
+    }, {
+      "id": "subtitle2",
+      "type": "text",
+      "label": "Bottom Title 2",
+      "default": "Title"
+    }, {
+      "type": "color",
+      "id": "subtitlecolor2",
+      "label": "Color For Bottom Title 2",
+      "default": "#000000"
+    }, {
+      "type": "select",
+      "id": "subtitlefont2",
+      "options": [
+        {
+          "value": "proxima",
+          "label": "Proxima Nova, sans-serif"
+        }, {
+          "value": "utopia",
+          "label": "UtopiaStd Disp, serif"
+        }, {
+          "value": "cursive",
+          "label": "Seaweed Script, cursive"
+        }, 
+        {
+          "value": "ProximaNova-Light",
+          "label": "ProximaNova-Light"
+        },
+        {
+          "value": "ProximaNova-SemiboldIt",
+          "label": "ProximaNova-SemiboldIt"
+        },
+        {
+          "value": "ProximaNova-Bold",
+          "label": "ProximaNova-Bold"
+        },
+        {
+          "value": "ProximaNova-Extrabld",
+          "label": "ProximaNova-Extrabld"
+        },
+        {
+          "value": "ProximaNova-Black",
+          "label": "ProximaNova-Black"
+        },
+        {
+          "value": "ProximaNovaACond-Regular",
+          "label": "ProximaNovaACond-Regular"
+        },
+        {
+          "value": "ProximaNovaCond-Semibold",
+          "label": "ProximaNovaCond-Semibold"
+        },
+        {
+          "value": "ProximaNovaACond-Bold",
+          "label": "ProximaNovaACond-Bold"
+        },
+        {
+          "value": "ProximaNovaACond-Black",
+          "label": "ProximaNovaACond-Black"
+        }
+      ],
+      "default": "proxima",
+      "label": "Font For Bottom Title 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients page",
+      "category": "Page"
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,195 @@
+
+
+// Core styles
+.faq {
+  position: relative;
+  .container.m-short {
+    max-width: $container-s;
+    .section__content {
+      padding-top: $gutter*3;
+      @include mobile {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+// Item
+.faq-item {
+  border: none;
+  border-bottom: 1px solid $color-button;
+  color: inherit;
+  background: $color-white;
+  &+& {
+    margin-top: 0;
+  }
+  h1,h2,h3,h4,h5,h6,p {
+    margin-bottom: 0;
+    font-size: inherit;
+    color: inherit;
+  }
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .faq-item__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $gutter 0;
+    color: inherit;
+    font-size: $fz-4;
+    font-weight: 100;
+    font-stretch: condensed;
+    color: inherit;
+    position: relative;
+    &:after {
+      display: none;
+    }
+    i {
+      color: $color-button;
+    }
+  }
+  .faq-item__content {
+    padding: $gutter 0;
+    font-size: $fz-6;
+  }
+}
+
+
+
+// Grid
+.faq-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  @include mobile {
+    display: block;
+  }
+}
+
+
+// Topbar
+.faq-topbar {
+  padding: $gutter*2;
+  background: $color-grey-light;
+  @include mobile {
+    padding: 20px 0 $gutter 0;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include mobile {
+      @include row(0);
+    }
+  }
+
+}
+.faq-topbar__item {
+  @include mobile {
+    @include cell(2, 0);
+    &:nth-child(2n) {
+      text-align: right;
+    }
+    &:nth-child(n+3) {
+      margin-top: 20px;
+    }
+  }
+}
+.faq-topbar__title {
+  padding-bottom: 0.5em;
+  margin: 0;
+  font-size: $fz-4;
+  font-weight: 500;
+  font-stretch: condensed;
+  text-transform: uppercase; 
+  color: $color-black;
+  border-bottom: 2px solid transparent;
+  transition: $transition-time;
+  cursor: pointer;
+  @include mobile {
+    padding-bottom: 0.2em;
+    display: inline-block;
+    position: relative;
+
+  }
+  &.is-active {
+    border-bottom: 2px solid $color-button;
+  }
+  &.is-active,
+  &:hover {
+    color: $color-button;
+    @include mobile {
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Questions
+.faq-questions {
+  flex: 1;
+  .faq-image + & {
+    padding: $gutter*3 0 $gutter*3 $gutter*5;
+    @include mobile {
+      padding: 0;
+    }
+  }
+  @include mobile {
+    margin-top: $gutter*2;
+  }
+}
+
+.faq-section {
+  display: none;
+  &.is-active {
+    display: block;
+  }
+  .faq-section__title {
+
+  }
+  .faq-section__icon {
+
+  }
+}
+
+
+// Image
+.faq-image {
+  min-width: 500px;
+  max-width: 500px;
+  @include mobile {
+    min-width: 0;
+    max-width: none;
+    margin: 0 (-$gutter);
+  }
+}
+
+
+// Bottom
+.faq__more {
+  margin-top: $gutter*4;
+  font-size: $fz-3;
+  text-align: center;
+  a {
+    color: $color-button;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+.faq__more-title {
+  font-size: inherit;
+  font-weight: 300;
+  color: $color-button;
+}
+
+
+// Product page styles
+.faq.m-product {
+  .faq-section {
+    display: block;
+  }
+}
+

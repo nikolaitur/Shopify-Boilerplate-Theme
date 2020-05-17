@@ -1,0 +1,65 @@
+.section-clinical {
+  .section__content {
+    padding-top: 0;
+  }
+}
+
+.clinical__grid {
+  @include row($gutter);
+}
+.clinical__cell {
+  @include cell(3);
+  text-align: center;
+  @include mobile {
+    @include cell(1);
+    +.clinical__cell {
+      margin-top: $gutter*2;
+    }
+  }
+  p {
+    margin-top: 0;
+    line-height: 1;
+  }
+}
+.clinical__emphasis {
+  font-family: $ff-title;
+  color: $color-brown;
+  font-size: 100px;
+}
+.clinical__text {
+  font-family: $ff-title;
+  font-size: $fz-3;
+}
+
+.clinical+.clinical {
+  padding-top: $gutter*6;
+  margin-top: $gutter*6;
+  border-top: 1px solid #ccc;
+}
+.clinical.m-top {
+  text-align: center;
+  .clinical__grid {
+    padding-top: $gutter*3;
+  }
+}
+.clinical.m-left {
+  text-align: center;
+  .pretitle, .title, .subtitle {
+    text-align: left;
+    @include mobile {
+      text-align: center;
+    }
+  }
+  .title {
+    font-size: $fz-1*0.7;
+  }
+}
+.clinical.m-regular {
+  padding-top: $gutter*3;
+  text-align: center;
+  .subtitle {
+    font-size: $fz-4;
+  }
+}
+
+

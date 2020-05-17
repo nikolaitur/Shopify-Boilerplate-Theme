@@ -1,0 +1,240 @@
+.nav {
+  display: flex;
+}
+.nav.m-vertical {
+  display: block;
+  .nav__items {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav__link {
+    padding: $gutter/2 0;
+  }
+}
+.nav.m-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.nav__items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &.m-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.nav__link {
+  display: inline-block;
+  padding: $gutter;
+  font-size: $fz-body;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.nav__link.m-icon {
+  padding: 10px;
+  .nav__item:hover > & {
+    opacity: $nav-link-hover-opacity;
+    @include mobile {
+      opacity: 1;
+    }
+    .icon-caret-down {
+      transform: rotate(-180deg);
+      @include mobile {
+        transform: rotate(0);
+      }
+    }
+  }
+  &.is-open {
+    opacity: $nav-link-hover-opacity !important;
+    .icon-caret-down {
+      transform: rotate(-180deg) !important;
+    }
+  }
+
+  .icon,
+  i {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+    transition: $transition-time;
+  }
+}
+
+.nav__title {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+// Dropdown
+.nav-dropdown {
+  min-width: 980px;
+  display: flex;
+  padding: 0 $gutter $gutter*2 $gutter*2;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  right: 0;
+  box-shadow: 0 10px 26px 0 rgba(0, 0, 0, 0.17);
+  background: $color-dropdown-bg;
+  pointer-events: none;
+  transition: $transition-time all ease-out;
+  z-index: -1;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+  @include mobile {
+    display: none;
+    padding: 0;
+    min-width: 0;
+    position: static;
+    transform: none;
+    opacity: 1;
+    z-index: 1;
+    box-shadow: none;
+    background: transparent;
+    transition: none;
+  }
+  &.m-wide {
+    min-width: 0;
+    width: 100%;
+  }
+  .nav__item.m-level-1:hover > &,
+  .is-open + & {
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    top: 100%;
+    opacity: 1;
+    @include mobile {
+      transform: none;
+    }
+  }
+  .col {
+    padding: 0;
+    +.col {
+      padding-left: $gutter;
+    }
+  }
+  .nav__items {
+    +.nav__items {
+      margin-left: $gutter*2;
+    }
+    &.m-secondary {
+      margin-top: $gutter*2;
+    }
+    &.m-primary {
+      .nav__item + .nav__item {
+        margin-top: $gutter*2;
+      }
+      .nav__link {
+        text-transform: uppercase;
+        font-family: $ff-title;
+        font-size: $fz-title;
+      }
+    }
+  }
+  .nav__link {
+    display: block;
+    padding: 0.25em 0;
+    color: $color-black;
+    b {
+      font-weight: 600;
+      @include mobile {
+        font-weight: normal;
+      }
+    }
+    &:hover, &.m-level-2:hover {
+      color: $color-red;
+    }
+    &.m-level-2 {
+      padding: 0;
+      font-size: $fz-4;
+      color: $color-blue;
+    }
+    &.m-level-3 {
+      font-size: $fz-6;
+      font-weight: normal;
+    }
+  }
+}
+.nav-dropdown__image {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  @include mobile {
+    display: none;
+  }
+  &:hover {
+    // img { transform: scale(1.1) }
+  }
+  img {
+    width: 180px;
+    max-width: none;
+    height: 180px;
+    object-fit: cover;
+    // transition: $transition-time*3;
+  }
+}
+.nav-dropdown__feature {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: $gutter*2;
+  flex: 1;
+  @include mobile {
+    padding-top: 0;
+    display: block;
+  }
+}
+.nav-dropdown__feature-item {
+  min-width: 180px;
+  max-width: 180px;
+  @include mobile {
+    min-width: 0;
+    max-width: none;
+  }
+  &.m-wide {
+    min-width: 360px;
+    max-width: 360px;
+    @include mobile {
+      min-width: 0;
+      max-width: none;
+    }
+  }
+}
+
+.nav-banner {
+  display: block;
+  flex: 1;
+  position: relative;
+  &.m-white {
+    color: $color-white;
+    .title, .pretitle {
+      color: inherit;
+    }
+    .nav-banner__content {
+      background: rgba(0,0,0,0.2);
+    }
+  }
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+  .btn {
+    margin-top: $gutter*2;
+  }
+}
+.nav-banner__content {
+  max-width: 400px;
+  padding: $gutter*2;
+  position: absolute;
+  left: $gutter*2;
+  bottom: $gutter*2;
+}
