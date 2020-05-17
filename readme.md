@@ -1,21 +1,28 @@
+#### To use this starter theme and theme development tool, Node.js and Gulp v4 should be installed in your system.
+
+## Introduction
+All theme sources are in `sources` directory and this is our main folder where we do our development.
+The files from `sources` builds to `build` directory by our theme development tool. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time developer works with theme's source code.  There is only 1 case when you should work with `build` folder, described below in deployment warning.
+
 ## Quick Start
+First 4 steps are one-time installation steps for each project. 5th step is repeatable step during theme development.
 1) Clone this starter theme to your pc: `git clone git@gitlab.com:binaery-team/goats-theme.git`
 2) Create project repository in Gitlab
 3) Change git origin url from this starter theme url to project git url you've just created: `git remote set-url origin <project-repository-url>`
-
-All theme sources are in `sources` directory and this is our main folder where we do our development.
-The files from `sources` builds to `build` directory by our theme development tool. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time developer works with theme's source code.  There is only 1 case when you should work with `build` folder, please see deployment warning for more info.
-
-
-#### To use our theme development tool, Node.js and Gulp v4 should be installed in your system.
-
-### Main commands for theme development:
-1) You should run `npm i` command to install javascript libraries we're using in theme and another needed packages for our theme development tool. This needs to be runned only 1 time for each new project before you start development.
-2) Then you should use our main theme development tool command: `gulp watch`. You're using it each time for theme development. Once this command prompted, it will be running in background mode and shows you log output of your development till you press `command+c` in your keyboard or till you kill terminal window. While this command runs, it only watches your code changes in `sources` folder, compiles such files to `build` folder and auto-upload the files to Shopify store. It also watches images and fonts you're adding to `sources/assets` and it compiles them too.
+4) You should run `npm i` command to install javascript libraries we're using in theme and another needed packages for our theme development tool.
+5) Then you should use our main theme development tool command: `gulp watch`. You're using it each time for theme development. Once this command prompted, it will be running in background mode and shows you log output of your development till you press `command+c` in your keyboard or till you kill terminal window. While this command runs, it only watches your code changes in `sources` folder, compiles such files to `build` folder and auto-upload the files to Shopify store. It also watches images and fonts you're adding to `sources/assets` and it compiles them too.
 
 Additional commands:
-Run `gulp deploy` for theme deployment. Once this command runs, it builds theme from `sources` folder to `build` folder and deploys all theme files from `build` folder to Shopify store theme. 
-If you just need to build theme from sources, call `gulp build`. Then you can create zip archive of the theme, for example.
+Run `gulp deploy` to make full theme deployment (the key difference from `gulp watch` is that watch is doing partial deployment and only for files which you're changing while this command is running in your terminal). Once this command runs, it compiles theme from `sources` folder to `build` folder and deploys all theme files from `build` folder to Shopify store theme.
+If you just need to compile theme from sources, call `gulp build`. Then you can create zip archive of the theme, for example.
+
+### Environments
+`gulp watch` and `gulp deploy` commands can be called with special parameters to use environments from our `config.yml` file:
+- development (default, use it for theme development)
+- staging (use it to test our theme inside client's site)
+- production (use it for theme deployment to client's site live theme, please read warning below before using this environment)
+
+For example: `gulp watch --staging`
 
 **DEPLOYMENT WARNING:** some apps or developers makes their changes in production (aka live) theme on Shopify theme editor level, while we're developing our theme locally on our computers using theme development tool and git. If you run `gulp deploy`, of course such updates will be overwritten. To avoid this situation, each time you want to deploy your changes to store's production theme you should make backup and sync such updates with our theme sources: 
 1. Create backup theme in Shopify store themes page and call this backup like "Goats Theme Backup current_date". This needs only for case if something will be wrong, so you can publish last stable version of production theme using this backup.
@@ -24,15 +31,6 @@ If you just need to build theme from sources, call `gulp build`. Then you can cr
 4. Please commit this integration (I prefer this message for such commit: "sync with live theme code")
 5. Then you can run `gulp deploy --production`.
 This is our current minus of using theme development workflow and @Maksim is working on solution for easier deployment.  If this deployment process is hard for you, please ask @Maksim and he'll do that quickly. Also, you shouldn't do these steps when you're working with development or staging theme, except the cases when you need to sync theme's changes made by apps or by other developers which are not using our workflow.
-
-
-### Environments
-`gulp watch` and `gulp deploy` commands can be called with special parameters to use environments from our `config.yml` file:
-- development (default)
-- staging
-- production
-
-For example: `gulp watch --staging`
 
 
 ### Styles
