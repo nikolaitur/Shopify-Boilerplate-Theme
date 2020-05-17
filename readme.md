@@ -28,9 +28,9 @@ This is our current minus of using theme development workflow and @Maksim is wor
 
 ### Environments
 `gulp watch` and `gulp deploy` commands can be called with special parameters to use environments from our `config.yml` file:
--- development (default)
--- staging
--- production
+- development (default)
+- staging
+- production
 For example: `gulp watch --staging`
 
 
