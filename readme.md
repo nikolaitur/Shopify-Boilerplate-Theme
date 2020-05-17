@@ -34,25 +34,43 @@ For example: `gulp watch --staging`
 This is our current minus of using theme development workflow and @Maksim is working on solution for easier deployment.  If this deployment process is hard for you, please ask @Maksim and he'll do that quickly. Also, you shouldn't do these steps when you're working with development or staging theme, except the cases when you need to sync theme's changes made by apps or by other developers which are not using our workflow.
 
 
+## Theme Development Tool (TDT) features
+
+
+### Assets splitting
+`sources/assets`
+By default, Shopify hasn't ability to split theme assets (styles, javascripts, images, fonts) to multiple folders, so the theme assets folder doesn't looks good and it takes time to find the file you plan to work with. With TDT we have better organisation for our assets.
+
 ### Styles
 `sources/assets/styles`
-Our theme development tool allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean and we don't miss css vendor prefixes. 
+TDT allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean and we don't miss css vendor prefixes. 
 TODO: Update our scss to use it with Shopify scss.liquid variables, and we can use all power of Shopify theme settings for theme styles.
+
 
 ### Javascripts
 `sources/assets/javascripts`
-Our theme development tool allows us to use all modern javascript practices, such as es6 modules for code splitting, arrow functions, array expands etc. At same time, this code will be cross-browser because it's using Babel transpiler.
+TDT allows us to use all modern javascript practices, such as es6 modules for code splitting, arrow functions, array expands etc. At same time, this code will be cross-browser because it's using Babel transpiler.
 TODO: Javascript refactoring
 
 
 ### Images
-`sources/assets/images`
-TODO: add image optimizer package to theme development tool
+For now, TDT is just copying all images from `sources/assets/images` to `build/assets`.
+TODO: add image optimizer package
 
 
 ##### SVG icons
-Place any svg files icons you want to use to `sources/assets/images`. Then just include these icons by this code: `<svg src="icon-name.svg"></svg>` inside .liquid files markup. Our theme development tool will replace this shortcode to svg file internal code.
+Place any svg files icons you want to use to `sources/assets/images`. Then just include these icons by this code: 
+`<svg src="icon-name.svg"></svg>` 
+inside .liquid files markup. TDT will replace this shortcode to svg file internal code.
 TODO: Add svg css inliner to theme development tool. Some svg files are using css classes and styles in svg files which are using same class names are overlapping between them. SVGO package has such inliner.
 
+
 ### Fonts
-Place font files to `sources/assets/fonts` and include them in `sources/assets/styles/base/_fonts.scss`, or use typekit, whatever is better for the project you're working on.
+Place font files to `sources/assets/fonts` and include them in `sources/assets/styles/base/_fonts.scss`, or use typekit, whatever is better for the project you're working on. If you're using 1st way, the font files will be copied automatically to `build/assets`.
+
+
+### Advanced sections
+TDT allows us to split sections `schema` configurations to their own json files. This is very helpfull to have clean code, fast navigation between markup and settings, our code editors shows better syntax highlighting and main part of this feautre is easy to clonning (and then maintain) sections to have unique content from each individual section on multiples pages.
+TODO: 
+1. add background and foreground svg images
+2. split theme sections settings to 3 levels, so we can show only 25%, 50% or 100% of settings depending on project and client's aims.
