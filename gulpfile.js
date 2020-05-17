@@ -54,7 +54,7 @@ function images() {
 
 function watchFiles() {
   gulp.watch('./sources/assets/javascripts/**/*.js', js);
-  gulp.watch('./sources/assets/styles/**/*.scss', css);
+  gulp.watch(['./sources/assets/styles/**/*.scss', './sources/assets/fonts/*', './sources/assets/images/*'], css);
   gulp.watch(['./sources/assets/images/*'], images);
   gulp.watch(['./sources/**/*.liquid', './sources/sections/*.json', './sources/assets/images/*'], liquid);
   gulp.watch(['./sources/locales/*.json', './sources/config/*.json'], shopifyJson);
