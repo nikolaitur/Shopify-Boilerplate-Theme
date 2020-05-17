@@ -77,5 +77,5 @@ Place font files to `sources/assets/fonts` and include them in `sources/assets/s
 TDT allows us to split sections `schema` configurations to their own json files. This is very helpfull to have clean code, fast navigation between markup and settings, our code editors shows better syntax highlighting and main part of this feautre is now it's easy to clone (and then maintain) sections to have unique content from each individual section on multiples pages.
 
 TODO: 
-1. add background and foreground svg images
+1. add new settings to each section for background png/jpg and foreground svg images
 2. split theme sections settings to 3 levels, so we can show only 25%, 50% or 100% of settings depending on project and client's aims.
