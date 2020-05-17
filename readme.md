@@ -4,10 +4,10 @@
 3) Change git origin url from this starter theme url to project git url you've just created: `git remote set-url origin <project-repository-url>`
 
 All theme sources are in `sources` directory and this is our main folder where we do our development.
-The files from `sources` builds to `build` directory by our theme development tool. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time developer works with theme source code. 
+The files from `sources` builds to `build` directory by our theme development tool. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time developer works with theme's source code. 
 
 
-To use our theme development tool, Node.js and Gulp v4 should be installed in your system.
+#### To use our theme development tool, Node.js and Gulp v4 should be installed in your system.
 
 ### Main commands for theme development:
 1) You should run `npm i` command to install javascript libraries we're using in theme and another needed packages for our theme development tool. This needs to be runned only 1 time for each new project before you start development.
