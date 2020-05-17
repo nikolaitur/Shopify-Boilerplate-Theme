@@ -31,6 +31,7 @@ This is our current minus of using theme development workflow and @Maksim is wor
 - development (default)
 - staging
 - production
+
 For example: `gulp watch --staging`
 
 
