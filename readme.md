@@ -4,7 +4,7 @@
 3) Change git origin url from this starter theme url to project git url you've just created: `git remote set-url origin <project-repository-url>`
 
 All theme sources are in `sources` directory and this is our main folder where we do our development.
-The files from `sources` builds to `build` directory by our theme development tool. This folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time developer works with theme source code. 
+The files from `sources` builds to `build` directory by our theme development tool. The `build` folder is native Shopify theme. Don't edit any code inside this folder, because it will be overwritten from `sources` directory each time developer works with theme source code. 
 
 
 To use our theme development tool, Node.js and Gulp v4 should be installed in your system.
