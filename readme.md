@@ -5,7 +5,7 @@ The files from `sources` compiles to `build` directory by our theme development 
 ## Quick Start
 #### To use this starter theme and theme development tool, Node.js and Gulp v4 should be installed in your system.
 
-First 5 steps are one-time installation steps for each project, they takes up to 15 minutes. 6th step is repeatable step during theme development.
+The first 5 steps are one-time installation steps for each project, they takes up to 15 minutes. 6th step is repeatable step during theme development.
 1) Clone this starter theme to your pc: `git clone git@gitlab.com:binaery-team/goats-theme.git`
 2) Create project repository in Gitlab
 3) Change git origin url from this starter theme url to project git url you've just created: `git remote set-url origin <project-repository-url>`
