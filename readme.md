@@ -17,13 +17,13 @@ Additional commands:
 Run `gulp deploy` for theme deployment. Once this command runs, it builds theme from `sources` folder to `build` folder and deploys all theme files from `build` folder to Shopify store theme. 
 If you just need to build theme from sources, call `gulp build`. Then you can create zip archive of the theme, for example.
 
-**DEPLOYMENT WARNING:** some apps or developers are updating theme's code on Shopify theme editor level, while we're working with our theme locally in our computers using theme development tool and git. If you run `gulp deploy`, of course such updates will be overwritten. To avoid this situation, each time before deployment to store's production theme you should make backup and sync such updates with our theme sources: 
+**DEPLOYMENT WARNING:** some apps or developers makes their changes in production (aka live) theme on Shopify theme editor level, while we're developing our theme locally on our computers using theme development tool and git. If you run `gulp deploy`, of course such updates will be overwritten. To avoid this situation, each time you want to deploy your changes to store's production theme you should make backup and sync such updates with our theme sources: 
 1. Create backup theme in Shopify store themes page and call this backup like "Goats Theme Backup current_date". This needs only for case if something will be wrong, so you can publish last stable version of production theme using this backup.
 2. Run this command: `gulp sync --production`. This command will just download all current code from production theme to our `build` folder.  As alternative for this command, you can download zip archive from Shopify, it will be faster, and then you can unpack all code to our `build` folder.
 3. Once theme was downloaded from Shopify to `build` folder, you should review changes and copy these changes to project `sources`. Since we're using git, it's easy to compare changes between Shopify production theme and our build theme.
-4. Please commit this integration (I prefer commit this message: "sync with live theme code")
+4. Please commit this integration (I prefer this message for such commit: "sync with live theme code")
 5. Then you can run `gulp deploy --production`.
-This is our current minus of using theme development workflow and @Maksim is working on solution for easier deployment.  If this deployment process is hard for you, please ask @Maksim and he'll do that quickly. 
+This is our current minus of using theme development workflow and @Maksim is working on solution for easier deployment.  If this deployment process is hard for you, please ask @Maksim and he'll do that quickly. Also, you shouldn't do these steps when you're working with development or staging theme, except the cases when you need to sync theme's changes made by apps or by other developers which are not using our workflow.
 
 
 ### Environments
