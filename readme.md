@@ -42,7 +42,7 @@ For example: `gulp watch --staging`
 4. Please commit this integration (I prefer this message for such commit: "sync with live theme code")
 5. Then you can run `gulp deploy --production`.
 
-This is our current minus of using theme development tool and @Ehsan is working on solution for easier deployment. If this deployment process is hard for you, please ask @Ehsan and he'll do that quickly. Also, you shouldn't do these steps when you're working with development or staging theme, except the cases when you need to sync theme's changes which made by apps or by other developers which are not using our workflow and using theme editor.
+This is our current minus of using theme development tool and Binaery is working on solution for easier deployment. If this deployment process is hard for you, please ask Binaery and he'll do that quickly. Also, you shouldn't do these steps when you're working with development or staging theme, except the cases when you need to sync theme's changes which made by apps or by other developers which are not using our workflow and using theme editor.
 
 
 ## Theme Development Tool (TDT) features
