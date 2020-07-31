@@ -98,8 +98,7 @@ const removeFromCart = function () {
 
 
 const updateMinicart = function() {
-  $.get('/cart?view=json', function(result) {
-    let response = result.replace(/<\/?[^>]+>/gi, '');
+  $.get('/cart.js', function(response) {
     const newCart = JSON.parse(response);
     data.update(newCart);
     scrollBar.update();
