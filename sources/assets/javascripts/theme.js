@@ -14,6 +14,9 @@ import cartPage from './modules/cartPage';
 // import instagramFeed from './modules/instagramFeed';
 import popup from './modules/popup';
 import minicart from './modules/minicart';
+import rias from '/tools/ls.rias';
+import bgset from '/tools/ls.bgset';
+import lazysizes from '/tools/lazysizes';
 
 window.$ = window.jQuery = $;
 
