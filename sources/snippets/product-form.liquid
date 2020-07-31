@@ -16,7 +16,7 @@
   {% assign isRecharge = true %}
 {% endif %}
 
-<form id="addToCartForm" class="product-form {% if isRecharge %}m-recharge{% endif %}" action="/cart/add" method="post" enctype="multipart/form-data" data-productid="{{product.id}}" data-variantid="{{ current_variant.id }}" data-discountid="{{ current_variant.metafields.subscriptions.discount_variant_id }}">
+<form id="addToCartForm" class="product-form {% if isRecharge %}m-recharge{% endif %}" action="/cart/add" method="post" enctype="multipart/form-data" data-productid="{{product.id}}" data-product-form data-variantid="{{ current_variant.id }}" data-discountid="{{ current_variant.metafields.subscriptions.discount_variant_id }}">
 
   <div class="product-info__top-label skewed-shape">
     <i class="icon-double-chevron"></i>

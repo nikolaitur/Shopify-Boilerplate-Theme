@@ -47,9 +47,9 @@ const addToCart = function(id, qty, properties) {
   });
 }
 
-const getProperties = function() {
+const getProperties = function($productForm ) {
   let properties = []
-  $('[data-product-property]').each(function (index, element) {
+  $productForm.find('[data-product-property]').each(function (index, element) {
     let key = $(element).data('product-property');
     let value = $(element).val();
     if (key && key != 'hidden' && value) {
@@ -59,19 +59,20 @@ const getProperties = function() {
   return properties;
 }
 
-const addToCartHandler = function () {
-  const $variantSelected = $('option:selected', $variantsSelector);
+const addToCartHandler = function ($productForm) {
+  console.log($productForm);
+  const $variantSelected = $('option:selected', $productForm.find('[data-all-variants]'));
   let variantId = $variantSelected.val();
   if ($variantSelected.data('discount-variant-id') != '') {
     variantId = $variantSelected.data('discount-variant-id');
   }
-  const qty = $('[data-qty]').val() || 1;
-  let properties = getProperties();
+  const qty = $productForm .find('[data-qty]').val() || 1;
+  let properties = getProperties($productForm);
   console.log(variantId);
   if (variantId) {
     addToCart(variantId, qty, properties);
-  } else if ($('[data-all-variants] option:selected').data('multi-variants')) {
-    let $variants = $('[data-all-variants] option:selected').data('multi-variants');
+  } else if ($productForm.find('[data-all-variants] option:selected').data('multi-variants')) {
+    let $variants = $productForm.find('[data-all-variants] option:selected').data('multi-variants');
     $variants.forEach(function(id) {
       console.log(id);
       addToCart(id, qty, properties);
@@ -134,7 +135,7 @@ const updateFreeShippingBar = function() {
 const eventHandlers = function() {
   $('[data-add-to-cart]').on('click', function(e) {
     e.preventDefault();
-    addToCartHandler();
+    addToCartHandler($(this).closest('[data-product-form]'));
   });
 
   $(document).on('click', '[data-remove-from-cart]', removeFromCart);
