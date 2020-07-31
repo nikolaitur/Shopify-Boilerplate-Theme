@@ -22,7 +22,11 @@
 
     {% endfor %}
     <li class="nav__item mt-2 hide--desktop">
-      <a class="nav__link m-level-2" href="/account">Sign In</a>
+      {% if customer.id %}
+        <a class="nav__link m-level-2" href="/account">My Account</a>
+      {% else %}
+        <a class="nav__link m-level-2" href="/account">Sign In</a>
+      {% endif %}
     </li>
   </ul>
 </nav> <!-- /.site-header__nav -->

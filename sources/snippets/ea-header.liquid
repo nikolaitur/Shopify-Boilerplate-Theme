@@ -22,7 +22,11 @@
       <nav class="nav site-header__tools">
         <ul class="nav__items">
           <li class="nav__item hide--mobile">
-            <a class="nav__link m-level-1 m-login" href="/account">Sign In</a>
+            {% if customer.id %}
+              <a class="nav__link m-level-1 m-login" href="/account">My Account</a>
+            {% else %}
+              <a class="nav__link m-level-1 m-login" href="/account">Sign In</a>
+            {% endif %}
           </li>
           <li class="nav__item hide--mobile">
             <a class="nav__link m-level-1 m-icon m-search" href="/search" data-trigger><i class="icon-search"></i></a>
