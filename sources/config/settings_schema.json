@@ -93,5 +93,22 @@
         "info": "Will be scaled down to 32 x 32px"
       }
     ]
+  },
+  {
+    "name": "Minicart Notification Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_notification_bar",
+        "label": "Show Notification Bar?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "minicart_notification_text",
+        "label": "Minicart Notification Text",
+        "default": "Notification Text Here"
+      }
+    ]
   }
 ]

@@ -6238,6 +6238,7 @@ select.form-control {
           justify-content: space-between;
   width: 340px;
   padding: 30px 35px;
+  padding-top: 50px;
   opacity: 0;
   position: fixed;
   right: 0;
@@ -6252,6 +6253,7 @@ select.form-control {
   @media only screen and (max-width: 989px) {
     .minicart {
       padding: 20px;
+      padding-top: 50px;
       top: 0;
       width: 70%; } }
   .minicart.is-open {
@@ -6283,6 +6285,24 @@ select.form-control {
 .minicart__body,
 .minicart__footer {
   text-transform: initial; }
+
+.minicart__noticiation {
+  background: #071b33;
+  color: white;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 35px; }
 
 .minicart__free-shipping {
   text-align: center; }

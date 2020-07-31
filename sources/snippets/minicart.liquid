@@ -1,4 +1,7 @@
 <aside data-minicart class="minicart">
+  {% if settings.show_notification_bar %}
+    <div class="minicart__noticiation">{{ settings.minicart_notification_text }}</div>
+  {% endif %}
   <div class="minicart__header">
     <span>CART ({ cart.item_count })</span>
     <button class="minicart__close btn m-icon-only" data-minicart-toggle><i class="icon-close"></i></button>
