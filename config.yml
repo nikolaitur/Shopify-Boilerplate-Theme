@@ -1,25 +1,25 @@
 development:
-  password: 396d5f2e40bb5bdd0a5860bd8297b1a0
-  theme_id: 49045373009
-  store: research-liquid.myshopify.com
+  password: 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
+  theme_id: 107054137494
+  store: goats-base-theme.myshopify.com
   directory: build
   ignore_files:
     - config/settings_data.json
 
     
 staging:
-  password: 396d5f2e40bb5bdd0a5860bd8297b1a0
-  theme_id: 49045373009
-  store: research-liquid.myshopify.com
+  password: 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
+  theme_id: 107054137494
+  store: goats-base-theme.myshopify.com
   directory: build
   ignore_files:
     - config/settings_data.json
 
 
 production:
-  password: 396d5f2e40bb5bdd0a5860bd8297b1a0
-  theme_id: 49045373009
-  store: research-liquid.myshopify.com
+  password: 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
+  theme_id: 107054137494
+  store: goats-base-theme.myshopify.com
   directory: build
   ignore_files:
     - config/settings_data.json
