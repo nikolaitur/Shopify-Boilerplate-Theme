@@ -103,6 +103,7 @@ const updateMinicart = function() {
     data.update(newCart);
     scrollBar.update();
     updateCartCount();
+    updateFreeShippingBar();
     if (open) {
       $minicart.addClass('is-open');
       open = false;
@@ -115,6 +116,19 @@ const updateMinicart = function() {
 const updateCartCount = function() {
   let cartCount = '[data-cart-count]';
   $(cartCount).text(data.cart.item_count);
+}
+
+const updateFreeShippingBar = function() {
+  const elgiblePrice = 8000
+  if(data.cart.total_price >= elgiblePrice) {
+    $('[data-free-shipping-label]').html('Congrats! You get free standard shipping.');
+    $('[data-free-shipping-percent]').css('width', '100%');
+  } else {
+    const remainingPrice = parseInt((elgiblePrice - data.cart.total_price));
+    const percent = parseInt(data.cart.total_price * 100 / elgiblePrice);
+    $('[data-free-shipping-label]').html('You are ' + formatMoney(remainingPrice) + ' case away from free shipping!');
+    $('[data-free-shipping-percent]').css('width', percent + '%');
+  }
 }
 
 const eventHandlers = function() {

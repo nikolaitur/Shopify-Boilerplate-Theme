@@ -3,6 +3,13 @@
     <span>CART ({ cart.item_count })</span>
     <button class="minicart__close btn m-icon-only" data-minicart-toggle><i class="icon-close"></i></button>
   </div>
+  <div class="minicart__free-shipping">
+    <p class="free-shipping__label" data-free-shipping-label>Congrats! You get free standard shipping.</p>
+    <div class="free-shipping_progress">
+      <div class="progress-complete" data-free-shipping-percent>
+      </div>
+    </div>
+  </div>
   <div class="minicart__items">
     <div class="minicart__item" rv-each-item="cart.items">
       <a rv-href="item.url | convert item.original_handle" class="minicart__item-image no-hover-link"><img class="minicart__item-image" rv-src="item.image" alt=""></a>

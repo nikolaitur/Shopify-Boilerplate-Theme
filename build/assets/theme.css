@@ -6284,6 +6284,25 @@ select.form-control {
 .minicart__footer {
   text-transform: initial; }
 
+.minicart__free-shipping {
+  text-align: center; }
+  .minicart__free-shipping .free-shipping__label {
+    font-size: 19px;
+    line-height: 1.84;
+    color: #101820;
+    margin-bottom: 5px; }
+    @media only screen and (max-width: 989px) {
+      .minicart__free-shipping .free-shipping__label {
+        font-size: 16px; } }
+    .minicart__free-shipping .free-shipping__label span {
+      font-weight: bold; }
+  .minicart__free-shipping .free-shipping_progress {
+    background: #caced9;
+    height: 8px; }
+  .minicart__free-shipping .progress-complete {
+    height: 100%;
+    background: #163b66; }
+
 .minicart__items {
   margin-top: 15px;
   padding-right: 15px;
