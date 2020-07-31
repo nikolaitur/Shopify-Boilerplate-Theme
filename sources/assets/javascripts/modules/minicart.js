@@ -10,8 +10,9 @@ let data = {
   update(newCart) {
     this.cart = newCart
   },
-  setRedirect() {
-    localStorage.setItem('redirect_to_checkout', true);
+  setRedirect(e) {
+    e.preventDefault();
+    goToCheckout();
   }
 };
 let open = false;
@@ -97,6 +98,35 @@ const removeFromCart = function () {
   }
 }
 
+function reChargeProcessCart() {
+  let token = '';
+	function get_cookie(name){ return( document.cookie.match('(^|; )'+name+'=([^;]*)')||0 )[2] }
+	do {
+      		token=get_cookie('cart');
+	}
+	while(token == undefined);
+
+	try { var ga_linker = ga.getAll()[0].get('linkerParam') } catch(err) { var ga_linker ='' }
+	var customer_param = '{% if customer %}customer_id={{customer.id}}&customer_email={{customer.email}}{% endif %}'
+	document.location.href = "https://checkout.rechargeapps.com/r/checkout?myshopify_domain="+myshopify_domain+"&cart_token="+token+"&"+ga_linker+"&"+customer_param;
+}
+
+const goToCheckout = function() {
+  let hasSubscription = false;
+  for(let i = 0; i < data.cart.items.length; i++) {
+    let item = data.cart.items[i];
+    if(item.product_title.includes('Auto renew')) {
+      hasSubscription = true;
+    }
+  }
+
+  if(hasSubscription) {
+    reChargeProcessCart();
+  } else {
+    document.location.href = "/checkout";
+  }
+}
+
 
 const updateMinicart = function() {
   $.get('/cart.js', function(response) {
@@ -176,6 +206,12 @@ const init = function() {
   } else {
     console.error("minicart.js: Tinybind template library is not connected");
     return false;
+  }
+
+  if(localStorage.getItem('opened_side_cart') == 'true' && window.location.pathname == '/' ) {
+    console.log('here2');
+    $('[data-minicart]').addClass('is-open');
+    localStorage.setItem('opened_side_cart', false);
   }
   
 }
