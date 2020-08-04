@@ -1,25 +1,25 @@
 development:
-  password: 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
-  theme_id: 107054137494
-  store: goats-base-theme.myshopify.com
+  password: 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
+  theme_id: 107149656225
+  store: goats-theme.myshopify.com
   directory: build
   ignore_files:
     - config/settings_data.json
 
     
 staging:
-  password: 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
-  theme_id: 107054137494
-  store: goats-base-theme.myshopify.com
+  password: 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
+  theme_id: 107149656225
+  store: goats-theme.myshopify.com
   directory: build
   ignore_files:
     - config/settings_data.json
 
 
 production:
-  password: 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
-  theme_id: 107054137494
-  store: goats-base-theme.myshopify.com
+  password: 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
+  theme_id: 107149656225
+  store: goats-theme.myshopify.com
   directory: build
   ignore_files:
     - config/settings_data.json
