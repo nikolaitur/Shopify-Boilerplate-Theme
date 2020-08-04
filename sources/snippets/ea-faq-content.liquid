@@ -2,41 +2,29 @@
 
 {% render 'ea-section-styles', section: section %}
 
-{% render 'ea-section-foreground-image', section: section %}
+{% render 'ea-section-foreground-image', section: section %} 
 
 
 <div class="faq {{ class }}">
   {% assign blockString = section.blocks | map: 'type' | join %}
   {% assign sections = 'question, products, order, account, shipping, returns' | split: ', ' %}
 
+  {% assign category_handles = '' %}
+
+
   {% if type != 'topbar-disabled' %}
   <div class="faq-topbar">
       <div class="container {% if type != 'topbar-disabled' %}m-short{% endif %}">
-        {% for blockType in sections %}
-          {% if blockString contains blockType %}
-            {% case blockType %}
-              {% when 'products' %}
-                <div class="faq-topbar__item">
-                  <h3 class="faq-topbar__title is-active" data-faq-section-toggle="{{ blockType }}">Our Products</h3>
-                </div>
-              {% when 'order' %}
-                <div class="faq-topbar__item">
-                  <h3 class="faq-topbar__title" data-faq-section-toggle="{{ blockType }}">Your Order</h3>
-                </div>
-              {% when 'account' %}
-                <div class="faq-topbar__item">
-                  <h3 class="faq-topbar__title" data-faq-section-toggle="{{ blockType }}">Your Account</h3>
-                </div>
-              {% when 'shipping' %}
-                <div class="faq-topbar__item">
-                  <h3 class="faq-topbar__title" data-faq-section-toggle="{{ blockType }}">Shipping</h3>
-                </div>
-              {% when 'returns' %}
-                <div class="faq-topbar__item">
-                  <h3 class="faq-topbar__title" data-faq-section-toggle="{{ blockType }}">Returns</h3>
-                </div>
-            {% endcase %}
-          {% endif %}
+        {% assign is_first = true %}
+        {% for block in section.blocks %}
+          {% assign category_handle = block.settings.category_name | handleize %}
+          {% unless category_handles contains category_handle %}
+            {% assign category_handles = category_handles | append: category_handle | append: ',' %} 
+            <div class="faq-topbar__item">
+              <h3 class="faq-topbar__title {% if is_first %} is-active{% endif %}" data-faq-section-toggle="{{ category_handle }}">{{ block.settings.category_name }}</h3>
+            </div>
+            {% assign is_first = false %}
+          {% endunless %}
         {% endfor %}
       </div>
     </div>
@@ -59,11 +47,14 @@
             <div class="subtitle ta-center">{{ set.subtitle }}</div>
           {% endif %}
 
-          {% for blockType in sections %}
-            {% render 'faq-item', section: section, blockType: blockType, blockString: blockString %}
+          {% assign category_handles_array = category_handles | split: ',' %}
+          {% assign is_first = true %}
+          {% for category_handle in category_handles_array %}
+            {% render 'faq-item', section: section, blockType: category_handle, is_first: is_first %}
+            {% assign is_first = false %}
           {% endfor %}
 
-          {%- capture btnClass -%}link {% if type == 'topbar-disabled' %}m-small{% endif %}{%- endcapture -%}
+          {% comment %} {%- capture btnClass -%}link {% if type == 'topbar-disabled' %}m-small{% endif %}{%- endcapture -%}
           
             <div class="ta-center">
           
@@ -75,6 +66,20 @@
               class: btnClass
             } %}
           
+            </div> {% endcomment %}
+
+            <div class="need-help">
+              <div class="title not-animated">Need help with<br>your order?</div>
+              <div class="d-flex action-blocks">
+                <div class="action-block">
+                  <div class="image"><svg src="icon-call-us.svg"></svg></div>
+                  <span>Call us</span>
+                </div>
+                <div class="action-block">
+                  <div class="image"><svg src="icon-email-us.svg"></svg></div>
+                  <span>Email us</span>
+                </div>
+              </div>
             </div>
           
 

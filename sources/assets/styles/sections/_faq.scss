@@ -17,7 +17,7 @@
 // Item
 .faq-item {
   border: none;
-  border-bottom: 1px solid $color-button;
+  border-bottom: 1px solid $color-grey-light;
   color: inherit;
   background: $color-white;
   &+& {
@@ -49,6 +49,10 @@
     }
     i {
       color: $color-button;
+
+      svg {
+        width: 14px;
+      }
     }
   }
   .faq-item__content {
@@ -71,10 +75,11 @@
 
 // Topbar
 .faq-topbar {
-  padding: $gutter*2;
-  background: $color-grey-light;
+  padding: 20px;
+  background: #cfdbd5;
   @include mobile {
     padding: 20px 0 $gutter 0;
+    overflow: auto;
   }
   .container {
     display: flex;
@@ -82,30 +87,25 @@
     flex-wrap: wrap;
     @include mobile {
       @include row(0);
+      flex-wrap: nowrap;
+      width: max-content;
     }
   }
 
 }
 .faq-topbar__item {
   @include mobile {
-    @include cell(2, 0);
-    &:nth-child(2n) {
-      text-align: right;
-    }
-    &:nth-child(n+3) {
-      margin-top: 20px;
-    }
+    min-width: unset;
+    max-width: unset;
+    padding: 0 20px;
   }
 }
 .faq-topbar__title {
-  padding-bottom: 0.5em;
   margin: 0;
   font-size: $fz-4;
   font-weight: 500;
   font-stretch: condensed;
-  text-transform: uppercase; 
-  color: $color-black;
-  border-bottom: 2px solid transparent;
+  color: $color-medium-grey;
   transition: $transition-time;
   cursor: pointer;
   @include mobile {
@@ -113,9 +113,6 @@
     display: inline-block;
     position: relative;
 
-  }
-  &.is-active {
-    border-bottom: 2px solid $color-button;
   }
   &.is-active,
   &:hover {
@@ -131,6 +128,7 @@
 // Questions
 .faq-questions {
   flex: 1;
+  color: $color-black;
   .faq-image + & {
     padding: $gutter*3 0 $gutter*3 $gutter*5;
     @include mobile {
@@ -193,3 +191,39 @@
   }
 }
 
+.need-help {
+
+  text-align: center;
+  margin: 68px 0;
+
+  @include mobile {
+    margin: 82px;
+  }
+  
+  .title {
+    color: $color-black;
+    font-weight: bold;
+    font-size: $fz-4;
+  }
+
+  .action-blocks {
+    margin-top: 48px;
+    justify-content: center;
+
+    @include mobile {
+      margin-top: 68px;
+    }
+  }
+
+  .action-block {
+    padding: 0 65px;
+
+    @include mobile {
+      padding: 0 45px;
+    }
+
+    .image {
+      margin-bottom: 15px;
+    }
+  }
+}
