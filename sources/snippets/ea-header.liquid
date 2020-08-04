@@ -52,12 +52,13 @@
 </header> <!-- /.site-header-container -->
 
 <div class="sidenav hide--desktop">
-  <button class="sidenav__close btn m-icon-only" data-open-menu><i class="icon-close"></i></button>
+  <button class="sidenav__close btn m-icon-only" data-open-menu><svg src="left-circle.svg"></svg></button>
   <form action="/search" class="search-form" method="get" role="search">
     <input type="search" class="input" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}">
     <input type="hidden" name="type" value="product" />
   </form>
   {% section 'ea-megamenu' %}
+  {% section 'ea-megamenu-second' %} 
 </div>
 <div class="sidenav-bg" data-open-menu></div>
 {% render 'minicart' %}

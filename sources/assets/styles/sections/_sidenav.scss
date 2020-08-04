@@ -1,22 +1,27 @@
 .sidenav {
-  width: 70%;
-  padding: $gutter 0 $gutter;
+  width: 100%;
   transform: translate(-105%, 0);
   transition: $transition-time;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  background: $color-black;
+  background: #FDF8F5;
   z-index: 998;
   opacity: 0;
   overflow: auto;
+  display: flex !important;
+  flex-direction: column;
+  padding: 50px 30px;
   body.is-menu-open & {
     transform: translate(0%, 0);
     opacity: 1;
   }
   .nav {
     display: block;
+  }
+  #shopify-section-ea-megamenu {
+    flex-grow: 1;
   }
   .nav__items {
     align-items: flex-start;
@@ -26,7 +31,7 @@
     width: 100%;
     flex: 1;
     &.m-level-1 {
-      border-bottom: 1px solid $color-light-grey;
+      // border-bottom: 1px solid $color-light-grey;
       
     }
   }
@@ -35,9 +40,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: $fz-5;
     font-weight: 500;
-    color: $color-white;
+    font-size: 1.5rem;
+    color: #324477;
     &.m-icon {
       i {
         font-size: 4px;
@@ -79,6 +84,9 @@
 }
 .sidenav__close.btn.m-icon-only {
   color: $color-white;
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 .sidenav-bg {
   z-index: -1;
