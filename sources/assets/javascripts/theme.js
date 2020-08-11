@@ -9,7 +9,6 @@ import product from './modules/product';
 import login from './modules/login';
 import customerAddresses from './modules/account';
 import animation from './modules/animation';
-// import verticalSlider from './modules/verticalSlider';
 import cartPage from './modules/cartPage';
 import instagramFeed from './modules/instagramFeed';
 import popup from './modules/popup';
