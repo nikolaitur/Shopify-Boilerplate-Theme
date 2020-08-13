@@ -17,6 +17,7 @@ import rias from '/tools/ls.rias';
 import bgset from '/tools/ls.bgset';
 import lazysizes from '/tools/lazysizes';
 
+
 window.$ = window.jQuery = $;
 
 const register = function (f, args) {

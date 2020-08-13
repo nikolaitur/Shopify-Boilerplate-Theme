@@ -5,5 +5,5 @@ import recommendations from './recommendations';
 export default function() {
   slider();
   swatches();
-  recommendations();
+  recommendations();  
 }
