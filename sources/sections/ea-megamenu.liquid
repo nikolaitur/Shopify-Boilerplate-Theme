@@ -13,7 +13,7 @@
         </li>
 
       {% elsif block.type == 'link' %}
-        <li class="nav__item m-level-1" {{ block.shopify_attributes }}>
+        <li class="nav__item m-level-1" data-megamenu="{{ block.settings.title | downcase | replace: ' ', '-' }}" {{ block.shopify_attributes }}>
           <a class="nav__link m-level-1" href="{{ block.settings.url }}">
             {{ block.settings.title }}
           </a>

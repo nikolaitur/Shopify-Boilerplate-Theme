@@ -11,6 +11,7 @@
   <body class="template-{{ template.name }} {% if settings.animations_on %} animations-on {% endif %} {% if template == 'product' %}product-page--{{ product.handle }}{% endif %}">
     
     {% render 'ea-header' %}
+    {% section 'ea-megamenu--complex' %}
 
     {{ content_for_layout }}
 

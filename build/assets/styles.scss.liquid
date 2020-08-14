@@ -261,8 +261,8 @@ fieldset:disabled a.btn {
   &:hover {
     background-color: {{ settings.button_primary_bg_color--highlight }};
     opacity: {{ settings.button_primary_bg_color_transparency--highlight }};
-    color: {{ settings.button_primary_border_color--highlight }};
-    border-color: {{ settings.button_primary_text_color--highlight }};
+    border-color: {{ settings.button_primary_border_color--highlight }};
+    color: {{ settings.button_primary_text_color--highlight }};
   }
 }
 .btn--outline,
@@ -298,18 +298,18 @@ fieldset:disabled a.btn {
   &:hover {
     background-color: {{ settings.button_secondary_bg_color--highlight }};
     opacity: {{ settings.button_secondary_bg_color_transparency--highlight }};
-    color: {{ settings.button_secondary_border_color--highlight }};
-    border-color: {{ settings.button_secondary_text_color--highlight }};
+    border-color: {{ settings.button_secondary_border_color--highlight }};
+    color: {{ settings.button_secondary_text_color--highlight }};
   }
 }
 
 .btn.add-to-cart {
     {% if settings.button_cart_padding == 'small' %}
-        padding: 0 8px;
+        height: 45px;
     {% elsif settings.button_cart_padding == 'regular' %}
-        padding: 0 16px;
+        height: 55px;
     {% else %}
-        padding: 5 32px;
+        height: 60px;
     {% endif %}
     background-color: {{ settings.button_cart_bg_color }};
     border-color: {{ settings.button_cart_border_color }};
@@ -317,8 +317,8 @@ fieldset:disabled a.btn {
     border-radius: {{ settings.button_cart_border_radius }}px;
     &:hover {
         background-color: {{ settings.button_cart_bg_color--highlight }};
-        color: {{ settings.button_cart_border_color--highlight }};
-        border-color: {{ settings.button_cart_text_color--highlight }};
+        color: {{ settings.button_cart_text_color--highlight }};
+        border-color: {{ settings.button_cart_border_color--highlight }};
     }
 }
 

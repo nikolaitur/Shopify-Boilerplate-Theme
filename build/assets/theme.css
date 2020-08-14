@@ -6285,6 +6285,19 @@ select.form-control {
     .reviews-section .banner__bg {
       height: 90px !important; } }
 
+.mega-menu__section {
+  position: absolute;
+  width: 100%; }
+
+.mega-menu {
+  display: block !important;
+  padding: 0; }
+
+.mega-menu__block {
+  -webkit-box-flex: unset;
+      -ms-flex: unset;
+          flex: unset; }
+
 .topbar {
   background: #9c0808;
   color: #ffffff;
@@ -8715,24 +8728,17 @@ select.form-control {
     margin: 0; }
 
 .btn.add-to-cart {
-  height: 60px;
-  background: #ffbc16;
-  font-size: 19px;
   font-weight: 900;
   text-transform: uppercase;
   color: #000000;
   -webkit-box-shadow: 0px 10px 20px 0px rgba(240, 193, 75, 0.3);
-          box-shadow: 0px 10px 20px 0px rgba(240, 193, 75, 0.3);
-  border-radius: 3px; }
+          box-shadow: 0px 10px 20px 0px rgba(240, 193, 75, 0.3); }
   @media only screen and (max-width: 989px) {
     .btn.add-to-cart {
       min-width: 0;
       padding: 0 10px;
       height: 55px;
       font-size: 19px; } }
-  .btn.add-to-cart:hover {
-    background: rgba(255, 188, 22, 0.8);
-    border-color: transparent; }
   .btn.add-to-cart.m-recharge {
     height: 45px;
     font-weight: 600;
