@@ -117,7 +117,7 @@ const handleGotop = function () {
 }
 
 const accordions = function() {
-  $('[data-accordion-button]').click(function (event) {
+  $(document).on('click', '[data-accordion-button]', function (event) {
     event.preventDefault();
     const $container = $(this).closest('[data-accordions-container]');
 

@@ -4651,7 +4651,7 @@ select.form-control {
   font-weight: 600; }
 
 .nav-dropdown {
-  min-width: 980px;
+  min-width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6340,6 +6340,10 @@ select.form-control {
 .mega-menu__section {
   position: absolute;
   width: 100%; }
+  @media only screen and (max-width: 989px) {
+    .mega-menu__section {
+      position: relative;
+      left: 0; } }
 
 .mega-menu {
   display: block !important;

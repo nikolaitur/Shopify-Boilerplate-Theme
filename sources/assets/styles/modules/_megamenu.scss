@@ -1,6 +1,11 @@
 .mega-menu__section {
     position: absolute;
     width: 100%;
+
+    @include mobile {
+        position: relative;
+        left: 0;
+    }
 }
 
 .mega-menu {
