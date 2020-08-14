@@ -332,6 +332,7 @@
     "onboarding": {
       "product_title": "Your product's name",
       "product_description": "This area is used to describe your product’s details. Tell customers about the look, feel, and style of your product. Add details on color, materials used, sizing, and where it was made.",
+      "menu_title": "Menu title",
       "collection_title": "Your collection's name",
       "blog_title": "Your post's title",
       "blog_excerpt": "Your store hasn’t published any blog posts yet. A blog can be used to talk about new product launches, tips, or other news you want to share with your customers. You can check out Shopify’s ecommerce blog for inspiration and advice for your own store and blog.",
@@ -364,6 +365,11 @@
     }
   },
   "products": {
+    "general": {
+      "previous_product_html": "Previous",
+      "next_product_html": "Next",
+      "from": "from"
+    },
     "product": {
       "regular_price": "Regular price",
       "sold_out": "Sold out",

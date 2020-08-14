@@ -88,7 +88,7 @@
 
         {% elsif block.type == 'image' %}
           {% comment %} Image and menu {% endcomment %}
-          <div class="mega-menu__content">
+          <div class="mega-menu__content menu-content-image">
             {% if block.settings.image_link != blank %}
               <a href="{{ block.settings.image_link }}">
             {% endif %}
@@ -121,7 +121,7 @@
 
         {% elsif block.type == 'featured_promo' %}
           {% comment %} Featured promotion {% endcomment %}
-          <div class="mega-menu__content">
+          <div class="mega-menu__content promo_img_content">
             {% if block.settings.promo_link != blank %}
               <a href="{{ block.settings.promo_link }}">
             {% endif %}
@@ -140,19 +140,14 @@
           </div>
 
           {% if block.settings.richtext != blank %}
-            <div class="mega-menu__content">
+            <div class="mega-menu__content promo_text_content">
               {{ block.settings.richtext }}
             </div>
           {% endif %}
 
           {% if block.settings.button_label != blank %}
-            <div class="mega-menu__content">
-              {% render 'button',
-                      label: block.settings.button_label,
-                      href: block.settings.promo_link,
-                      type: "link",
-                      style: block.settings.button_style
-              %}
+            <div class="mega-menu__content promo_button_content">
+              <a href="{{ block.settings.promo_link }}" class="button {{ block.settings.button_style }}">{{ block.settings.button_label }}</a>
             </div>
           {% endif %}
 
@@ -181,7 +176,7 @@
               </a>
 
               {% comment %} Product title {% endcomment %}
-              <p class="menu__heading mega-menu__content">
+              <p class="menu__heading mega-menu__content product__title">
                 <a href="{{ product.url }}">{{ product.title }}</a>
               </p>
 
@@ -218,10 +213,10 @@
 
               {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
 
-              <p class="menu__heading mega-menu__content">
+              <p class="menu__heading mega-menu__content product__title">
                 <a href="{{ product.url }}">{{ 'homepage.onboarding.product_title' | t }}</a>
               </p>
-              <p>
+              <p class="product__price">
                 <span class="price">
                   <span class="money">$49.00</span>
                 </span>

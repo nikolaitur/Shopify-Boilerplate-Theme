@@ -4727,11 +4727,63 @@ select.form-control {
       color: #9c0808; }
     .nav-dropdown .nav__link.m-level-2 {
       padding: 0;
-      font-size: 19px;
-      color: #002d56; }
+      font-size: 16px;
+      color: #000000; }
+      .nav-dropdown .nav__link.m-level-2 b {
+        font-weight: normal; }
     .nav-dropdown .nav__link.m-level-3 {
       font-size: 14px;
       font-weight: normal; }
+  .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex {
+    padding: 0px; }
+    .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex img {
+      height: unset; }
+    .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column {
+      padding-top: 20px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__menu .mega-menu__content p:not(.menu__heading) {
+        font-size: 12px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__menu .mega-menu__content ul {
+        list-style: none; }
+        .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__menu .mega-menu__content ul li a {
+          font-size: 14px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-promo .mega-menu__content.promo_text_content {
+        margin-top: 10px; }
+        .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-promo .mega-menu__content.promo_text_content p {
+          font-size: 12px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-promo .mega-menu__content.promo_img_content svg {
+        border: 1px solid #999; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-promo .mega-menu__content.promo_button_content {
+        margin-bottom: 5px; }
+        .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-promo .mega-menu__content.promo_button_content a.button.button--primary {
+          background: #000;
+          color: #fff;
+          display: block;
+          font-size: 14px;
+          line-height: 31px;
+          width: 100%;
+          height: 30px;
+          text-align: center; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__image .mega-menu__content.menu-content-image svg {
+        border: 1px solid #999; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__image .mega-menu__content.content {
+        margin-top: 10px; }
+        .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__image .mega-menu__content.content p {
+          font-size: 12px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-product svg {
+        border: 1px solid #999; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-product .menu__heading.product__title {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 0px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-product .product__price {
+        font-size: 14px; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu .container > .column.block__featured-product .price {
+        font-size: 14px; }
+    .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu__banner {
+      text-align: center; }
+      .nav-dropdown.mega-menu__section.mega-menu__ea-megamenu--complex .mega-menu__banner .container .is-justify-center.is-align-center {
+        margin: 0 auto;
+        text-align: center; }
 
 .nav-dropdown__image {
   display: block;
