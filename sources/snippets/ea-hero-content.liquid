@@ -16,18 +16,20 @@
       {% if set.visible == false %}{% continue %}{% endif %}
 
       <style>
-        #block-{{ block.id }} .hero__info {
+        #block-{{ block.id }} .hero__info.custom {
           top: {{ set.text_top | append: '%' }};
           left: {{ set.text_left }}px;
           text-align: {{ set.text_pos }};
-        }
+        }        
         @media (max-width: 989px) {
-          #block-{{ block.id }} .hero__info {
+          #block-{{ block.id }} .hero__info.custom {
             top: {{ set.text_top_mobile | append: '%' }};
-            left: {{ set.text_left_mobile }}px;
+            left: {{ set.text_left_mobile }}px;            
             text-align: {{ set.text_pos_mobile }};
-          }
+          }          
         }
+
+        
       </style>
       
       <div
@@ -36,7 +38,7 @@
         style="background-color: {{ set.sectionbg }};">
         <div class="hero__container {% if type == 'blog' %}container{% endif %}">
           <div class="hero__info-wrap m-index-{{ forloop.index }} {% if counter == 2 %}m-half{% endif %} ">
-            <div class="hero__info {% if set.white_text %}m-white{% endif %}">
+            <div class="hero__info {{ block.settings.content_position }} mobile_{{ block.settings.content_position_mobile }} {% if set.white_text %}m-white{% endif %}">
               {% if set.pretitle != blank %}
                 <h3 class="pretitle not-animated h4">{{ set.pretitle }}</h3>
               {% endif %}

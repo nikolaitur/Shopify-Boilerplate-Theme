@@ -5,6 +5,29 @@
 {% render 'ea-section-foreground-image', section: section %}
 
 {% form 'customer', class: 'newsletter', id: 'newsletter_form' %}
+  {% if form.errors %}              
+    <script>
+      {% for field in form.errors %}
+          Swal.fire({
+          title: 'Error',
+          text: '{{ field | capitalize }} - {{ form.errors.messages[field] }}',
+          icon: 'error',
+          confirmButtonText: 'Cool' 
+          })
+      {% endfor %}
+    </script>
+  {% endif %}
+
+  {%- if form.posted_successfully? -%}
+    <script>
+      Swal.fire({
+        title: 'Success!',
+        text: 'Thank you! Please check your email to confirm your subscription.',
+        icon: 'success',
+        confirmButtonText: 'Cool' 
+      })
+    </script>
+  {%- endif -%}
   <input type="hidden" name="contact[tags]" value="prospect,newsletter"/>
   <input type="hidden" name="challenge" value="false" />
   <div class="container">
