@@ -6434,6 +6434,72 @@ select.form-control {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+  .site-header-container .search-container {
+    position: relative;
+    width: 100%;
+    background-color: white;
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid #8484846b; }
+    .site-header-container .search-container .search-overlay {
+      max-width: 1200px;
+      margin: 0 auto; }
+      .site-header-container .search-container .search-overlay span.search-close {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        right: 15px; }
+        .site-header-container .search-container .search-overlay span.search-close:hover svg polygon {
+          fill: #929292;
+          -webkit-transition: all .1s;
+          transition: all .1s; }
+      .site-header-container .search-container .search-overlay .search-overlay__title, .site-header-container .search-container .search-overlay .search-popup__title {
+        font-weight: 400;
+        font-style: normal;
+        font-size: 24px;
+        text-transform: none;
+        line-height: 1.5;
+        margin-bottom: 0 !important; }
+      .site-header-container .search-container .search-overlay .search-form.search-popup__form {
+        padding: 20px 0;
+        padding-top: 0px !important; }
+        .site-header-container .search-container .search-overlay .search-form.search-popup__form .search__fields .field {
+          margin-bottom: 0.75rem; }
+          .site-header-container .search-container .search-overlay .search-form.search-popup__form .search__fields .field .control {
+            position: relative; }
+            .site-header-container .search-container .search-overlay .search-form.search-popup__form .search__fields .field .control input[type="text"] {
+              outline: none;
+              border-radius: 0;
+              border: 1px solid lightgrey;
+              padding-left: 2.25em;
+              display: -webkit-inline-box;
+              display: -ms-inline-flexbox;
+              display: inline-flex;
+              font-size: 1rem;
+              height: 2.25em;
+              -moz-justify-content: flex-start;
+              -ms-justify-content: flex-start;
+              -webkit-box-pack: start;
+                      justify-content: flex-start;
+              -ms-flex-pack: flex-start;
+              line-height: 1.5;
+              padding-bottom: calc(0.375em - 1px);
+              padding-right: calc(0.625em - 1px);
+              padding-top: calc(0.375em - 1px);
+              position: relative;
+              vertical-align: top; }
+              .site-header-container .search-container .search-overlay .search-form.search-popup__form .search__fields .field .control input[type="text"]:focus + .icon path {
+                fill: #6d6d6d;
+                -webkit-transition: .2s;
+                transition: .2s; }
+            .site-header-container .search-container .search-overlay .search-form.search-popup__form .search__fields .field .control .icon {
+              position: absolute;
+              top: 21px;
+              left: 15px;
+              z-index: 9999;
+              width: 14px; }
 
 .site-header {
   background: #2a2a2a;
@@ -6532,6 +6598,14 @@ select.form-control {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end; }
+  .site-header__tools .nav__item .search {
+    cursor: pointer; }
+    .site-header__tools .nav__item .search svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px; }
+      .site-header__tools .nav__item .search svg path {
+        fill: white; }
 
 .cart-count {
   display: -webkit-inline-box;
@@ -6619,6 +6693,16 @@ select.form-control {
             justify-content: flex-end; }
   .site-header__tools .nav__link {
     font-size: 20px; } }
+
+.visuallyhidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0; }
 
 .sidenav {
   width: 100%;
