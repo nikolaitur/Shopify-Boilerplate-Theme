@@ -1,10 +1,10 @@
-<div class="search-overlay animated fadeIn" data-search-type="overlay">
-  <span class="search-close"><svg src="search-close.svg"></svg></span>
+<div class="search-overlay animated fadeIn" data-search-type="overlay" {% if settings.search_display_style == Popup %} style="background-color: {{ settings.search_popup_bg }};">
+  <span class="search-close" data-popup-close><svg src="search-close.svg"></svg></span>
   <section class="section search-overlay__wrapper">
     <div class="div-wrapper">
 
       <div class="one-whole text-align-center">
-        <h1 class="search-overlay__title">{{ settings.search_title}}</h1>
+        <h1 class="search-overlay__title" style="color: {{settings.search_heading_color}};">{{ settings.search_title}}</h1>
       </div>
 
       <div class="one-whole">
@@ -19,7 +19,7 @@
                 {% if settings.enable_autocomplete == true %}
                   <ul class="predictive-results"></ul>
                 {% endif %}
-                <input class="input" id="q" type="text" name="q" placeholder="{{ settings.search_placeholder }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+                <input class="input" data-search-input id="q" type="text" name="q" placeholder="{{ settings.search_placeholder }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
                 <span class="icon " data-icon="search"><svg src="search.svg"></svg></span>
               </div>
             </div>
