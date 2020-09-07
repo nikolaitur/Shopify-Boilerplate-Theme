@@ -29,14 +29,14 @@ If you just need to compile theme from sources, call `gulp build`. Then you can 
 
 ### Environments
 `gulp watch` and `gulp deploy` commands can be called with special parameters to use environments from our `config.yml` file:
-- development (default, use it for theme development)
+- development (this is default environment, use it for theme development)
 - staging (use it to test our theme inside client's site)
 - production (use it for theme deployment to client's site live theme, please read warning below before using this environment)
 
 For example: `gulp watch --staging`
 
-**DEPLOYMENT WARNING:** some apps or developers makes their changes in production (aka live) theme on Shopify theme editor level, while we're developing our theme locally on our computers using theme development tool and git. If you run `gulp deploy`, of course such updates will be overwritten. To avoid this situation, each time you want to deploy your changes to store's production theme you should make backup and sync such updates with our theme sources: 
-1. Create backup of live theme in Shopify store themes page and call this backup like "Goats Theme Backup current_date". This needs only for case if something will be wrong, so you can publish last stable version of production theme using this backup.
+**DEPLOYMENT WARNING:** some apps or developers makes their changes in production (aka live) theme on Shopify theme editor level, while we're developing our theme locally on our computers using theme development tool and git. If you run `gulp deploy`, of course such updates will be overwritten. To avoid this situation, each time you want to do full deployment for your changes to store's production theme you should make backup and sync such updates with our theme sources: 
+1. Create backup of live theme in Shopify store themes page and call this backup like "Goats Theme Backup current_date". This needs for case if something will be wrong, so you can publish last stable version of production theme using this backup.
 2. Run this command: `gulp sync --production`. This command will just download all current code from production theme to our `build` folder. As alternative for this command, you can download zip archive with production theme from Shopify, it will be faster, and then you can unpack all code to our `build` folder.
 3. Once theme was downloaded from Shopify to `build` folder, you should review changes and copy these changes to project `sources`. Since we're using git, it's easy to compare changes between Shopify production theme and our build theme.
 4. Please commit this integration (I prefer this message for such commit: "sync with live theme code")
@@ -73,7 +73,7 @@ TODO: Javascript refactoring
 For now, TDT is just copying all images from `sources/assets/images` to `build/assets`.
 
 Use snippets/rimage.liquid to implement lazyloading images
-
+Add png/jpg optimizer to Gulp
 
 ##### SVG icons
 Place any svg files icons you want to use to `sources/assets/images`. Then just include these icons by this code: 
