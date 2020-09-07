@@ -31,6 +31,16 @@
                 {% endfor %}
               </div>
             {% endif %}
+            {%- if form.posted_successfully? -%}
+              <script>
+                Swal.fire({
+                  title: 'Success!',
+                  text: 'Thank you for contacting us.',
+                  icon: 'success',
+                  confirmButtonText: 'Cool'
+                })
+              </script>
+            {%- endif -%}
             
             <div class="form__field">
               <label for="{{ formId }}-name" class="label">Full Name</label>
@@ -90,7 +100,5 @@
 
 
 {% schema %}
-
-
-
+  @@include('ea-page-contact.json')
 {% endschema %}

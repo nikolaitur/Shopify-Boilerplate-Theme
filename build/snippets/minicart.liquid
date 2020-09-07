@@ -1,7 +1,17 @@
 {% comment %} ATTENTION!!! This is compiled version of minicart.liquid and it is overriding automatically. You should use theme development tool and sources\snippets\minicart.liquid file to code and save your changes. {% endcomment %}<aside data-minicart class="minicart">
+  {% if settings.show_notification_bar %}
+    <div class="minicart__noticiation">{{ settings.minicart_notification_text }}</div>
+  {% endif %}
   <div class="minicart__header">
     <span>CART ({ cart.item_count })</span>
     <button class="minicart__close btn m-icon-only" data-minicart-toggle><i class="icon-close"></i></button>
+  </div>
+  <div class="minicart__free-shipping">
+    <p class="free-shipping__label" data-free-shipping-label>Congrats! You get free standard shipping.</p>
+    <div class="free-shipping_progress">
+      <div class="progress-complete" data-free-shipping-percent>
+      </div>
+    </div>
   </div>
   <div class="minicart__items">
     <div class="minicart__item" rv-each-item="cart.items">
@@ -29,3 +39,6 @@
   </div>
 </aside>
 <div class="minicart-bg" data-minicart-toggle></div>
+<script>
+  var myshopify_domain='{{ shop.permanent_domain }}';
+</script>

@@ -10,8 +10,9 @@ let data = {
   update(newCart) {
     this.cart = newCart
   },
-  setRedirect() {
-    localStorage.setItem('redirect_to_checkout', true);
+  setRedirect(e) {
+    e.preventDefault();
+    goToCheckout();
   }
 };
 let open = false;
@@ -47,9 +48,9 @@ const addToCart = function(id, qty, properties) {
   });
 }
 
-const getProperties = function() {
+const getProperties = function($productForm ) {
   let properties = []
-  $('[data-product-property]').each(function (index, element) {
+  $productForm.find('[data-product-property]').each(function (index, element) {
     let key = $(element).data('product-property');
     let value = $(element).val();
     if (key && key != 'hidden' && value) {
@@ -59,19 +60,20 @@ const getProperties = function() {
   return properties;
 }
 
-const addToCartHandler = function () {
-  const $variantSelected = $('option:selected', $variantsSelector);
+const addToCartHandler = function ($productForm) {
+  console.log($productForm);
+  const $variantSelected = $('option:selected', $productForm.find('[data-all-variants]'));
   let variantId = $variantSelected.val();
   if ($variantSelected.data('discount-variant-id') != '') {
     variantId = $variantSelected.data('discount-variant-id');
   }
-  const qty = $('[data-qty]').val() || 1;
-  let properties = getProperties();
+  const qty = $productForm .find('[data-qty]').val() || 1;
+  let properties = getProperties($productForm);
   console.log(variantId);
   if (variantId) {
     addToCart(variantId, qty, properties);
-  } else if ($('[data-all-variants] option:selected').data('multi-variants')) {
-    let $variants = $('[data-all-variants] option:selected').data('multi-variants');
+  } else if ($productForm.find('[data-all-variants] option:selected').data('multi-variants')) {
+    let $variants = $productForm.find('[data-all-variants] option:selected').data('multi-variants');
     $variants.forEach(function(id) {
       console.log(id);
       addToCart(id, qty, properties);
@@ -96,14 +98,43 @@ const removeFromCart = function () {
   }
 }
 
+function reChargeProcessCart() {
+  let token = '';
+	function get_cookie(name){ return( document.cookie.match('(^|; )'+name+'=([^;]*)')||0 )[2] }
+	do {
+      		token=get_cookie('cart');
+	}
+	while(token == undefined);
+
+	try { var ga_linker = ga.getAll()[0].get('linkerParam') } catch(err) { var ga_linker ='' }
+	var customer_param = '{% if customer %}customer_id={{customer.id}}&customer_email={{customer.email}}{% endif %}'
+	document.location.href = "https://checkout.rechargeapps.com/r/checkout?myshopify_domain="+myshopify_domain+"&cart_token="+token+"&"+ga_linker+"&"+customer_param;
+}
+
+const goToCheckout = function() {
+  let hasSubscription = false;
+  for(let i = 0; i < data.cart.items.length; i++) {
+    let item = data.cart.items[i];
+    if(item.product_title.includes('Auto renew')) {
+      hasSubscription = true;
+    }
+  }
+
+  if(hasSubscription) {
+    reChargeProcessCart();
+  } else {
+    document.location.href = "/checkout";
+  }
+}
+
 
 const updateMinicart = function() {
-  $.get('/cart?view=json', function(result) {
-    let response = result.replace(/<\/?[^>]+>/gi, '');
+  $.get('/cart.js', function(response) {
     const newCart = JSON.parse(response);
     data.update(newCart);
     scrollBar.update();
     updateCartCount();
+    updateFreeShippingBar();
     if (open) {
       $minicart.addClass('is-open');
       open = false;
@@ -118,10 +149,23 @@ const updateCartCount = function() {
   $(cartCount).text(data.cart.item_count);
 }
 
+const updateFreeShippingBar = function() {
+  const elgiblePrice = 8000
+  if(data.cart.total_price >= elgiblePrice) {
+    $('[data-free-shipping-label]').html('Congrats! You get free standard shipping.');
+    $('[data-free-shipping-percent]').css('width', '100%');
+  } else {
+    const remainingPrice = parseInt((elgiblePrice - data.cart.total_price));
+    const percent = parseInt(data.cart.total_price * 100 / elgiblePrice);
+    $('[data-free-shipping-label]').html('You are ' + formatMoney(remainingPrice) + ' case away from free shipping!');
+    $('[data-free-shipping-percent]').css('width', percent + '%');
+  }
+}
+
 const eventHandlers = function() {
   $('[data-add-to-cart]').on('click', function(e) {
     e.preventDefault();
-    addToCartHandler();
+    addToCartHandler($(this).closest('[data-product-form]'));
   });
 
   $(document).on('click', '[data-remove-from-cart]', removeFromCart);
@@ -162,6 +206,12 @@ const init = function() {
   } else {
     console.error("minicart.js: Tinybind template library is not connected");
     return false;
+  }
+
+  if(localStorage.getItem('opened_side_cart') == 'true' && window.location.pathname == '/' ) {
+    console.log('here2');
+    $('[data-minicart]').addClass('is-open');
+    localStorage.setItem('opened_side_cart', false);
   }
   
 }

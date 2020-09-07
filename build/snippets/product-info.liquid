@@ -7,6 +7,9 @@
   </div>
 
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <meta itemprop="priceValidUntil" content="{{ 'now' | date: '%s' | plus: 31536000 | date: '%Y-%m-%d' | uri_encode | replace:'+','%20' }}">
+    <meta itemprop="url" content="{{ shop.url }}{{ variant.url }}">
+    
     <meta itemprop="priceCurrency" content="{{ shop.currency }}">
     <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
     <link itemprop="availability"

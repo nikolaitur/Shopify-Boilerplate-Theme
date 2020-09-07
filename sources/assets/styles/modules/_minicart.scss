@@ -20,6 +20,7 @@
   justify-content: space-between;
   width: 340px;
   padding: 30px 35px; 
+  padding-top: 50px;
   opacity: 0;  
   position: fixed;
   right: 0;
@@ -31,6 +32,7 @@
   transition: $transition-time;
   @include mobile {
     padding: 20px;
+    padding-top: 50px;
     top: 0;
     width: 70%;
   }
@@ -62,6 +64,47 @@
   text-transform: initial;
 }
 
+.minicart__noticiation {
+  background: $color-cart-notification-bg;
+  color: white;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+}
+
+.minicart__free-shipping {
+  text-align: center;
+
+  .free-shipping__label {
+    font-size: 19px;
+    line-height: 1.84;
+    color: #101820;
+    margin-bottom: 5px;
+
+    @include mobile {
+      font-size: 16px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .free-shipping_progress {
+    background: #caced9;
+    height: 8px;
+  }
+
+  .progress-complete {
+    height: 100%;
+    background: #163b66;
+  }
+}
 
 
 

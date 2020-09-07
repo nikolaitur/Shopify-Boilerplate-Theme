@@ -31,6 +31,16 @@
                 {% endfor %}
               </div>
             {% endif %}
+            {%- if form.posted_successfully? -%}
+              <script>
+                Swal.fire({
+                  title: 'Success!',
+                  text: 'Thank you for contacting us.',
+                  icon: 'success',
+                  confirmButtonText: 'Cool'
+                })
+              </script>
+            {%- endif -%}
             
             <div class="form__field">
               <label for="{{ formId }}-name" class="label">Full Name</label>
@@ -90,7 +100,98 @@
 
 
 {% schema %}
+  {
+  "name": "Contact page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "ptop",
+      "label": "Top spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom",
+      "label": "Bottom spacing desktop",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "ptop_mob",
+      "label": "Top spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "pbottom_mob",
+      "label": "Bottom spacing mobile",
+      "min": 0,
+      "unit": "px",
+      "max": 500,
+      "step": 5,
+      "default": 45
+    },
+
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "sectionbg",
+      "label": "Section background color",
+      "default": "#ffffff"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "id": "title",
+      "type": "richtext",
+      "label": "Title"
+    },
+    {
+      "id": "subtitle",
+      "type": "richtext",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }, 
 
 
 
+    {
+      "type": "header",
+      "content": "button"
+    },
+    {
+      "id": "btn",
+      "type": "text",
+      "label": "Button text",
+      "default": "SEND"
+    }
+  ]
+}
 {% endschema %}

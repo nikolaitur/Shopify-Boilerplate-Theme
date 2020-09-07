@@ -11,6 +11,8 @@
   <body class="template-{{ template.name }} {% if settings.animations_on %} animations-on {% endif %} {% if template == 'product' %}product-page--{{ product.handle }}{% endif %}">
     
     {% render 'ea-header' %}
+    {% section 'ea-megamenu--complex' %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     {{ content_for_layout }}
 
@@ -19,7 +21,7 @@
     </div>
 
     {% include 'subscription-theme-footer' %}
-    {% include 'end' %}
+    {% include 'ea-end' %}
     
   </body>
 </html>

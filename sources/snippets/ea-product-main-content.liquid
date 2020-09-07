@@ -12,7 +12,22 @@
   <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
   <meta itemprop="brand" content="{{ product.vendor }}">
   <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="mpn" content="{{ current_variant.sku }}">
+  {%- if current_variant.sku != blank -%}
+    <meta itemprop="sku" content="{{ current_variant.sku }}">
+  {%- endif -%}
   <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+  {% if product.metafields.okendo.summaryData.reviewCount > 0 %}      
+  <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+    <meta itemprop="reviewCount" content="{{ product.metafields.okendo.summaryData.reviewCount }}" />
+    <meta itemprop="ratingValue" content="{{ product.metafields.okendo.summaryData.reviewAverageValue }}" />
+  </div>
+  {% elsif product.metafields.okendo.ReviewCount > 0 %}
+  <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+    <meta itemprop="reviewCount" content="{{ product.metafields.okendo.ReviewAverageValue }}" />
+    <meta itemprop="ratingValue" content="{{ product.metafields.okendo.ReviewCount }}" />
+  </div>
+  {% endif %}
 
   <div class="product-main">
     <div class="product-main__container container">

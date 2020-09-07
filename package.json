@@ -24,9 +24,10 @@
   },
   "dependencies": {
     "jquery": "^3.4.1",
-    "slick-carousel": "^1.8.1",
-    "vendor": "^1.7.0",
+    "lazysizes": "^5.2.2",
     "perfect-scrollbar": "^1.5.0",
-    "tinybind": "^1.0.0"
+    "slick-carousel": "^1.8.1",
+    "tinybind": "^1.0.0",
+    "vendor": "^1.7.0"
   }
 }

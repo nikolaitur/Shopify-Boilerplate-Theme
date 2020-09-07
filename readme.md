@@ -72,7 +72,7 @@ TODO: Javascript refactoring
 ### Images
 For now, TDT is just copying all images from `sources/assets/images` to `build/assets`.
 
-TODO: add image optimizer package
+Use snippets/rimage.liquid to implement lazyloading images
 
 
 ##### SVG icons
