@@ -57,6 +57,17 @@
     ]
   },
   {
+    "name": "Meta Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "og_image_fallback",
+        "label": "Meta Image",
+        "info": "600x600 image recommended" 
+      }
+    ]
+  },
+  {
     "name": "Logo",
     "settings": [
       {

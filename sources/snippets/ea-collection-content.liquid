@@ -7,7 +7,7 @@
 {% paginate collection.products by 12 %}
 <div class="collection m-collection {% if set.gridType == 'singlerow'  %} m-singlerow {% endif %}">
   {% if collection.featured_image != blank %}
-    <div class="banner"><img src="{{ collection.featured_image | img_url: '2000x' }}" alt=""></div>
+    <div class="banner"><img src="{{ collection.featured_image | img_url: '2000x' }}" alt="{{ collection.featured_image.alt }}"></div>
   {% endif %}
   <div class="container">
     {% if set.title != blank %}

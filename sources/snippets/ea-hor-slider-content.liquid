@@ -25,7 +25,7 @@
               {% if bset.btn2 != '' %}<a href="{{ bset.btnu2 }}" class="btn m-outline">{{ bset.btn2 }}</a>{% endif %}
             </div>
           </div>
-          <img src="{{ bset.image | img_url: '1000x' }}" alt="" class="slide__image">
+          <img src="{{ bset.image | img_url: '1000x' }}" alt="{{ bset.image.alt }}" class="slide__image">
         </div> <!-- / .slide -->
       {% endfor %}
     </div> <!-- / .slider -->

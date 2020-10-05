@@ -14,7 +14,7 @@
       {% if submenu.links != blank %}
         <div class="row">
           <div class="col hide--mobile">
-            <a class="nav-dropdown__image no-hover-link" href="{{ url }}"><img src="{{ image | img_url: '400x' }}" alt=""></a>
+            <a class="nav-dropdown__image no-hover-link" href="{{ url }}"><img src="{{ image | img_url: '400x' }}" alt="{{ image.alt }}"></a>
           </div>
           <div class="col">
             <a class="nav__link m-level-2 no-hover-link" href="{{ url }}"><b>{{ title }}</b></a>
@@ -30,7 +30,7 @@
 
       {% else %}
         {% if image != blank %}
-          <a class="nav-dropdown__image no-hover-link" href="{{ url }}"><img src="{{ image | img_url: '400x' }}" alt=""></a>
+          <a class="nav-dropdown__image no-hover-link" href="{{ url }}"><img src="{{ image | img_url: '400x' }}" alt="{{ image.alt }}"></a>
         {% endif %}
         {% if title != blank and url != blank %}
           <a class="nav__link m-level-2 no-hover-link ta-center" href="{{ url }}"><b>{{ title }}</b></a>

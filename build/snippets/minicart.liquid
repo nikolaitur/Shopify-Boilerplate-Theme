@@ -15,7 +15,7 @@
   </div>
   <div class="minicart__items">
     <div class="minicart__item" rv-each-item="cart.items">
-      <a rv-href="item.url | convert item.original_handle" class="minicart__item-image no-hover-link"><img class="minicart__item-image" rv-src="item.image" alt=""></a>
+      <a rv-href="item.url | convert item.original_handle" class="minicart__item-image no-hover-link"><img class="minicart__item-image" rv-src="item.image" rv-alt="item.image.alt"></a>
       <div class="minicart__item-info">
         <h5 class="minicart__item-title"><a rv-href="item.url | convert item.original_handle">{ item.product_title }</a></h5>
         <div class="minicart__item-options" rv-unless="item.variant_options.0 | isDefaultTitle">

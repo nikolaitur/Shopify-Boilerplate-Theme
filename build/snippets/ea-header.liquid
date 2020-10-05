@@ -10,7 +10,7 @@
           {% if settings.svglogo != blank %}
             {{ settings.svglogo }}
           {% elsif settings.logo != blank %}
-            <img src="{{ settings.logo | img_url: '200x' }}" alt>
+            <img src="{{ settings.logo | img_url: '200x' }}" alt="{{ settings.logo.alt }}">
           {% else %}
             {{ shop.name }}
           {% endif %}

@@ -11,7 +11,7 @@
   <div class="login__wrap">
     {% if set.image %}
       <div class="login__image">
-        <img src="{{ set.image | img_url: '1000x' }}" alt="">
+        <img src="{{ set.image | img_url: '1000x' }}" alt="{{ set.image.alt }}">
       </div> <!-- /.login__image -->
     {% endif %}
 

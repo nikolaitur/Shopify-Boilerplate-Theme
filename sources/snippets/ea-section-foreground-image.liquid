@@ -9,6 +9,6 @@
 
 {% if set.bgimage != blank %}
   <div class="section__foreground-image m-pos-{{ set.bgpos }}">
-    <img src="{{ set.bgimage | img_url: 'master' }}">
+    <img src="{{ set.bgimage | img_url: 'master' }}" alt="{{ set.bgimage.alt }}">
   </div>
 {% endif %}

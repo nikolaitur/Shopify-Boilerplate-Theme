@@ -12,7 +12,22 @@ const updateProduct = function ($productForm) {
   updateButton($variantSelected, $productForm);
   updateLowStock($variantSelected, $productForm);
   updateTopLabel($variantSelected, $productForm);
+  updateImage($variantSelected, $productForm);
   // updateRecharge($variantSelected);
+}
+
+const updateImage = function($variantSelected, $productForm) {
+  
+  console.log($variantSelected.val());
+  const slideIndex = $('.product-slider [data-variant=' + $variantSelected.val() + ']').data('index');  
+  $('.product-slider [data-variant]').each(function(index, slide){    
+    if($(slide).data('variant')) {
+      if($(slide).data('variant').includes($variantSelected.val())) {        
+        $('.product-slider').slick('slickGoTo', $(slide).data('index'));
+      }
+    }
+  })
+  
 }
 
 const updatePrice = function($variantSelected, $productForm) {
