@@ -4,8 +4,8 @@ import { mountSlider } from '../slider'
 export const mountRecommendationSection = ($recommendationSection) => {
 
     const selectors = {        
-        placeholder: '.product-recommendations-placeholder',
-        recommendationsContent: ' .product-recommendations-content',
+        placeholder: '[data-product-recommendations-placeholder]',
+        recommendationsContent: ' [data-product-recommendations-content]',
     };
     const $placeholder = $recommendationSection.find(selectors.placeholder);
     const productId = $recommendationSection.data('product-id');

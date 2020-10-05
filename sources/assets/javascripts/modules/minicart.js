@@ -163,8 +163,9 @@ const updateFreeShippingBar = function() {
 }
 
 const eventHandlers = function() {
-  $('[data-add-to-cart]').on('click', function(e) {
+  $(document).on('click','[data-add-to-cart]', function(e) {
     e.preventDefault();
+    $('[data-popup]').addClass('is-hidden');
     addToCartHandler($(this).closest('[data-product-form]'));
   });
 

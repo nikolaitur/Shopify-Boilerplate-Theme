@@ -119,7 +119,7 @@ const updateOptions = function($variantSelected, $productForm) {
 
 export default function() {
   // Variants changing (automatically triggers from options changing)
-  $variantsSelector.on('change', function() {
+  $(document).on('change','[data-all-variants]', function() {
     updateProduct($(this).closest('[data-product-form]'));
   });
 
@@ -127,15 +127,19 @@ export default function() {
     updateProduct($(this).closest('[data-product-form]'));
   });
 
+  
+
   // Options changing
-  $productOption.on('click', function () {
+  $(document).on('click', '[data-product-option]', function () {
+    const $productForm = $(this).closest('[data-product-form]');
     const option1 = $('[data-product-option=1]:checked').length ? $('[data-product-option=1]:checked').val() : '_BLANK_';
     const option2 = $('[data-product-option=2]:checked').length ? $('[data-product-option=2]:checked').val() : '_BLANK_';
     const option3 = $('[data-product-option=3]:checked').length ? $('[data-product-option=3]:checked').val() : '_BLANK_';
     console.log(option1, option2, option3);
-    const value = $variantsSelector.find(`[data-option1='${option1}'][data-option2='${option2}'][data-option3='${option3}']`).val();
-    $variantsSelector.val(value).trigger('change');
-    console.log('variantselector value', $variantsSelector.val());
+    const $vSelector = $productForm.find('[data-all-variants]');
+    const value = $vSelector.find(`[data-option1='${option1}'][data-option2='${option2}'][data-option3='${option3}']`).val();
+    $vSelector.val(value).trigger('change');
+    console.log('variantselector value', $vSelector.val());
   });
 
   if (window.productTemplateLoaded) {

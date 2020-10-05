@@ -15,10 +15,7 @@ import popup from './modules/popup';
 import minicart from './modules/minicart';
 import megamenu from './modules/megamenu';
 import search from './modules/search';
-import rias from '/tools/ls.rias';
-import bgset from '/tools/ls.bgset';
-import lazysizes from '/tools/lazysizes';
-
+import quickView from './modules/quickView';
 
 window.$ = window.jQuery = $;
 
@@ -241,4 +238,5 @@ $(document).ready(() => {
   register(instagramFeed);
   register(megamenu);
   register(search);
+  register(quickView);
 });

@@ -20,10 +20,10 @@
         <h3 class="subtitle m-medium-grey m-normal-weight not-animated ta-center">{{ set.subtitle }}</h3>
     {% endif %}
     {% unless recommendations.products and recommendations.products_count > 0 %}
-        <div class="product-recommendations-placeholder">
+        <div class="product-recommendations-placeholder" data-product-recommendations-placeholder>
         </div>
     {% else %}
-        <div class="product-recommendations-content">
+        <div class="product-recommendations-content" data-product-recommendations-content>
             <div class="slider m-custom-controls">
                 <div class="products-slider hide--mobile" data-hor-slider data-desktop-only="1" data-slides-to-show="5" data-custom-controls="1">
                 {% for product in recommendations.products %}

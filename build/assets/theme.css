@@ -5710,6 +5710,9 @@ select.form-control {
     right: 15px;
     top: 15px; } }
 
+.quick-view-popup {
+  width: unset; }
+
 .rimage {
   position: relative;
   overflow: hidden;
