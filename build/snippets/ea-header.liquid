@@ -21,7 +21,7 @@
 
       <nav class="nav site-header__tools">
         <ul class="nav__items">
-          <li class="nav__item"><a class="search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g id="search"><path d="M92.83,90.18,71.47,68.83a38.58,38.58,0,1,0-6.29,5l22,22ZM14,41.46A30.47,30.47,0,1,1,44.47,71.93,30.51,30.51,0,0,1,14,41.46Z"/></g></svg></a></li>
+          <li class="nav__item"><a class="search" data-show-search-trigger data-popup-open="search-popup" data-search-style="{{ settings.search_display_style }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g id="search"><path d="M92.83,90.18,71.47,68.83a38.58,38.58,0,1,0-6.29,5l22,22ZM14,41.46A30.47,30.47,0,1,1,44.47,71.93,30.51,30.51,0,0,1,14,41.46Z"/></g></svg></a></li>
           <li class="nav__item hide--mobile">
             {% if customer.id %}
               <a class="nav__link m-level-1 m-login" href="/account">My Account</a>
@@ -49,9 +49,10 @@
         </ul>
       </nav> <!-- /.site-header__tools -->
     </div> <!-- /.container -->
-     <div class="search-container hide">
+      <div class="search-container" data-overlay-search data-popup="search-popup">
         {% render 'search-overlay' %}
       </div>
+
   </section> <!-- /.site-header -->
 </header> <!-- /.site-header-container -->
 
@@ -66,3 +67,12 @@
 </div>
 <div class="sidenav-bg" data-open-menu></div>
 {% render 'minicart' %}
+
+<div class="popup is-hidden" data-popup="search-popup">
+  <div class="popup-window">
+    <div class="rte ingr-popup">
+      {% render 'search-overlay' %}
+    </div>
+  </div>
+  <div class="popup-bg" data-popup-close></div>
+</div>
