@@ -20,7 +20,7 @@
 
 {%- capture image -%}
   <div class="image-and-text__image {% if type == 'big-image' %}m-big-image{% endif %}">
-    <img src="{{ set.image | img_url: '1000x' }}">
+    <img src="{{ set.image | img_url: '1000x' }}" alt="{{ set.image.alt }}">
   </div>
 {%- endcapture -%}
 

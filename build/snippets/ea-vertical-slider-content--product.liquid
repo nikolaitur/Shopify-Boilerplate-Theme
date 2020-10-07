@@ -54,7 +54,7 @@
           <div class="vertical-slide {% if i == 0 %}is-visible{% endif %}" data-vertical-slide>
             <div class="s4__content m-image-pos-right">
               {% if image[i] != blank %}
-                <div class="s4__image"><img src="{{ image[i] }}" alt=""></div>
+                <div class="s4__image"><img src="{{ image[i] }}" alt="{{ image[i].alt }}"></div>
               {% endif %}
               <div class="s4__text">
                 {% if title[i] != blank %}

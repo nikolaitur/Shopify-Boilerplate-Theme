@@ -33,7 +33,7 @@
         {% assign bset = block.settings %}
         <div class="s1__item">
           {% if bset.img != blank  %}
-            <img src="{{ bset.img | img_url: '200x' }}">
+            <img src="{{ bset.img | img_url: '200x' }}" alt="{{ best.img.alt }}">
           {% endif %}
         </div>
       {% endfor %}

@@ -76,6 +76,12 @@
       "type": "richtext",
       "id": "info2",
       "label": "Bottom Info"
+    },
+    {
+      "type": "checkbox",
+      "id": "zoom_image",
+      "label": "Zoom Images",
+      "default": true
     }
   ]
 }

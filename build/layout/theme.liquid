@@ -11,6 +11,9 @@
   <body class="template-{{ template.name }} {% if settings.animations_on %} animations-on {% endif %} {% if template == 'product' %}product-page--{{ product.handle }}{% endif %}">
     
     {% render 'ea-header' %}
+    {% section 'ea-megamenu--complex' %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/g/lazysizes(lazysizes.min.js+plugins/rias/ls.rias.min.js+plugins/optimumx/ls.optimumx.min.js)" async=""></script>
 
     {{ content_for_layout }}
 
@@ -18,8 +21,10 @@
       {% section 'ea-footer' %}
     </div>
 
+    {% render 'product-quick-view-popup' %}
+
     {% include 'subscription-theme-footer' %}
-    {% include 'end' %}
+    {% include 'ea-end' %}
     
   </body>
 </html>

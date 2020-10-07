@@ -8,7 +8,7 @@
   <div class="login__wrap m-no-margin">
     {% if set.image %}
       <div class="login__image">
-        <img src="{{ set.image | img_url: '1000x' }}" alt="">
+        <img src="{{ set.image | img_url: '1000x' }}" alt="{{ set.image.alt }}">
       </div> <!-- /.login__image -->
     {% endif %}
 
@@ -31,6 +31,16 @@
                 {% endfor %}
               </div>
             {% endif %}
+            {%- if form.posted_successfully? -%}
+              <script>
+                Swal.fire({
+                  title: 'Success!',
+                  text: 'Thank you for contacting us.',
+                  icon: 'success',
+                  confirmButtonText: 'Cool'
+                })
+              </script>
+            {%- endif -%}
             
             <div class="form__field">
               <label for="{{ formId }}-name" class="label">Full Name</label>
@@ -90,7 +100,5 @@
 
 
 {% schema %}
-
-
-
+  @@include('ea-page-contact.json')
 {% endschema %}

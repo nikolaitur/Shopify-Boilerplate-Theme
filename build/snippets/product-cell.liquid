@@ -32,6 +32,9 @@
         {% if showBtn == true %}
           <a href="{{ product.url }}" class="btn add-to-cart">View Product</a>
         {% endif %}
+        {% if section.settings.show_quick_view %}
+          <a href="#" class="btn" data-quick-view="{{ product.handle }}">Quick View</a>
+        {% endif %}
       </div>
     </div>
   {% endif %}

@@ -9,11 +9,13 @@ import product from './modules/product';
 import login from './modules/login';
 import customerAddresses from './modules/account';
 import animation from './modules/animation';
-// import verticalSlider from './modules/verticalSlider';
 import cartPage from './modules/cartPage';
-// import instagramFeed from './modules/instagramFeed';
+import instagramFeed from './modules/instagramFeed';
 import popup from './modules/popup';
 import minicart from './modules/minicart';
+import megamenu from './modules/megamenu';
+import search from './modules/search';
+import quickView from './modules/quickView';
 
 window.$ = window.jQuery = $;
 
@@ -113,7 +115,7 @@ const handleGotop = function () {
 }
 
 const accordions = function() {
-  $('[data-accordion-button]').click(function (event) {
+  $(document).on('click', '[data-accordion-button]', function (event) {
     event.preventDefault();
     const $container = $(this).closest('[data-accordions-container]');
 
@@ -233,4 +235,8 @@ $(document).ready(() => {
   register(minicart);
   register(misc);
   register(btnSectionScroll);
+  register(instagramFeed);
+  register(megamenu);
+  register(search);
+  register(quickView);
 });

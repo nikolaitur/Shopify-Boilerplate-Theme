@@ -20,7 +20,7 @@
           {% assign bset = block.settings %}
           <div class="benefits__item">
             {% if bset.image != blank %}
-              <img src="{{ bset.image | img_url: '450x' }}" alt="" class="benefits__icon">
+              <img src="{{ bset.image | img_url: '450x' }}" alt="{{ bset.image.alt }}" class="benefits__icon">
             {% endif %}
             {% if bset.title != blank %}<h4 class="benefits__title">{{ bset.title }}</h4>{% endif %}
             {% if bset.text != blank %}<div class="benefits__text">{{ bset.text }}</div>{% endif %}
@@ -32,12 +32,12 @@
       <div class="benefits">{{ benefits }}</div>
     {% elsif set.image_content != blank %}
       <div class="content-image">
-        <img src="{{ set.image_content | img_url: '1000x' }}" alt="">
+        <img src="{{ set.image_content | img_url: '1000x' }}" alt="{{ set.image_content.alt }}">
       </div>
     {% endif %}
 
     {% if set.bottom_image != blank %}
-      <div class="benefits__bottom"><img src="{{ set.bottom_image | img_url: '1000x' }}" alt=""></div>
+      <div class="benefits__bottom"><img src="{{ set.bottom_image | img_url: '1000x' }}" alt="{{ set.bottom_image.alt }}"></div>
     {% endif %}
     
     {% if set.display_reviews %}

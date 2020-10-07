@@ -75,7 +75,7 @@
             <a href="{{ bset.link }}" class="card__inner no-hover-link {% if set.zoom %}m-zoom{% endif %}">
               <div class="card__image">
                 {% if bset.image != blank %}
-                  <img src="{{ bset.image | img_url: '1200x' }}" alt="">
+                  <img src="{{ bset.image | img_url: '1200x' }}" alt="{{ bset.image.alt }}">
                 {% else %}
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %} 

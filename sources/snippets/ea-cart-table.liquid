@@ -37,7 +37,7 @@
         <td class="m-image" data-label="{{ 'customer.order.product' | t }}">
           {% if item.image != blank %}
             <a href="{{ item.url | within: collections.all }}" class="cart-product-image no-hover-link">
-              <img src="{{ item.image | img_url: '400x' }}" alt="">
+              <img src="{{ item.image | img_url: '400x' }}" alt="{{ item.image.alt }}">
             </a>
           {% endif %}
           <div class="hide--desktop ta-center">

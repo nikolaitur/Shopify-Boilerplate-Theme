@@ -97,30 +97,23 @@
 }
 
 .btn.add-to-cart {
-  height: 60px;
-  background: $color-yellow;
-  font-size: $fz-4;
+  // height: 60px;
   font-weight: 900;
   text-transform: uppercase;
   color: $color-black;
   box-shadow: 0px 10px 20px 0px rgba(240, 193, 75, 0.3);
-  border-radius: 3px;
   @include mobile {
     min-width: 0;
     padding: 0 10px;
     height: 55px;
     font-size: $fz-4;
   }
-  &:hover {
-    background: rgba($color-yellow, 0.8);
-    border-color: transparent;
-  }
+  
   &.m-recharge {
     height: 45px;
     font-weight: 600;
     font-size: $fz-5;
   }
-
 }
 
 .product-add-to-cart {
