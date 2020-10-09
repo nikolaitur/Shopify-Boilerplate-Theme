@@ -129,16 +129,27 @@ const goToCheckout = function() {
 
 
 const updateMinicart = function() {
-  $.get('/cart.js', function(response) {
-    const newCart = JSON.parse(response);
-    data.update(newCart);
-    scrollBar.update();
-    updateCartCount();
-    updateFreeShippingBar();
-    if (open) {
-      $minicart.addClass('is-open');
-      open = false;
-    }
+  $.get('/cart.json', function(result) {    
+    let newCart = result;
+    $.get('/cart?view=json', function(result) {      
+      let response = result.replace(/<\/?[^>]+>/gi, '');
+      const newCartWithOriginHandle = JSON.parse(response);
+      console.log(newCart);
+      console.log(newCartWithOriginHandle);
+      for(let i=0; i < newCart.items.length; i++) {
+        newCart.items[i].original_handle = newCartWithOriginHandle.items[i].original_handle
+      }
+      data.update(newCart);    
+      updateCartCount();
+      if (open) {
+        $minicart.addClass('is-open');
+        $("body").addClass('no-scroll');
+        open = false;
+      }
+    }).fail(function() {
+      console.error('minicart.js: updateMinicart error')
+    })
+    
   }).fail(function() {
     console.error('minicart.js: updateMinicart error')
   })
