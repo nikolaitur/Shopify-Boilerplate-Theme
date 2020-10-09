@@ -6502,6 +6502,8 @@ select.form-control {
     height: 90px;
     -o-object-fit: contain;
        object-fit: contain; }
+  .site-header__logo a {
+    color: white; }
 
 .site-header__nav {
   margin: 0 auto;

@@ -21,8 +21,8 @@
             {% if bset.title != blank %}<h3 class="title">{{ bset.title }}</h3>{% endif %}
             {% if bset.text != blank %}<div class="subtitle">{{ bset.text }}</div>{% endif %}
             <div class="buttons">
-              {% if bset.btn != '' %}<a href="{{ bset.btnu }}" class="btn m-outline">{{ bset.btn }}</a>{% endif %}
-              {% if bset.btn2 != '' %}<a href="{{ bset.btnu2 }}" class="btn m-outline">{{ bset.btn2 }}</a>{% endif %}
+              {% if bset.btn != '' %}<a href="{{ bset.btnu }}" aria-label="more informations" class="btn m-outline">{{ bset.btn }}</a>{% endif %}
+              {% if bset.btn2 != '' %}<a href="{{ bset.btnu2 }}" aria-label="learn more about" class="btn m-outline">{{ bset.btn2 }}</a>{% endif %}
             </div>
           </div>
           <img src="{{ bset.image | img_url: '1000x' }}" alt="{{ bset.image.alt }}" class="slide__image">
