@@ -8,6 +8,7 @@ const fileinclude = require('gulp-file-include');
 const copyAssets = require('gulp-css-copy-assets').default;
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
+purgecss = require('gulp-purgecss');
 
 const themeKit = require('@shopify/themekit');
 const mode = require('gulp-mode')({modes: ["production", "development", "staging"]});
@@ -26,7 +27,23 @@ function css() {
     .pipe(prefix({
       overrideBrowserslist: ['last 2 versions']
     }))
-    .pipe(mode.production(cssmin()))
+    .pipe( 
+      purgecss({
+        content: ['./sources/**/*.liquid']
+      })
+    )
+    .pipe(cssmin())
+    .pipe(copyAssets())
+    .pipe(gulp.dest('./build/assets'));
+}
+
+function extraCss() {
+  return gulp.src(['./sources/assets/extra.scss'])
+    .pipe(sass({ includePaths: ['node_modules'] }).on('error', sass.logError))
+    .pipe(prefix({
+      overrideBrowserslist: ['last 2 versions']
+    }))    
+    .pipe(cssmin())
     .pipe(copyAssets())
     .pipe(gulp.dest('./build/assets'));
 }
@@ -53,10 +70,11 @@ function images() {
 
 
 function watchFiles() {
-  gulp.watch('./sources/assets/javascripts/**/*.js', js);
-  gulp.watch(['./sources/assets/styles/**/*.scss', './sources/assets/fonts/*', './sources/assets/images/*'], css);
+  gulp.watch('./sources/assets/javascripts/**/*.js', js);  
   gulp.watch(['./sources/assets/images/*'], images);
   gulp.watch(['./sources/**/*.liquid', './sources/sections/*.json', './sources/assets/images/*'], liquid);
+  gulp.watch(['./sources/assets/styles/**/*.scss', './sources/assets/fonts/*', './sources/assets/images/*'], css);
+  gulp.watch(['./sources/assets/extra.scss', './sources/assets/fonts/*', './sources/assets/images/*'], extraCss);
   gulp.watch(['./sources/locales/*.json', './sources/config/*.json'], shopifyJson);
 
   themeKit.command('watch', {
@@ -80,8 +98,8 @@ function syncFiles() {
 
 
 const watch = gulp.series(watchFiles);
-const build = gulp.series(js, css, images, liquid, shopifyJson);
-const deploy = gulp.series(js, css, images, liquid, shopifyJson, deployFiles);
+const build = gulp.series(js, images, liquid, css, extraCss, shopifyJson);
+const deploy = gulp.series(js, images, liquid, css, extraCss, shopifyJson, deployFiles);
 const sync = gulp.series(syncFiles);
 
 exports.watch = watch;
