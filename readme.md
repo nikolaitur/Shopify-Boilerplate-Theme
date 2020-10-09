@@ -56,7 +56,12 @@ By default, Shopify hasn't ability to split theme assets (styles, javascripts, i
 ### Styles
 `sources/assets/styles`
 
-TDT allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean and we don't miss css vendor prefixes. 
+TDT allows us to use all power of scss preprocessor, such as code splitting and sass variables. Also it has autoprefixer, so our code is clean, minified and we don't miss css vendor prefixes. 
+
+Purging unused css feature has recently added. It purges all css for elements which are not on our theme liquid files.
+That's why we added `extra.scss` to define styles for DOM elements which are coming dynamically from apps or javascript.
+
+`sources/assets/extra.scss`
 
 TODO: Update our scss to use it with Shopify scss.liquid variables, and we can use all power of Shopify theme settings for theme styles.
 
