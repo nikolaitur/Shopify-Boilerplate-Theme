@@ -18,6 +18,8 @@
 
 <form id="addToCartForm" class="product-form {% if isRecharge %}m-recharge{% endif %}" action="/cart/add" method="post" enctype="multipart/form-data" data-productid="{{product.id}}" data-product-form data-variantid="{{ current_variant.id }}" data-discountid="{{ current_variant.metafields.subscriptions.discount_variant_id }}">
 
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" data-selected-variant-id>
+
   <div class="product-info__top-label skewed-shape">
     <i class="icon-double-chevron"></i>
     <span>{% if isRecharge %} {% if product.handle contains 'annual' %} Subscribe {% else %} Subscribe For <b>only $1</b> {% endif %}  {% else %} <b>SHIPS IN 2 BUSINESS DAYS</b> {% endif %}</span>

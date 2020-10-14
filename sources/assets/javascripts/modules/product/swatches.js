@@ -7,13 +7,29 @@ const $qtySelector = $('[data-qty]');
 
 const updateProduct = function ($productForm) {
   const $variantSelected = $('option:selected', $productForm.find('[data-all-variants]'));
+  $("[data-selected-variant-id]").val($variantSelected.val());
   updatePrice($variantSelected, $productForm);
   updateOptions($variantSelected, $productForm);
   updateButton($variantSelected, $productForm);
   updateLowStock($variantSelected, $productForm);
   updateTopLabel($variantSelected, $productForm);
   updateImage($variantSelected, $productForm);
+  updateHistoryState($variantSelected.val());
   // updateRecharge($variantSelected);
+}
+
+const updateHistoryState = function(variant) {
+  if (!history.replaceState || !variant) {
+    return;
+  }
+  var newurl =
+    window.location.protocol +
+    '//' +
+    window.location.host +
+    window.location.pathname +
+    '?variant=' +
+    variant;
+  window.history.replaceState({ path: newurl }, '', newurl);
 }
 
 const updateImage = function($variantSelected, $productForm) {
