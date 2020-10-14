@@ -27,11 +27,11 @@ function css() {
     .pipe(prefix({
       overrideBrowserslist: ['last 2 versions']
     }))
-    .pipe( 
-      purgecss({
-        content: ['./sources/**/*.liquid']
-      })
-    )
+    // .pipe( 
+    //   purgecss({
+    //     content: ['./sources/**/*.liquid']
+    //   })
+    // )
     .pipe(cssmin())
     .pipe(copyAssets())
     .pipe(gulp.dest('./build/assets'));
