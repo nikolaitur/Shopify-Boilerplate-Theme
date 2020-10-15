@@ -44,7 +44,7 @@
             
             <div class="form__field">
               <label for="{{ formId }}-name" class="label">Full Name</label>
-              <input type="text" id="{{ formId }}-name" class="form__input" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              <input type="text" id="{{ formId }}-name" class="form__input" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
             </div>
     
             <div class="field-group">
@@ -64,6 +64,7 @@
                     aria-invalid="true"
                     aria-describedby="{{ formId }}-email-error"
                   {%- endif -%}
+                  required
                   >
               </div>
       
@@ -75,7 +76,7 @@
             
             <div class="form__field m-select">
               <label for="{{ formId }}-inquiry" class="label">Inquiry *</label>
-              <select name="{{ formId }}-inquiry" id="" class="form__input select" name="contact[inquiry]">
+              <select name="{{ formId }}-inquiry" id="" class="form__input select" name="contact[inquiry]" required>
                 <option value="Where is my order?">Where is my order?</option>
                 <option value="Press & Media">Press & Media</option>
                 <option value="Shipping & Return">Shipping & Return</option>
@@ -85,7 +86,7 @@
 
             <div class="form__field">
               <label for="{{ formId }}-message" class="label">{{ 'contact.form.message' | t }}</label>
-              <textarea rows="10" id="{{ formId }}-message" class="textarea form__input" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              <textarea rows="10" id="{{ formId }}-message" class="textarea form__input" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
             </div>
       
             <button type="submit" class="btn m-black">{{ set.btn }}</button>
