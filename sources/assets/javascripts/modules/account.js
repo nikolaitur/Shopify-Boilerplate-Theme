@@ -27,23 +27,43 @@ const customerAddresses = function() {
   });
 
   // Toggle new/edit address forms
+  var flag = false;
   $('.address-new-toggle').on('click', function() {
     $newAddressForm.toggleClass('hide');
+    $('.address-new-toggle.top').toggleClass('hide');
+    $(".return_account").toggleClass('hide');
+    var title;
+    if(flag == false){
+      flag = true;
+      title = 'Add a New Address';
+    }
+    else {
+      flag = false;
+      title = 'Addresses';
+    }
+    $("[data-title-address]").text(title);
   });
 
   $('.address-edit-toggle').on('click', function() {
     var formId = $(this).data('form-id');
     $('#EditAddress_' + formId).toggleClass('hide');
+    $(".current_address").toggleClass('hide');
   });
 
+  var formId;
   $('.address-delete').on('click', function() {
     var $el = $(this);
-    var formId = $el.data('form-id');
-    var confirmMessage = $el.data('confirm-message');
-    if (confirm(confirmMessage || 'Are you sure you wish to delete this address?')) {
-      Shopify.postLink('/account/addresses/' + formId, {parameters: {_method: 'delete'}});
-    }
+    formId = $el.data('form-id');
+    // var confirmMessage = $el.data('confirm-message');
+    // if (confirm(confirmMessage || 'Are you sure you wish to delete this address?')) {
+    //   Shopify.postLink('/account/addresses/' + formId, {parameters: {_method: 'delete'}});
+    // }
   });
+
+  $("[data-remove-address]").on('click', function(){
+    Shopify.postLink('/account/addresses/' + formId, {parameters: {_method: 'delete'}});
+  })
+
 };
 
 export default customerAddresses
