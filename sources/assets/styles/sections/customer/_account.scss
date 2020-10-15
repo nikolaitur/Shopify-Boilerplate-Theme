@@ -147,7 +147,7 @@
       min-width: 50%;
       max-width: 50%;
       h3 {
-        font-size: 20px;
+        font-size: 19px;
         font-weight: bold;
       }
       p {
@@ -160,12 +160,27 @@
   #customer_orders {
     margin-top: 45px;
     h3 {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: bold;
+      margin-bottom: 15px;
     }
   }
 
-  
+  #customer_orders {
+    table {
+      .head {
+        background: #edebeb;
+        th {
+          padding: 7px 10px;
+        }
+      }
+      tbody tr td {
+        border-bottom: 1px solid #edebeb;
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  }
 
 }
 
@@ -335,6 +350,9 @@ body.template-addresses {
     .current_address.hide {
       display: none;
     }
+    .current_address p strong {
+      font-size: 18px;
+    }
     form {
       display: flex;
       flex-wrap: wrap;
@@ -407,3 +425,51 @@ body.template-addresses {
   } 
 }
 
+body.template-order .my-account {
+  .order-header {
+    align-items: center;
+    justify-content: space-between;
+    a {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #1c1c80;
+      color: #1c1c80;
+      margin: 0px;
+      min-width: unset;
+      height: unset;
+      padding: 0px;
+      padding-bottom: 5px;
+    }
+  }
+  .order-details {
+    h3.subtitle {
+      font-weight: bold;
+    }
+    .payment_status, .fulfillment_status {
+      margin-top: 5px;
+    }
+  }
+  .tbl-order-detail {
+    margin-top: 30px;
+    thead {
+      background: #edebeb;
+      th {
+        padding: 7px 10px;
+      }
+      th.total {
+        width: 130px;
+      }
+    }
+    tbody tr {
+      border-bottom: 1px solid #edebeb; 
+    }
+    tbody td {
+      font-size: 14px;
+      padding: 10px;
+    }
+    tfoot td {
+      font-size: 14px;
+      padding: 5px 10px;
+    }
+  }
+}
