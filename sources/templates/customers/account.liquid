@@ -1,59 +1,74 @@
-<div class="section account">
-  <div class="container account__container">
-    <div class="d-flex justify-content-between align-items-center">
-      <h1 class="title">{{ 'customer.account.title' | t }}</h1>
-      <a href="/account/logout">Logout</a>
+
+<div class="my-account account">
+  
+  <div class="container clearfix d-flex">
+  
+  {% include 'account_menu' %}
+  
+  <div class="content">
+      
+    <h1>Hello, {{ customer.name }}</h1>
+    <p>From your dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
+
+    <div class="grid columns">
+      <div class="grid__item one-half small--one-whole">
+        <h3>Account Information</h3>
+        <p>Contact Information</p>
+        <p>{{ customer.name }}</p>
+        <p>{{ customer.email }}</p>
+      </div>
+
+      <div class="grid__item one-half small--one-whole">
+        <h3>Address Book</h3>
+        
+        <div class="address note">
+          <p><a id="view_address" href="/account/addresses">Manage Addresses ({{ customer.addresses_count }})</a></p>
+          {% if customer.default_address != nil %}
+            <p>{{ customer.default_address.address1 }}</p>
+            {% if customer.default_address.address2 != "" %}
+              <p>{{ customer.default_address.address2 }}</p>
+            {% endif %}
+            <p>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</p>
+            <p>{{ customer.default_address.zip}}</p>
+            <p>{{ customer.default_address.phone }}</p>
+          {% endif %}
+        </div>
+      </div>
     </div>
-
-    <h2 class="subtitle mt-4">{{ 'customer.orders.title' | t }}</h2>
-
-    {% paginate customer.orders by 20 %}
+    
+    <div id="customer_orders" class="orders">
+        <h3>My orders</h3>
       {% if customer.orders.size != 0 %}
-        <table class="responsive-table mt-4">
-          <thead>
-            <tr>
-              <th>{{ 'customer.orders.order_number' | t }}</th>
-              <th>{{ 'customer.orders.date' | t }}</th>
-              <th>{{ 'customer.orders.payment_status' | t }}</th>
-              <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-              <th>{{ 'customer.orders.total' | t }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for order in customer.orders %}
-              <tr class="responsive-table-row">
-                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
-                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'abbreviated_date' }}</td>
-                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-                <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <table>
+        <thead>
+          <tr class="head">
+            <th class="order_number first">Order</th>
+            <th class="date">Date</th>
+            <th class="payment_status">Payment Status</th>
+            <th class="fulfillment_status">Fulfillment Status</th>
+            <th class="total">Total (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in customer.orders %}
+          <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
+            <td>{{ order.name | link_to: order.customer_url }}</td>
+            <td><span class="">{{ order.created_at | date: "%b %d, %Y" }}</span></td>
+            <td><span class="status_{{ order.financial_status }}">{{ order.financial_status }}</span></td>
+            <td><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status }}</span></td>
+            <td><span class="total money">{{ order.total_price | money_without_currency }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
       {% else %}
-        <p>{{ 'customer.orders.none' | t }}</p>
+        <p>You haven't placed any orders yet.</p>
       {% endif %}
-
-      {% if paginate.pages > 1 %}
-        {% render 'pagination', , paginate: paginate %}
-      {% endif %}
-
-    {% endpaginate %}
-
-    <h2 class="subtitle mt-4">{{ 'customer.account.details' | t }}</h2>
-    {% if customer.metafields.subscriptions.customer_string %}
-      <!--BeginRechargeCode-->
-      <p>
-        <a href="/tools/recurring/customer/{{customer.metafields.subscriptions.customer_string}}/subscriptions/">Manage Subscriptions</a>
-      </p>
-      <!--EndRechargeCode-->
-    {% endif %}<br>
-
-    {{ customer.default_address | format_address }}
-
-    <a href="/account/addresses">{{ 'customer.account.view_addresses' | t }}
-      ({{ customer.addresses_count }})</a>
-
+    </div>
+    
+   </div>
+    
+    
   </div>
+    
 </div>

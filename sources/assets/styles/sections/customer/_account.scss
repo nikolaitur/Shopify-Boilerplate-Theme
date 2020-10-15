@@ -101,3 +101,309 @@
     }
   }
 }
+
+
+.my-account {
+  .radio {
+    label {
+      position: relative;
+    }
+    .label:before {
+      width: 25px;
+      height: 25px;
+      transform: translateY(3px);
+    }
+    input:checked+.label:before {
+      background: #000;
+      border-color: #000;
+      box-shadow: none;
+    }
+    input:checked+.label:after {
+      content: '';
+      display: inline-block;
+      border: 2px solid #000;
+      border-color: transparent white white transparent;
+      height: 12px;
+      width: 7px;
+      margin-top: 10px;
+      margin-left: 9px;
+      left: 0px;
+      transform: rotate(45deg);
+      position: absolute;
+    }
+  }
+  .content {
+    background: #fcfcfc;
+    padding: 30px;
+    width: 100%;
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  .grid.columns {
+    display: flex;
+    .grid__item {
+      min-width: 50%;
+      max-width: 50%;
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 0px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  #customer_orders {
+    margin-top: 45px;
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  
+
+}
+
+.my-account-menu {
+  .my-account-menu-wrapper {
+    background: #fcfcfc;
+    margin-right: 30px;
+    padding: 30px 20px;
+    padding-bottom: 15px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .goto {
+    width: 200px;
+    ul {
+      padding-left: 0px;
+    }
+    ul li {
+      border-bottom: 1px solid #e2e2e2;
+      list-style: none;
+      margin-top: 0px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      &.link-subscription a {
+        color: #e31313;
+      }
+      &.active a {
+        color: #1238bf;
+      }
+      .btn {
+        display: block;
+        height: unset;
+        margin-top: 0px;
+        text-align: left;
+        padding: 0px;
+      }
+    }
+  }
+}
+
+body.template-addresses {
+  .radio {
+    margin-top: 25px;
+    label {
+      position: relative;
+    }
+    .label:before {
+      width: 25px;
+      height: 25px;
+      transform: translateY(3px);
+    }
+    input:checked+.label:before {
+      background: #000;
+      border-color: #000;
+      box-shadow: none;
+    }
+    input:checked+.label:after {
+      content: '';
+      display: inline-block;
+      border: 2px solid #000;
+      border-color: transparent white white transparent;
+      height: 12px;
+      width: 7px;
+      margin-top: 10px;
+      margin-left: 9px;
+      left: 0px;
+      transform: rotate(45deg);
+      position: absolute;
+    }
+  }
+  .address-new-toggle {
+    background: #1238bf;
+    border-radius: 5px;
+    margin-top: 0px;
+    &.hide {
+      display: none;
+    }
+  }
+  .return_account {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #1238bf;
+    color: #1238bf;
+    height: unset;
+    margin-top: 0px;
+    min-width: unset;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+  }
+  .return_account.hide {
+    display: none;
+  }
+  form#address_form_new {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    #AddressProvinceContainerNew {
+      width: 50%;
+      .form__field {
+        min-width: 100%;
+        max-width: 100%;
+      }
+    }
+    .form__field {
+      min-width: 50%;
+      max-width: 50%;
+      padding: 0 15px;
+      input, .select {
+        border: 1px solid #e2e2e2;
+      }
+      label {
+        color: #575757;
+        margin-bottom: 3px;
+      }
+    }
+    .btn.add_address {
+      background: #1238bf;
+      border-radius: 5px;
+      margin-top: 0px;
+    }
+    .address-new-toggle {
+      background: transparent;
+      border: none;
+      border-radius: 0px;
+      border-bottom: 1px solid #000;
+      color: #000;
+      width: 50px;
+      text-align: left;
+      justify-content: flex-start;
+      padding-left: 0px;
+      padding-right: 0px;
+      height: auto;
+      min-width: unset;
+    }
+    .actions {
+      margin-top: 15px;
+      padding-left: 15px;
+      .col-sm-6 {
+        padding-left: 0px;
+        padding-right: 0px;
+        &:last-child {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+  .added_addresses {
+    .col-sm-4 {
+      padding-left: 0px;
+    }
+    button {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #1238bf;
+      color: #1238bf;
+      min-width: unset;
+      margin-top: 20px;
+      margin-right: 30px;
+      width: unset;
+      height: unset;
+      padding: 0px;
+      padding-bottom: 5px;
+    }
+    .current_address.hide {
+      display: none;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -15px;
+      margin-right: -15px;
+      h4 {
+        min-width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .form__field {
+        min-width: 50%;
+        max-width: 50%; 
+        padding-left: 15px;
+        padding-right: 15px;
+        input, select {
+          border: 1px solid #e2e2e2;
+        }
+        label {
+          color: #575757;
+          margin-bottom: 3px;
+        }
+      }
+      .actions {
+        display: inline-block;
+        margin-top: 30px;
+        input {
+          background: #1238bf;
+          min-width: unset;
+          border-radius: 5px;
+          margin-right: 15px;
+        }
+        button {
+          color: #000;
+          border-bottom-color: #000 !important;
+        }
+        * {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+  .popup {
+    background: #35364015;
+    .popup-window {
+      font-size: 20px;
+      max-width: 400px;
+      padding: 30px 75px;
+      text-align: center;
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    button {
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 14px;
+      margin: 0 3px;
+      width: 80px;
+      height: 35px;
+    }
+    [data-popup-close] {
+      background: #b3b8cb;
+    }
+    [data-remove-address] {
+      background: #1238bf;
+    }      
+  } 
+}
+
