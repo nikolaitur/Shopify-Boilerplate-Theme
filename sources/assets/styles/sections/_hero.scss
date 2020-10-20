@@ -57,7 +57,8 @@
   &.top-left {
       text-align: left;
       top: $margin-desktop;
-      left: $margin-desktop;
+      // left: $margin-desktop;
+      left: 0px;
       right: auto;
       transform: none;     
   }
@@ -74,13 +75,15 @@
   &.top-right {
       text-align: right;        
       left: auto;
-      right: $margin-desktop;
+      // right: $margin-desktop;
+      right: 0px;
       top: 50px;
   }
 
   &.middle-left {
       text-align: left;        
-      left: $margin-desktop;
+      // left: $margin-desktop;
+      left: 0px;
       right: auto;
       transform: translateY(-50%);
       top: 50%;
@@ -96,14 +99,16 @@
   &.middle-right {
       text-align: right;        
       left: auto;
-      right: $margin-desktop;
+      // right: $margin-desktop;
+      right: 0px;
       top: 50%;
       transform: translateY(-50%);      
   }
 
   &.bottom-left {
       text-align: left;        
-      left: $margin-desktop;
+      // left: $margin-desktop;
+      left: 0px;
       right: auto;
       bottom: 50px;
       transform: none;      
@@ -120,7 +125,8 @@
   &.bottom-right {
       text-align: right;        
       left: auto;
-      right: $margin-desktop;
+      // right: $margin-desktop;
+      right: 0px;
       bottom: $margin-desktop;
       transform: none;      
   }
@@ -129,7 +135,8 @@
     &.mobile_top-left {
         text-align: left;
         top: $margin-mobile;
-        left: $margin-mobile;
+        // left: $margin-mobile;
+        left: 0px;
         right: auto;
         bottom: auto;
         transform: none;     
@@ -149,14 +156,16 @@
         text-align: right;        
         left: auto;
         right: auto;
-        right: $margin-mobile;
+        // right: $margin-mobile;
+        right: 0px;
         top: 50px;
         bottom: auto;
     }
 
     &.mobile_middle-left {
         text-align: left;        
-        left: $margin-mobile;
+        // left: $margin-mobile;
+        left: 0px;
         right: auto;
         transform: translateY(-50%);
         top: 50%;
@@ -167,7 +176,6 @@
         text-align: center;        
         left: 50%;         
         top: 50%;
-        left: auto;
         bottom: auto;
         transform: translate(-50%, -50%);
     }
@@ -175,7 +183,8 @@
     &.mobile_middle-right {
         text-align: right;        
         left: auto;
-        right: $margin-mobile;
+        // right: $margin-mobile;
+        right: 0px;
         top: 50%;
         bottom: auto;
         transform: translateY(-50%);      
@@ -183,7 +192,8 @@
 
     &.mobile_bottom-left {
         text-align: left;        
-        left: $margin-mobile;
+        // left: $margin-mobile;
+        left: 0px;
         right: auto;
         bottom: 50px;
         top: auto;
@@ -202,7 +212,8 @@
     &.mobile_bottom-right {
         text-align: right;        
         left: auto;
-        right: $margin-mobile;
+        // right: $margin-mobile;
+        right: 0px;
         bottom: $margin-mobile;
         top: auto;
         transform: none;      

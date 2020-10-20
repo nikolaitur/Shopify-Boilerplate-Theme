@@ -69,61 +69,91 @@
         },
         {
           "type": "select",
-          "id": "text_pos",
-          "label": "Copy align on desktop",
+          "id": "content_position",
+          "label": "Content Position",
           "options": [
-            { "value": "left", "label": "left" },
-            { "value": "center", "label": "center" },
-            { "value": "right", "label": "right" }
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle Left"
+            },
+            {
+              "value": "middle-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
           ],
-          "default": "left"
-        },
-        {
-          "type": "range",
-          "id": "text_top",
-          "label": "Copy top spacing on desktop",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 0
-        },
-        {
-          "type": "range",
-          "id": "text_left",
-          "label": "Copy left spacing on desktop",
-          "min": 0,
-          "max": 1000,
-          "step": 10,
-          "default": 0
+          "default": "middle-center"
         },
         {
           "type": "select",
-          "id": "text_pos_mobile",
-          "label": "Copy align on mobile",
+          "id": "content_position_mobile",
+          "label": "Content Position on Mobile",
           "options": [
-            { "value": "left", "label": "left" },
-            { "value": "center", "label": "center" },
-            { "value": "right", "label": "right" }
+            {
+              "value": "top-left",
+              "label": "Top Left"
+            },
+            {
+              "value": "top-center",
+              "label": "Top Center"
+            },
+            {
+              "value": "top-right",
+              "label": "Top right"
+            },
+            {
+              "value": "middle-left",
+              "label": "Middle Left"
+            },
+            {
+              "value": "middle-center",
+              "label": "Middle Center"
+            },
+            {
+              "value": "middle-right",
+              "label": "Middle Right"
+            },
+            {
+              "value": "bottom-left",
+              "label": "Bottom Left"
+            },
+            {
+              "value": "bottom-center",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "bottom-right",
+              "label": "Bottom Right"
+            }
           ],
-          "default": "left"
-        },
-        {
-          "type": "range",
-          "id": "text_top_mobile",
-          "label": "Copy top spacing on mobile",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "default": 0
-        },
-        {
-          "type": "range",
-          "id": "text_left_mobile",
-          "label": "Copy left spacing on mobile",
-          "min": 0,
-          "max": 200,
-          "step": 2,
-          "default": 0
+          "default": "middle-center"
         },
         {
           "id": "pretitle",
@@ -188,102 +218,6 @@
           "type": "checkbox",
           "id": "large_btn",
           "label": "Make Button Large?"
-        },
-        {
-          "type": "select",
-          "id": "content_position",
-          "label": "Content Position",
-          "options": [
-            {
-              "value": "custom",
-              "label": "Custom"
-            },
-            {
-              "value": "top-left",
-              "label": "Top Left"
-            },
-            {
-              "value": "top-center",
-              "label": "Top Center"
-            },
-            {
-              "value": "top-right",
-              "label": "Top right"
-            },
-            {
-              "value": "middle-left",
-              "label": "Middle Left"
-            },
-            {
-              "value": "middle-center",
-              "label": "Middle Center"
-            },
-            {
-              "value": "middle-right",
-              "label": "Middle Right"
-            },
-            {
-              "value": "bottom-left",
-              "label": "Bottom Left"
-            },
-            {
-              "value": "bottom-center",
-              "label": "Bottom Center"
-            },
-            {
-              "value": "bottom-right",
-              "label": "Bottom Right"
-            }
-          ],
-          "default": "top-center"
-        },
-        {
-          "type": "select",
-          "id": "content_position_mobile",
-          "label": "Content Position on Mobile",
-          "options": [
-            {
-              "value": "custom",
-              "label": "Custom"
-            },
-            {
-              "value": "top-left",
-              "label": "Top Left"
-            },
-            {
-              "value": "top-center",
-              "label": "Top Center"
-            },
-            {
-              "value": "top-right",
-              "label": "Top right"
-            },
-            {
-              "value": "middle-left",
-              "label": "Middle Left"
-            },
-            {
-              "value": "middle-center",
-              "label": "Middle Center"
-            },
-            {
-              "value": "middle-right",
-              "label": "Middle Right"
-            },
-            {
-              "value": "bottom-left",
-              "label": "Bottom Left"
-            },
-            {
-              "value": "bottom-center",
-              "label": "Bottom Center"
-            },
-            {
-              "value": "bottom-right",
-              "label": "Bottom Right"
-            }
-          ],
-          "default": "top-center"
         }
       ]
     }
