@@ -10,18 +10,26 @@
     <h1>Hello, {{ customer.name }}</h1>
     <p>From your dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
 
-    <div class="grid columns">
+    <div class="grid columns" data-accordions-container data-mobile-only="1">
       <div class="grid__item one-half small--one-whole">
-        <h3>Account Information</h3>
-        <p>Contact Information</p>
-        <p>{{ customer.name }}</p>
-        <p>{{ customer.email }}</p>
+        <h3 class="is-open" data-accordion-button>
+          Account Information
+          {% render 'icon' with 'accordion-arrow' %}
+        </h3>
+        <div data-accordion-content>
+          <p>Contact Information</p>
+          <p>{{ customer.name }}</p>
+          <p>{{ customer.email }}</p>
+        </div>
       </div>
 
       <div class="grid__item one-half small--one-whole">
-        <h3>Address Book</h3>
+        <h3 data-accordion-button>
+          Address Book
+          {% render 'icon' with 'accordion-arrow' %}
+        </h3>
         
-        <div class="address note">
+        <div class="address note" data-accordion-content>
           <p><a id="view_address" href="/account/addresses">Manage Addresses ({{ customer.addresses_count }})</a></p>
           {% if customer.default_address != nil %}
             <p>{{ customer.default_address.address1 }}</p>
@@ -46,7 +54,7 @@
             <th class="date">Date</th>
             <th class="payment_status">Payment Status</th>
             <th class="fulfillment_status">Fulfillment Status</th>
-            <th class="total">Total (USD)</th>
+            <th class="total">Total</th>
           </tr>
         </thead>
         <tbody>
@@ -56,11 +64,12 @@
             <td><span class="">{{ order.created_at | date: "%b %d, %Y" }}</span></td>
             <td><span class="status_{{ order.financial_status }}">{{ order.financial_status }}</span></td>
             <td><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status }}</span></td>
-            <td><span class="total money">{{ order.total_price | money_without_currency }}</span></td>
+            <td><span class="total money">{{ order.total_price | money }}</span></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
+      <div class="swipe_info hide--desktop">Swipe Left</div>
       {% else %}
         <p>You haven't placed any orders yet.</p>
       {% endif %}

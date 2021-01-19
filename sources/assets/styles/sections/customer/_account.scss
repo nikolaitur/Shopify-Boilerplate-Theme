@@ -36,6 +36,9 @@
 
 .new-address-wrapper {
   margin-top: 40px;
+  @include mobile {
+    margin-top: 20px;
+  }
 }
 
 
@@ -104,6 +107,14 @@
 
 
 .my-account {
+  @include mobile {
+    padding-top: 0px;
+  }
+  .container.d-flex {
+    @include mobile {
+      flex-direction: column;
+    }
+  }
   .radio {
     label {
       position: relative;
@@ -138,17 +149,61 @@
     width: 100%;
     h1 {
       font-size: 30px;
+      @include mobile {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+    @include mobile {
+      background: #fff;
+      padding-top: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
 
   .grid.columns {
     display: flex;
+    @include mobile {
+      display: block;
+    }
     .grid__item {
       min-width: 50%;
       max-width: 50%;
+      [data-accordion-button] svg {
+        display: none;
+      }
+      @include mobile {
+        min-width: 100%;
+        max-width: 100%;
+        margin-bottom: 5px;
+        [data-accordion-button] svg {
+          display: inline-block;
+        }
+        [data-accordion-button].is-open svg {
+          transform: rotate(180deg);
+        }
+        [data-accordion-content] {
+          padding: 0 15px 10px 15px;
+        }
+        &:last-child [data-accordion-content] {
+          display: none;
+        }
+      }
       h3 {
-        font-size: 20px;
+        font-size: 19px;
         font-weight: bold;
+        @include mobile {
+          background: #edebeb;
+          font-size: 16px;
+          margin: 0px !important;
+          padding: 10px 15px;
+          svg {
+            display: inline-block;
+            float: right;
+            margin-top: 5px;
+          }
+        }
       }
       p {
         margin-bottom: 0px;
@@ -160,29 +215,136 @@
   #customer_orders {
     margin-top: 45px;
     h3 {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: bold;
+      margin-bottom: 15px;
+      @include mobile {
+        font-size: 16px;
+      }
     }
   }
 
-  
-
+  #customer_orders {
+    @include mobile {
+      margin-left: -15px;
+      margin-right: -15px;
+      h3 {
+        padding-left: 15px;
+      }
+    }
+    table {
+      @include mobile {
+        border-top: 1px solid #f4f4f4;
+        display: block;
+        thead, thead th, tbody {
+          display: block;
+        }
+        thead {
+          float: left;
+        }
+        thead th {
+          border-bottom: 1px solid #f4f4f4;
+          font-size: 14px;
+          height: 42px;
+        }
+        tbody {
+          position: relative;
+          width: auto;
+          overflow-y: auto;
+        }
+        tbody tr {
+          display: table-cell;
+        }
+        tbody td {
+          border-bottom: 1px solid #f4f4f4;
+          display: block;
+          width: 100%;
+          min-width: 115px;
+        }
+      }
+      .head {
+        background: #edebeb;
+        @include mobile {
+          // background: #f4f4f5;
+          background: #fff;
+          box-shadow: 5px 0 3px 0 rgba(159, 159, 159, 0.1);
+        }
+        th {
+          padding: 7px 10px;
+        }
+      }
+      tbody tr td {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  }
+  .swipe_info {
+    background: #f4f4f4;
+    font-size: 14px;
+    line-height: 1;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-align: center;
+  }
 }
 
 .my-account-menu {
+  @include mobile {
+    position: sticky;
+    top: 60px;
+    z-index: 1;
+  }
   .my-account-menu-wrapper {
     background: #fcfcfc;
     margin-right: 30px;
     padding: 30px 20px;
     padding-bottom: 15px;
+    @include mobile {
+      background: #edebeb;
+      margin-right: 0px;
+      padding: 0 15px;
+      [data-accordion-button] {
+        margin: 0px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      [data-accordion-button] svg {
+        display: inline-block;
+        float: right;
+        width: 20px;
+        height: auto;
+        margin-top: 5px;
+      }
+      [data-accordion-button].is-open svg {
+        transform: rotate(180deg);
+      }
+      [data-accordion-content] {
+        display: none;
+      }
+    }
   }
   h1 {
     font-size: 30px;
+    @include mobile {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+  .content {
+    @include mobile {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
   .goto {
     width: 200px;
+    @include mobile {
+      width: 100%;
+    }
     ul {
       padding-left: 0px;
+      margin-bottom: 0px;
     }
     ul li {
       border-bottom: 1px solid #e2e2e2;
@@ -190,6 +352,9 @@
       margin-top: 0px;
       padding-top: 10px;
       padding-bottom: 10px;
+      @include mobile {
+        text-align: center;
+      }
       &.link-subscription a {
         color: #e31313;
       }
@@ -202,14 +367,31 @@
         margin-top: 0px;
         text-align: left;
         padding: 0px;
+        @include mobile {
+          text-align: center;
+        }
       }
     }
   }
 }
 
 body.template-addresses {
+  @include mobile {
+    .account.my-account {
+      overflow: unset;
+    }
+    .container__account.d-flex {
+      display: block !important;
+    }
+    .content h1 {
+      font-size: 16px;
+    }
+  }
   .radio {
     margin-top: 25px;
+    @include mobile {
+      margin-top: 0px;
+    }
     label {
       position: relative;
     }
@@ -276,6 +458,10 @@ body.template-addresses {
       min-width: 50%;
       max-width: 50%;
       padding: 0 15px;
+      @include mobile {
+        min-width: 100%;
+        max-width: 100%;
+      }
       input, .select {
         border: 1px solid #e2e2e2;
       }
@@ -306,9 +492,21 @@ body.template-addresses {
     .actions {
       margin-top: 15px;
       padding-left: 15px;
+      @include mobile {
+        justify-content: center;
+        text-align: center;
+        padding-left: 0px;
+        input {
+          min-width: unset;
+        }
+      }
       .col-sm-6 {
         padding-left: 0px;
         padding-right: 0px;
+        @include mobile {
+          margin: 0 5px;
+          width: unset;
+        }
         &:last-child {
           padding-top: 10px;
         }
@@ -335,6 +533,9 @@ body.template-addresses {
     .current_address.hide {
       display: none;
     }
+    .current_address p strong {
+      font-size: 18px;
+    }
     form {
       display: flex;
       flex-wrap: wrap;
@@ -345,12 +546,19 @@ body.template-addresses {
         max-width: 100%;
         padding-left: 15px;
         padding-right: 15px;
+        @include mobile {
+          font-size: 18px;
+        }
       }
       .form__field {
         min-width: 50%;
         max-width: 50%; 
         padding-left: 15px;
         padding-right: 15px;
+        @include mobile {
+          min-width: 100%;
+          max-width: 100%;
+        }
         input, select {
           border: 1px solid #e2e2e2;
         }
@@ -362,6 +570,9 @@ body.template-addresses {
       .actions {
         display: inline-block;
         margin-top: 30px;
+        @include mobile {
+          text-align: center;
+        }
         input {
           background: #1238bf;
           min-width: unset;
@@ -385,6 +596,12 @@ body.template-addresses {
       max-width: 400px;
       padding: 30px 75px;
       text-align: center;
+      @include mobile {
+        width: unset;
+        top: 50%;
+        bottom: unset;
+        transform: translateY(-50%);
+      }
     }
     .actions {
       margin-top: 20px;
@@ -407,3 +624,73 @@ body.template-addresses {
   } 
 }
 
+body.template-order .my-account {
+  @include mobile {
+    overflow: unset;
+    .container__account.d-flex {
+      display: block !important;
+    }
+    .created_at {
+      margin-top: 15px;
+    }
+  }
+  .order-header {
+    align-items: center;
+    justify-content: space-between;
+    a {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #1c1c80;
+      color: #1c1c80;
+      margin: 0px;
+      min-width: unset;
+      height: unset;
+      padding: 0px;
+      padding-bottom: 5px;
+    }
+  }
+  .order-details {
+    h3.subtitle {
+      font-weight: bold;
+    }
+    .payment_status, .fulfillment_status {
+      margin-top: 5px;
+    }
+  }
+  .tbl-order-detail {
+    margin-top: 30px;
+    thead {
+      background: #edebeb;
+      th {
+        padding: 7px 10px;
+      }
+      th.total {
+        width: 130px;
+      }
+    }
+    tbody tr {
+      border-bottom: 1px solid #edebeb; 
+      @include mobile {
+        border-bottom: 0px;
+      }
+    }
+    tbody td {
+      font-size: 14px;
+      padding: 10px;
+    }
+    tfoot td {
+      font-size: 14px;
+      padding: 5px 10px;
+      @include mobile {
+        strong {
+          display: none;
+        }
+      }
+    }
+    tfoot tr td:nth-child(3)::before {
+      @include mobile {
+        font-weight: bold;
+      }
+    }
+  }
+}
