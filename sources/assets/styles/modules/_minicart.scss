@@ -18,9 +18,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 340px;
-  padding: 30px 35px; 
-  padding-top: 50px;
+  width: 70%;
+  padding: 20px;
   opacity: 0;  
   position: fixed;
   right: 0;
@@ -30,11 +29,9 @@
   background: $color-white;
   transform: translate(105%, 0);
   transition: $transition-time;
-  @include mobile {
-    padding: 20px;
-    padding-top: 50px;
-    top: 0;
-    width: 70%;
+  @include desktop {
+    padding: 50px 35px 30px 35px; 
+    width: 340px;
   }
   &.is-open {
     opacity: 1;  
@@ -81,13 +78,13 @@
   text-align: center;
 
   .free-shipping__label {
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1.84;
     color: #101820;
     margin-bottom: 5px;
 
-    @include mobile {
-      font-size: 16px;
+    @include desktop {
+      font-size: 19px;
     }
 
     span {

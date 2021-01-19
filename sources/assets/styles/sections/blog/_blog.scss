@@ -7,9 +7,9 @@
     padding: 0 (45px/2);
     margin-top: $gutter*3;
     &:nth-child(3n+2) {
-      margin-top: $gutter*7;
-      @include mobile {
-        margin-top: $gutter*3;
+      margin-top: $gutter*3;
+      @include desktop {
+        margin-top: $gutter*7;
       }
     }
   }

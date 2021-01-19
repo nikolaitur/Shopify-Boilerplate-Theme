@@ -1,11 +1,11 @@
 .bmbs {
-  padding: $gutter 0;
   border-bottom: 2px solid $color-blue;
-  font-size: $fz-4;
   font-weight: 600;
-  @include mobile {
-    padding: $gutter/2 0;
-    font-size: 14px;
+  padding: $gutter/2 0;
+  font-size: 14px;
+  @include desktop {
+    font-size: $fz-4;
+    padding: $gutter 0;
   }
   a {
     color: inherit;
@@ -18,9 +18,9 @@
 }
 
 .article-header {
-  display: flex;
-  @include mobile {
-    display: block;
+  display: block;
+  @include desktop {
+    display: flex;
   }
   .pretitle {
     text-transform: uppercase;
@@ -33,11 +33,11 @@
   font-stretch: condensed;
 }
 .article-header__image {
-  min-width: 50%;
-  max-width: 50%;
-  @include mobile {
-    min-width: 0;
-    max-width: none;
+  min-width: 0;
+  max-width: none;
+  @include desktop {
+    min-width: 50%;
+    max-width: 50%;
   }
 }
 .article-header__text {
@@ -65,10 +65,10 @@
   top: $header-height;
   background: $color-grey-lightest;
   .product-cell {
-    margin-top: 20px;
-    @include mobile {
-      max-width: 200px;
-      margin: 20px auto 0;
+    max-width: 200px;
+    margin: 20px auto 0;
+    @include desktop {
+      max-width: unset;
     }
   }
   .product-cell__title {
@@ -97,9 +97,9 @@
 
 .article__content-wrap {
   flex: 1;
-  padding-left: $gutter*2;
-  @include mobile {
-    padding-left: 0;
+  padding-left: 0;
+  @include desktop {
+    padding-left: $gutter*2;
   }
   .pagination-buttons {
     margin: $gutter*8 0;
@@ -136,48 +136,46 @@
 
 
 .article__content {
+  font-size: 14px;
   margin-top: 20px;
-  @include mobile {
-    font-size: 14px;
-  }
   h1, h2, h3, h4, h5, h6 {
     margin: 2em 0 1em;
     font-weight: bold;
   }
   h1 {
-    font-size: 40px;
-    @include mobile {
-      font-size: 29px;
+    font-size: 29px;
+    @include desktop {
+      font-size: 40px;
     }
   }
   h2 {
-    font-size: 29px;
-    @include mobile {
-      font-size: 24px;
+    font-size: 24px;
+    @include desktop {
+      font-size: 29px;
     }
   }
   h3 {
-    font-size: 24px;
-    @include mobile {
-      font-size: 19px;
+    font-size: 19px;
+    @include desktop {
+      font-size: 24px;
     }
   }
   h4 {
-    font-size: 19px;
-    @include mobile {
-      font-size: 16px;
+    font-size: 16px;
+    @include desktop {
+      font-size: 19px;
     }
   }
   h5 {
-    font-size: 16px;
-    @include mobile {
-      font-size: 14px;
+    font-size: 14px;
+    @include desktop {
+      font-size: 16px;
     }
   }
   h6 {
-    font-size: 14px;
-    @include mobile {
-      font-size: 11px;
+    font-size: 11px;
+    @include desktop {
+      font-size: 14px;
     }
   }
 }

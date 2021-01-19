@@ -111,6 +111,7 @@ $small: 'small';
 $medium: 'medium';
 $medium-down: 'medium-down';
 $mobile: 'mobile';
+$desktop: 'desktop';
 $medium-up: 'medium-up';
 $large: 'large';
 $large-down: 'large-down';
@@ -124,6 +125,7 @@ $breakpoints: (
   $small '(max-width: #{$grid-medium - 1})',
   $medium '(min-width: #{$grid-medium}) and (max-width: #{$grid-large - 1})',
   $medium-down '(max-width: #{$grid-large - 1})',
+  $desktop '(min-width: #{$grid-large})',
   $mobile '(max-width: #{$grid-large - 1})',
   $medium-up '(min-width: #{$grid-medium})',
   $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',

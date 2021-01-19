@@ -1,7 +1,8 @@
 .form--search {
-  width: 400px;
   margin-left: auto;
-  margin-top: $gutter*2;
+  margin-top: $gutter;
+  width: 100%;
+
   .form__input {
     padding: $gutter/2 $gutter;
     width: 100%;
@@ -75,6 +76,7 @@ select.form-control {
   margin-bottom: 0;
   font-weight: 500;
   font-size: 14px;
+  font-weight: bold;
   user-select: none;
   &.m-group {
     display: block;
@@ -101,12 +103,12 @@ select.form-control {
     i {
       position: absolute;
       bottom: 20px;
+      right: $gutter;
       right: $gutter*2;
-      transform: translate(0%, 50%);
       color: $color-button;
       font-size: 7px;
-      @include mobile {
-        right: $gutter;
+      @include desktop {
+        transform: translate(0%, 50%);
       }
     }
   }
@@ -152,9 +154,10 @@ select.form-control {
   }
   .label {
     cursor: pointer;
+    font-weight: 600;
     user-select: none;
-    @include mobile {
-      font-weight: 600;
+    @include desktop {
+      font-weight: normal;
     }
     &:before {
       content: "";
@@ -202,13 +205,13 @@ select.form-control {
   }
 }
 
-@include mobile {
+@include desktop {
   .form__label,
   .label {
-    font-weight: bold;
+    font-weight: normal;
   }
   .form--search {
-    margin-top: $gutter;
-    width: 100%;
+    margin-top: $gutter*2;
+    width: 400px;
   }
 }

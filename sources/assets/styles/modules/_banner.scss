@@ -10,19 +10,20 @@
   width: 100%;
 }
 .banner__fg {
-  width: 100%;
-  height: 60%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-size: contain;
-  @include mobile {
-    height: 75%;
-    left: 42%;
-    right: 8%;
-    width: auto;
-    transform: translate(0, -50%);
+  height: 75%;
+  left: 42%;
+  right: 8%;
+  width: auto;
+  transform: translate(0, -50%);
+  position: absolute;
+  @include desktop {
+    width: 100%;
+    height: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
   }
 }
 
@@ -30,9 +31,9 @@
 // Reviews section styles
 .reviews-section {
   .banner__bg {
-    height: 200px;
-    @include mobile {
-      height: 90px !important;
+    height: 90px;
+    @include desktop {
+      height: 200px !important;
     }
   }
 }

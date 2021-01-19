@@ -1,28 +1,26 @@
 .vertical-slider-section {
-  @include mobile {
-    padding: 0 !important;
-    background: $color-white !important;
-  }
+  padding: 0 !important;
+  background: $color-white !important;
 }
 .vertical-slider {
-  top: $header-height;
+  top: 50px;
   position: -webkit-sticky;
   position: sticky;
-  @include mobile {
-    top: 50px;
+  @include desktop {
+    top: $header-height;
   }
   .container {
-    padding-left: 115px;
+    padding: 0;
     position: relative;
-    @include mobile {
-      padding: 0;
+    @include desktop {
+      padding-left: 115px;
     }
   }
 
   .s4__image + .s4__text {
-    padding-right: 115px;
-    @include mobile {
-      padding: 40px 25px 25px 40px;
+    padding: 40px 25px 25px 40px;
+    @include desktop {
+      padding: 25px 25px 115px 25px;
     }
   }
   &.m-vertical-dots.m-left-dots {
@@ -30,14 +28,14 @@
       display: block;
       visibility: visible;
       position: absolute;
-      left: $gutter;
+      top: 62%;
+      left: 40px;
       margin-top: 0;
-      top: 52%;
       transform: translate(0, -50%);
       transition: $transition-time;
-      @include mobile {
-        top: 62%;
-        left: 40px;
+      @include desktop {
+        left: $gutter;
+        top: 52%;
       }
     }
     .slider-dots {
@@ -45,20 +43,18 @@
       position: static;
     }
     li {
-      margin: $gutter*2 0;
+      margin: $gutter 0;
       display: flex;
       align-items: center;
-      @include mobile {
-        margin: $gutter 0;
+      @include desktop {
+        margin: $gutter*2 0;
       }
       button {
         margin: 0;
-        @include mobile {
-          width: 6px;
-          height: 6px;
-          &.is-active {
-            border-width: 3px;
-          }
+        width: 6px;
+        height: 6px;
+        &.is-active {
+          border-width: 3px;
         }
         &.is-active + .dots-line {
           opacity: 1;
@@ -66,20 +62,21 @@
       }
     }
     .dots-line {
-      display: block;
-      width: $gutter*6;
-      height: 2px;
-      background: $color-brown;
-      opacity: 0;
-      transition: $transition-time;
-      @include mobile {
-        display: none;
+      display: none;
+      @include desktop {
+        display: block;
+        width: $gutter*6;
+        height: 2px;
+        background: $color-brown;
+        opacity: 0;
+        transition: $transition-time;
       }
     }
 
     .slider-arrow2 {
-      @include mobile {
-        transform: translate(-20%, 0);
+      transform: translate(-20%, 0);
+      @include desktop {
+        transform: unset;
       }
     }
   }
@@ -97,8 +94,9 @@
 
 .vertical-slide {
   position: relative;
+  height: calc(100vh - 50px);
 
-  @include mobile {
-    height: calc(100vh - 50px);
+  @include desktop {
+    height: auto;
   }
 }

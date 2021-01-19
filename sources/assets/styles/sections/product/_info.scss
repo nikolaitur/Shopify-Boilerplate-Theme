@@ -1,9 +1,11 @@
 // Product Info:
 .product-info {
-  width: 450px;
-  @include mobile {
-    width: auto;
+  margin: 0 auto;
+  width: 95%;
+  @include desktop {
+    width: 450px;
   }
+  
   .buy-info {
     margin-top: $gutter;
     font-size: 14px;

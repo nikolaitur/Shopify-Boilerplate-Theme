@@ -15,7 +15,7 @@
     font-size: 0;
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: 3px;
     padding: 0;
     border: 5px solid $color-brown-light;
     background: $color-brown-light;
@@ -24,10 +24,8 @@
     text-indent: -9999px;
     position: relative;
     transition: $transition-time;
-    @include mobile {
-      width: 10px;
-      height: 10px;
-      border-width: 3px;
+    @include desktop {
+      border-width: 50%;
     }
   }
 
@@ -53,11 +51,11 @@
     display: block;
     position: absolute;
     z-index: 20;
-    right: -$gutter*3;
+    right: $gutter;
     top: 50%;
     transform: translate(0%, -50%);
-    @include mobile {
-      right: $gutter;
+    @include desktop {
+      right: -$gutter*3;
     }
     li:not(:first-child) {
       margin-top: $gutter/2;
@@ -82,18 +80,18 @@
     }
     button {
       margin: 5px;
-      height: 3px;
-      width: 40px;
       border: none;
       border-radius: 0;
       background: $color-blue;
+      height: 2px;
+      width: 20px;
       &::before {
         display: none;
       }
-      @include mobile {
-        height: 2px;
-        width: 20px;
-      }
+      @include desktop {
+        height: 3px;
+        width: 40px;
+        }
     }
   }
 }
@@ -195,25 +193,24 @@
     position: relative;
   }
   .slide__panel {
-    min-width: 380px;
-    max-width: 500px;
-    position: absolute;
-    padding: $gutter*2;
     background: $color-white;
+    min-width: 0;
+    max-width: 100%;
+    padding: $gutter 0;
+    width: 100%;
+    transform: none;
+    text-align: center;
+    position: absolute;
     left: $gutter*5;
     top: 50%;
-    transform: translate(0, -50%);
-    @include mobile {
-      padding: $gutter 0;
-      position: static;
-      min-width: 0;
-      max-width: 100%;
-      width: 100%;
-      transform: none;
-      text-align: center;
-      .btn {
-        margin-top: $gutter !important;
-      }
+    @include desktop {
+      min-width: 380px;
+      max-width: 500px;
+      padding: $gutter*2;
+      transform: translate(0, -50%);
+    }
+    .btn {
+      margin-top: $gutter !important;
     }
   }
   img {
@@ -235,35 +232,35 @@
     }
     hr {
       content: "";
-      width: 250px;
-      height: 3px;
+      width: 120px;
+      height: 2px;
       background: $color-blue;
       opacity: 0.3;
-      @include mobile {
-        width: 120px;
-        height: 2px;
+      @include desktop {
+        width: 250px;
+        height: 3px;
       }
     }
   }
   button {
     margin: 0;
     text-indent: 0;
-    font-size: $fz-3;
-    font-family: $ff-2;
+    font-size: $fz-4;
+    font-family: $ff-body;
     font-weight: bold;
     color: inherit;
     border-color: $color-blue;
-    @include mobile {
-      font-family: $ff-body;
-      font-size: $fz-4;
+    @include desktop {
+      font-family: $ff-2;
+      font-size: $fz-3;
     }
     span {
       position: absolute;
-      top: -40px;
+      top: -30px;
       left: 0;
       transform: translate(-50%, 0);
-      @include mobile {
-        top: -30px;
+      @include desktop {
+        top: -40px;
       }
     }
   }
@@ -271,9 +268,9 @@
 
 .slider.m-custom-controls {
   position: relative;
-  padding: 0 $gutter*3;
-  @include mobile {
-    padding: 0;
+  padding: 0;
+  @include desktop {
+    padding: 0 $gutter*3;
   }
   .slider-controls {
     position: static;
@@ -296,8 +293,8 @@
 
 // Gallery
 .slider.m-gallery {
-  padding: 0 $gutter*3;
-  @include mobile {
-    padding: 0;
+  padding: 0;
+  @include desktop {
+    padding: 0 $gutter*3;
   }
 }

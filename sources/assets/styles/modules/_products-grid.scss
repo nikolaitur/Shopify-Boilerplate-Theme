@@ -1,16 +1,15 @@
 .products-grid {
-  @include row($gutter*2);
-  @include mobile {
-    @include row($gutter);
+  @include row($gutter);
+  @include desktop {
+    @include row($gutter*2);
   }
 }
 
-
 .product-cell-wrap {
-  @include cell(4, 0 $gutter*2);
+  @include cell(2, 0 $gutter);
   margin-top: $gutter*5;
-  @include mobile {
-    @include cell(2, 0 $gutter);
+  @include desktop {
+    @include cell(4, 0 $gutter*2);
   }
 }
 
@@ -18,10 +17,11 @@
   text-align: left;
   color: $color-black;
   &.m-text {
-    padding-top: 25%;
-    @include mobile {
-      padding-top: 0;
-      text-align: center;
+    padding-top: 0;
+    text-align: center;
+    @include desktop {
+      padding-top: 25%;
+      text-align: unset;
     }
   }
   &:hover:not(.m-no-hover-effect),
@@ -66,10 +66,6 @@
   margin-top: $gutter;
   line-height: 1.2;
   text-align: center;
-  @include mobile {
-    display: block;
-    text-align: center;
-  }
 }
 .product-cell__title {
   margin: 0;

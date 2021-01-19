@@ -1,13 +1,17 @@
 .donate {
   .popup-window {
-    border-radius: 10px;
-    @include mobile {
-      width: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0;
+    width: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+    @include desktop {
+      top: unset;
+      left: unset;
+      right: unset;
+      bottom: unset;
+      border-radius: 10px;
     }
   }
   .close {
@@ -28,12 +32,12 @@
 }
 
 .donate__content {
-  width: 650px;
-  padding: $gutter*2 $gutter*5;
+  padding: $gutter*2 $gutter;
+  width: auto;
   text-align: center;
-  @include mobile {
-    padding: $gutter*2 $gutter;
-    width: auto;
+  @include desktop {
+    width: 650px;
+    padding: $gutter*2 $gutter*5;
   }
   .title {
     margin-bottom: 0;
@@ -92,10 +96,10 @@
 }
 .donate__option {
   @include cell(2, 0 7px);
-  max-width: 230px;
+  max-width: 50%;
   cursor: pointer;
-  @include mobile {
-    max-width: 50%;
+  @include desktop {
+    max-width: 230px;
   }
 }
 .donate__option-head {
@@ -104,7 +108,7 @@
   flex-direction: column;
   align-items: space-between;
   justify-content: space-between;
-  padding: $gutter*2;
+  padding: $gutter;
   background: $color-brown-light;
   position: relative;
   border-radius: 10px;
@@ -112,8 +116,8 @@
   &:hover {
     border-color: $color-brown;
   }
-  @include mobile {
-    padding: $gutter;
+  @include desktop {
+    padding: $gutter*2;
   }
 }
 .donate__option-covid-image {
@@ -182,10 +186,10 @@
 
 // Screen 3 styles 
 .donate__screen-3 {
-  max-width: 450px;
+  max-width: none;
   margin: 0 auto; 
-  @include mobile {
-    max-width: none;
+  @include desktop {
+    max-width: 450px;
   }
 }
 

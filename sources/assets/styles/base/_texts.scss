@@ -34,13 +34,13 @@ a {
 }
 
 .title {
-  font-size: $fz-title;
+  font-size: $fz-2;
   font-weight: normal;
   font-family: $ff-title;
   color: $color-title;
   line-height: 1.4;
-  @include mobile {
-    font-size: $fz-3;
+  @include desktop {
+    font-size: $fz-title;
   }
   &.m-black {
     color: $color-body;
@@ -49,9 +49,9 @@ a {
     color: $color-white;
   }
   &.m-large {
-    font-size: 72px;
-    @include mobile {
-      font-size: $fz-1;
+    font-size: $fz-1;
+    @include desktop {
+      font-size: 72px;
     }
   }
   &.m-heavy {
@@ -60,8 +60,8 @@ a {
   &:not(.not-animated) {
     @include smoothShow(0, 25px);
   }
-  @include mobile {
-    font-size: $fz-2;
+  @include desktop {
+    font-size: $fz-3;
   }
   .pretitle + & {
     margin-top: $gutter;
@@ -95,51 +95,51 @@ a {
 }
 .subtitle,
 .title+p {
-  font-size: $fz-body;
+  font-size: 14px;
   line-height: 1.625;
 
   &:not(.not-animated) {
     @include smoothShow(0, 25px, 0.25);
   }
   .title + & {
-    margin-top: $gutter*2;
-    @include mobile {
-      margin-top: $gutter;
+    margin-top: $gutter;
+    @include desktop {
+      margin-top: $gutter*2;
     }
   }
-  @include mobile {
-    font-size: 14px;
+  @include desktop {
+    font-size: $fz-body;
   }
 }
 
 .h1 {
-  font-size: $fz-1;
-  @include mobile {
-    font-size: $fz-3;
+  font-size: $fz-3;
+  @include desktop {
+    font-size: $fz-1;
   }
 }
 .h1-07 {
   font-size: $fz-1*0.7;
 }
 .h2 {
-  font-size: $fz-2;
-  @include mobile {
-    font-size: $fz-4;
+  font-size: $fz-4;
+  @include desktop {
+    font-size: $fz-2;
     &.m-mob {
       font-size: $fz-4;
     }
   }
 }
 .h3 {
-  font-size: $fz-3;
-  @include mobile {
-    font-size: $fz-5;
+  font-size: $fz-5;
+  @include desktop {
+    font-size: $fz-3;
   }
 }
 .h4 {
-  font-size: $fz-4;
-  @include mobile {
-    font-size: $fz-5;
+  font-size: $fz-5;
+  @include desktop {
+    font-size: $fz-4;
   }
 }
 .h5 {
@@ -160,9 +160,9 @@ a {
   .list__text {
     p {
       margin-top: 0.5em;
-      font-size: 16px;
-      @include mobile {
-        font-size: 14px;
+      font-size: 14px;
+      @include desktop {
+        font-size: 16px;
       }
       +p {
         margin-top: 0;
@@ -179,13 +179,13 @@ a {
     align-items: flex-start;
   }
   .list__icon {
+    margin: 0 $gutter;
     width: 1em;
-    margin-right: $gutter*2;
     text-align: center;
     position: relative;
     top: -0.1em;
-    @include mobile {
-      margin: 0 $gutter;
+    @include desktop {
+      margin-right: $gutter*2;
     }
     img {
       height: 0.815em;
@@ -218,9 +218,6 @@ a {
       border: 2px solid $color-blue;
       border-radius: 50%;
       background: $color-white;
-      @include mobile {
-        margin-left: 0;
-      }
     }
     .list__title {
       font-weight: bold;
@@ -233,16 +230,19 @@ a {
 
 .list__title {
   margin-bottom: 0;
-  font-weight: bold;
+  font-weight: normal;
   font-size: inherit;
-  @include mobile {
-    font-weight: normal;
+  @include desktop {
+    font-weight: bold;
   }
 }
 .list__number {
   font-weight: bold;
-  font-size: $fz-2;
+  font-size: $fz-3;
   color: $color-green;
+  @include desktop {
+    font-size: $fz-2;
+  }
 }
 .list--large {
   .list__title {
@@ -283,17 +283,18 @@ a {
   }
 }
 .buy-info.m-panel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: #f4f3f6;
+  display: block;
+  text-align: left;
+  font-size: 14px;
   padding: $gutter;
   text-align: center;
   font-weight: 600;
-  font-size: $fz-4;
   .buy-info__item {
+    display: flex;
+    align-items: center;
     margin-top: 0;
-    margin-left: $gutter*2;
+    margin-left: 0;
     color: #647d99;
     i {
       margin-right: 5px;
@@ -307,19 +308,6 @@ a {
     img {
       margin-top: -5px;
     }
-  }
-  @include mobile {
-    display: block;
-    text-align: left;
-    font-size: 14px;
-    .buy-info__item {
-      margin-left: 0;
-      display: flex;
-      align-items: center;
-      +.buy-info__item {
-        margin-top: $gutter;
-      }
-    }
     .buy-info__icon {
       margin-right: $gutter/2;
       img {
@@ -327,12 +315,21 @@ a {
       }
     }
   }
-}
-
-
-@include mobile {
-  .list__number {
-    font-size: $fz-3;
+  @include desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $fz-4;
+  
+    .buy-info__item {
+      display: block;
+      margin-left: $gutter*2;
+      +.buy-info__item {
+        margin-top: $gutter;
+      }
+    }
+    img {
+      margin-top: -5px;
+    }
   }
-
 }

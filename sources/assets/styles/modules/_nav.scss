@@ -42,14 +42,14 @@
 .nav__link.m-icon {
   padding: 10px;
   .nav__item:hover > & {
-    opacity: $nav-link-hover-opacity;
-    @include mobile {
-      opacity: 1;
+    opacity: 1;
+    @include desktop {
+      opacity: $nav-link-hover-opacity;
     }
     .icon-caret-down {
-      transform: rotate(-180deg);
-      @include mobile {
-        transform: rotate(0);
+      transform: rotate(0);
+      @include desktop {
+        transform: rotate(-180deg);
       }
     }
   }
@@ -76,31 +76,31 @@
 
 // Dropdown
 .nav-dropdown {
-  min-width: 1200px;
-  display: flex;
-  padding: 0 $gutter $gutter*2 $gutter*2;
-  position: absolute;
+  display: none;
+  padding: 0;
+  min-width: 0;
+  position: static;
+  transform: none;
+  opacity: 1;
+  z-index: 1;
+  box-shadow: none;
+  background: transparent;
+  pointer-events: none;
+  transition: none;
   top: 0%;
   left: 50%;
   right: 0;
-  box-shadow: 0 10px 26px 0 rgba(0, 0, 0, 0.17);
-  background: $color-dropdown-bg;
-  pointer-events: none;
-  transition: $transition-time all ease-out;
-  z-index: -1;
-  transform: translate(-50%, -100%);
-  opacity: 0;
-  @include mobile {
-    display: none;
-    padding: 0;
-    min-width: 0;
-    position: static;
-    transform: none;
-    opacity: 1;
-    z-index: 1;
-    box-shadow: none;
-    background: transparent;
-    transition: none;
+  @include desktop {
+    min-width: 1200px;
+    display: flex;
+    padding: 0 $gutter $gutter*2 $gutter*2;
+    position: absolute;
+    box-shadow: 0 10px 26px 0 rgba(0, 0, 0, 0.17);
+    background: $color-dropdown-bg;
+    transition: $transition-time all ease-out;
+    z-index: -1;
+    transform: translate(-50%, -100%);
+    opacity: 0;
   }
   &.m-wide {
     min-width: 0;
@@ -109,11 +109,11 @@
   .nav__item.m-level-1:hover > &,
   .is-open + & {
     pointer-events: auto;
-    transform: translate(-50%, 0);
+    transform: none;
     top: 100%;
     opacity: 1;
-    @include mobile {
-      transform: none;
+    @include desktop {
+      transform: translate(-50%, 0);
     }
   }
   .col {
@@ -145,9 +145,9 @@
     padding: 0.25em 0;
     color: $color-black;
     b {
-      font-weight: 600;
-      @include mobile {
-        font-weight: normal;
+      font-weight: normal;
+      @include desktop {
+        font-weight: 600;
       }
     }
     &:hover, &.m-level-2:hover {
@@ -288,11 +288,11 @@
 }
 
 .nav-dropdown__image {
-  display: block;
-  text-decoration: none;
-  overflow: hidden;
-  @include mobile {
-    display: none;
+  display: none;
+  @include desktop {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
   }
   &:hover {
     // img { transform: scale(1.1) }
@@ -306,29 +306,29 @@
   }
 }
 .nav-dropdown__feature {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding-top: $gutter*2;
-  flex: 1;
-  @include mobile {
-    padding-top: 0;
-    display: block;
+  padding-top: 0;
+  display: block;
+  @include desktop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: $gutter*2;
+    flex: 1;
   }
 }
 .nav-dropdown__feature-item {
-  min-width: 180px;
-  max-width: 180px;
-  @include mobile {
-    min-width: 0;
-    max-width: none;
+  min-width: 0;
+  max-width: none;
+  @include desktop {
+    min-width: 180px;
+    max-width: 180px;
   }
   &.m-wide {
-    min-width: 360px;
-    max-width: 360px;
-    @include mobile {
-      min-width: 0;
-      max-width: none;
+    min-width: 0;
+    max-width: none;
+    @include desktop {
+      min-width: 360px;
+      max-width: 360px;
     }
   }
 }

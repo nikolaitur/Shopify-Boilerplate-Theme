@@ -1,26 +1,25 @@
 .search-form {
-  padding: $gutter 0 0;
+  padding: 0 0 $gutter 0;
   display: block;
-  width: 100%;
-  @include mobile {
-    width: auto;
-    padding-top: 0;
+  width: auto;
+  @include desktop {
+    width: 100%;
+    padding: $gutter 0 0;
   }
   .input {
-    height: 60px;
-    display: block;
-    width: 100%;
-    color: $color-body;
+    background: transparent;
     border: none;
     border-bottom: 1px solid currentColor;
-    font-size: $fz-3;
-    @include mobile {
-      padding: 0 $gutter;
-      height: 40px;
-      width: 100%;
-      margin: 0;
-      background: transparent;
-      font-size: 1.2rem;
+    color: $color-body;
+    display: block;
+    font-size: 1.2rem;
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    padding: 0 $gutter;
+    @include desktop {
+      height: 60px;
+      font-size: $fz-3;
     }
   }
 }
