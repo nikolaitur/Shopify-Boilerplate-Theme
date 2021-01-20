@@ -35,9 +35,9 @@
 }
 
 .new-address-wrapper {
-  margin-top: 40px;
-  @include mobile {
-    margin-top: 20px;
+  margin-top: 20px;
+  @include desktop {
+    margin-top: 40px;
   }
 }
 
@@ -50,7 +50,8 @@
 /*============================================================================
   Responsive tables, defined with .responsive-table on table element.
 ==============================================================================*/
-@include mobile {
+
+// not customized yet
   .responsive-table {
     width: 100%;
 
@@ -103,16 +104,18 @@
       border-bottom: 1px solid $color-light-grey;
     }
   }
-}
 
 
 .my-account {
-  @include mobile {
-    padding-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 150px;
+  @include desktop {
+    padding-top: 150px;
   }
   .container.d-flex {
-    @include mobile {
-      flex-direction: column;
+    flex-direction: column;
+    @include desktop {
+      flex-direction: row;
     }
   }
   .radio {
@@ -144,64 +147,83 @@
     }
   }
   .content {
-    background: #fcfcfc;
-    padding: 30px;
+    background: #fff;
+    padding: 15px 15px 30px 15px;
     width: 100%;
     h1 {
-      font-size: 30px;
-      @include mobile {
-        font-size: 16px;
-        font-weight: bold;
+      font-size: 16px;
+      font-weight: bold;
+      @include desktop {
+        font-size: 30px;
+        font-weight: normal;
       }
     }
-    @include mobile {
-      background: #fff;
-      padding-top: 15px;
-      padding-left: 15px;
-      padding-right: 15px;
+    @include desktop {
+      background: #fcfcfc;
+      padding: 30px;
     }
   }
 
   .grid.columns {
-    display: flex;
-    @include mobile {
-      display: block;
+    display: block;
+    @include desktop {
+      display: flex;
     }
     .grid__item {
-      min-width: 50%;
-      max-width: 50%;
-      [data-accordion-button] svg {
-        display: none;
+      min-width: 100%;
+      max-width: 100%;
+      margin-bottom: 5px;
+      @include desktop {
+        min-width: 50%;
+        max-width: 50%;
+        margin-bottom: 0px;
       }
-      @include mobile {
-        min-width: 100%;
-        max-width: 100%;
-        margin-bottom: 5px;
-        [data-accordion-button] svg {
-          display: inline-block;
-        }
-        [data-accordion-button].is-open svg {
-          transform: rotate(180deg);
-        }
-        [data-accordion-content] {
-          padding: 0 15px 10px 15px;
-        }
-        &:last-child [data-accordion-content] {
+
+      [data-accordion-button] svg {
+        display: inline-block;
+        @include desktop {
           display: none;
         }
       }
+      [data-accordion-button].is-open svg {
+        transform: rotate(180deg);
+      }
+      [data-accordion-content] {
+        padding: 0 15px 10px 15px;
+        p:first-child {
+          margin-top: 0px;
+          @include desktop {
+            margin-top: 10px;
+          }
+        }
+        @include desktop {
+          padding: 0px;
+        }
+      }
+
+      &:last-child [data-accordion-content] {
+        display: none;
+        @include desktop {
+          display: block;
+        }
+      }
+
       h3 {
-        font-size: 19px;
+        background: #edebeb;
+        font-size: 16px;
         font-weight: bold;
-        @include mobile {
-          background: #edebeb;
-          font-size: 16px;
-          margin: 0px !important;
-          padding: 10px 15px;
-          svg {
-            display: inline-block;
-            float: right;
-            margin-top: 5px;
+        padding: 10px 15px;
+        @include desktop {
+          background: #FFF;
+          font-size: 19px;
+          padding: 0;
+        }
+        svg {
+          display: inline-block;
+          float: right;
+          margin-top: 5px;
+          @include desktop {
+            display: none;
           }
         }
       }
@@ -215,59 +237,92 @@
   #customer_orders {
     margin-top: 45px;
     h3 {
-      font-size: 19px;
+      font-size: 16px;
       font-weight: bold;
       margin-bottom: 15px;
-      @include mobile {
-        font-size: 16px;
+      @include desktop {
+        font-size: 19px;
       }
     }
   }
 
   #customer_orders {
-    @include mobile {
-      margin-left: -15px;
-      margin-right: -15px;
-      h3 {
-        padding-left: 15px;
-      }
+    margin-left: -15px;
+    margin-right: -15px;
+    @include desktop{
+      margin-left: 0px;
+      margin-right: 0px;
     }
     table {
-      @include mobile {
-        border-top: 1px solid #f4f4f4;
+      border-top: 1px solid #f4f4f4;
+      display: block;
+
+      thead, thead th, tbody {
         display: block;
-        thead, thead th, tbody {
-          display: block;
-        }
-        thead {
-          float: left;
-        }
-        thead th {
+      }
+
+      thead {
+        float: left;
+        th {
           border-bottom: 1px solid #f4f4f4;
           font-size: 14px;
           height: 42px;
-        }
-        tbody {
-          position: relative;
-          width: auto;
-          overflow-y: auto;
-        }
-        tbody tr {
-          display: table-cell;
-        }
-        tbody td {
-          border-bottom: 1px solid #f4f4f4;
-          display: block;
-          width: 100%;
-          min-width: 115px;
+          @include desktop {
+            border-bottom: none;
+            font-size: 16px;
+            height: auto;
+          }
         }
       }
+
+      tbody {
+        position: relative;
+        width: auto;
+        overflow-y: auto;
+        @include desktop {
+          overflow-y: unset;
+        }
+        tr {
+          display: table-cell;
+          @include desktop {
+            display: table-row;
+          }
+          td {
+            border-bottom: 1px solid #f4f4f4;
+            display: block;
+            width: 100%;
+            min-width: 115px;
+            @include desktop {
+              border-bottom: unset;
+              display: table-cell;
+              width: auto;
+              min-width: unset;
+            }
+          }
+        }
+      }
+
+      @include desktop {
+        border-top: none;
+        display: table;
+        thead {
+          display: table-header-group;
+          float: unset;
+          th {
+            display: table-cell;
+          }
+        }
+        tbody {
+          display: table-row-group;
+        }
+      }
+
       .head {
-        background: #edebeb;
-        @include mobile {
-          // background: #f4f4f5;
-          background: #fff;
-          box-shadow: 5px 0 3px 0 rgba(159, 159, 159, 0.1);
+        background: #fff;
+        box-shadow: 5px 0 3px 0 rgba(159, 159, 159, 0.1);
+        @include desktop {
+          background: #edebeb;
+          box-shadow: none;
         }
         th {
           padding: 7px 10px;
@@ -290,57 +345,70 @@
 }
 
 .my-account-menu {
-  @include mobile {
-    position: sticky;
-    top: 60px;
-    z-index: 1;
+  position: sticky;
+  top: 60px;
+  z-index: 1;
+  @include desktop {
+    position: relative;
+    top: unset;
   }
   .my-account-menu-wrapper {
-    background: #fcfcfc;
-    margin-right: 30px;
-    padding: 30px 20px;
-    padding-bottom: 15px;
-    @include mobile {
-      background: #edebeb;
-      margin-right: 0px;
-      padding: 0 15px;
-      [data-accordion-button] {
-        margin: 0px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-      }
-      [data-accordion-button] svg {
-        display: inline-block;
-        float: right;
-        width: 20px;
-        height: auto;
-        margin-top: 5px;
-      }
-      [data-accordion-button].is-open svg {
-        transform: rotate(180deg);
-      }
-      [data-accordion-content] {
-        display: none;
+    
+    background: #edebeb;
+    margin-right: 0px;
+    padding: 0 15px;
+
+    @include desktop {
+      background: #fcfcfc;
+      margin-right: 30px;
+      padding: 30px 20px 15px 20px;;
+    }
+
+    [data-accordion-button] {
+      margin: 0px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    [data-accordion-button] svg {
+      display: inline-block;
+      float: right;
+      width: 20px;
+      height: auto;
+      margin-top: 5px;
+    }
+    
+    [data-accordion-button].is-open svg {
+      transform: rotate(180deg);
+    }
+
+    [data-accordion-content] {
+      display: none;
+      @include desktop {
+        display: block;
       }
     }
   }
+
   h1 {
-    font-size: 30px;
-    @include mobile {
-      font-size: 18px;
-      font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    @include desktop {
+      font-size: 30px;
+      font-weight: normal;
     }
   }
   .content {
-    @include mobile {
-      padding-left: 15px;
-      padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include desktop {
+      padding-left: 30px;
+      padding-right: 30px;
     }
   }
   .goto {
-    width: 200px;
-    @include mobile {
-      width: 100%;
+    width: 100%;
+    @include desktop {
+      width: 200px;
     }
     ul {
       padding-left: 0px;
@@ -352,8 +420,9 @@
       margin-top: 0px;
       padding-top: 10px;
       padding-bottom: 10px;
-      @include mobile {
-        text-align: center;
+      text-align: center;
+      @include desktop {
+        text-align: left;
       }
       &.link-subscription a {
         color: #e31313;
@@ -365,10 +434,10 @@
         display: block;
         height: unset;
         margin-top: 0px;
-        text-align: left;
+        text-align: center;
         padding: 0px;
-        @include mobile {
-          text-align: center;
+        @include desktop {
+          text-align: left;
         }
       }
     }
@@ -376,21 +445,27 @@
 }
 
 body.template-addresses {
-  @include mobile {
-    .account.my-account {
-      overflow: unset;
-    }
-    .container__account.d-flex {
-      display: block !important;
-    }
-    .content h1 {
-      font-size: 16px;
+  .account.my-account {
+    overflow: unset;
+  }
+  .container__account.d-flex {
+    display: block !important;
+    @include desktop {
+      display: flex !important;
     }
   }
+  .content h1 {
+    font-size: 16px;
+    @include desktop {
+      font-size: 30px;
+    }
+  }
+
+
   .radio {
-    margin-top: 25px;
-    @include mobile {
-      margin-top: 0px;
+    margin-top: 0px;
+    @include desktop {
+      margin-top: 25px;
     }
     label {
       position: relative;
@@ -455,12 +530,12 @@ body.template-addresses {
       }
     }
     .form__field {
-      min-width: 50%;
-      max-width: 50%;
+      min-width: 100%;
+      max-width: 100%;
       padding: 0 15px;
-      @include mobile {
-        min-width: 100%;
-        max-width: 100%;
+      @include desktop {
+        min-width: 50%;
+        max-width: 50%;
       }
       input, .select {
         border: 1px solid #e2e2e2;
@@ -491,21 +566,25 @@ body.template-addresses {
     }
     .actions {
       margin-top: 15px;
-      padding-left: 15px;
-      @include mobile {
-        justify-content: center;
-        text-align: center;
-        padding-left: 0px;
-        input {
-          min-width: unset;
-        }
+      padding-left: 0px;
+      justify-content: center;
+      text-align: center;
+      input {
+        min-width: unset;
+      }
+      @include desktop {
+        padding-left: 15px;
+        justify-content: flex-start;
+        text-align: left;
+
       }
       .col-sm-6 {
         padding-left: 0px;
         padding-right: 0px;
-        @include mobile {
-          margin: 0 5px;
-          width: unset;
+        margin: 0 5px;
+        width: unset;
+        @include desktop {
+          margin: 0;
         }
         &:last-child {
           padding-top: 10px;
@@ -546,18 +625,16 @@ body.template-addresses {
         max-width: 100%;
         padding-left: 15px;
         padding-right: 15px;
-        @include mobile {
-          font-size: 18px;
-        }
+        font-size: 18px;
       }
       .form__field {
-        min-width: 50%;
-        max-width: 50%; 
+        min-width: 100%;
+        max-width: 100%; 
         padding-left: 15px;
         padding-right: 15px;
-        @include mobile {
-          min-width: 100%;
-          max-width: 100%;
+        @include desktop {
+          min-width: 50%;
+          max-width: 50%;
         }
         input, select {
           border: 1px solid #e2e2e2;
@@ -570,8 +647,9 @@ body.template-addresses {
       .actions {
         display: inline-block;
         margin-top: 30px;
-        @include mobile {
-          text-align: center;
+        text-align: center;
+        @include desktop {
+          text-align: left;
         }
         input {
           background: #1238bf;
@@ -596,11 +674,13 @@ body.template-addresses {
       max-width: 400px;
       padding: 30px 75px;
       text-align: center;
-      @include mobile {
-        width: unset;
-        top: 50%;
-        bottom: unset;
-        transform: translateY(-50%);
+      width: unset;
+      top: 50%;
+      bottom: unset;
+      transform: translateY(-50%);
+      @include desktop {
+        top: unset;
+        transform: unset;
       }
     }
     .actions {
@@ -625,15 +705,18 @@ body.template-addresses {
 }
 
 body.template-order .my-account {
-  @include mobile {
-    overflow: unset;
-    .container__account.d-flex {
-      display: block !important;
-    }
-    .created_at {
-      margin-top: 15px;
+
+  overflow: unset;
+  .container__account.d-flex {
+    display: block !important;
+    @include desktop {
+      display: flex !important;
     }
   }
+  .created_at {
+    margin-top: 15px;
+  }
+
   .order-header {
     align-items: center;
     justify-content: space-between;
@@ -669,9 +752,9 @@ body.template-order .my-account {
       }
     }
     tbody tr {
-      border-bottom: 1px solid #edebeb; 
-      @include mobile {
-        border-bottom: 0px;
+      border-bottom: 0px;
+      @include desktop {
+        border-bottom: 1px solid #edebeb; 
       }
     }
     tbody td {
@@ -681,15 +764,17 @@ body.template-order .my-account {
     tfoot td {
       font-size: 14px;
       padding: 5px 10px;
-      @include mobile {
-        strong {
-          display: none;
-        }
+      strong {
+        display: none;
+      }
+      @include desktop {
+        display: block;
       }
     }
     tfoot tr td:nth-child(3)::before {
-      @include mobile {
-        font-weight: bold;
+      font-weight: bold;
+      @include desktop {
+        font-weight: normal;
       }
     }
   }

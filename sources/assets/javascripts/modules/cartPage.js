@@ -45,7 +45,7 @@ const redirect = function() {
     }
     localStorage.setItem('redirect_to_checkout', false);
   } else {
-    window.location.href = '/';
+    // window.location.href = '/';
   }
 }
 

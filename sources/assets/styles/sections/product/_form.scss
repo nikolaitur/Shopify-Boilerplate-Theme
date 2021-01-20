@@ -1,12 +1,12 @@
 .product-form {
-  padding: 75px $gutter*2 0;
+  padding: 75px $gutter 0;
   background: $color-white;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
   color: $color-blue;
   position: relative;
   border-radius: 5px;
-  @include mobile {
-    padding: 75px $gutter 0;
+  @include desktop {
+    padding: 75px $gutter*2 0;
   }
   &.m-recharge {
     padding-bottom: 15px;
@@ -102,11 +102,13 @@
   text-transform: uppercase;
   color: $color-black;
   box-shadow: 0px 10px 20px 0px rgba(240, 193, 75, 0.3);
-  @include mobile {
-    min-width: 0;
-    padding: 0 10px;
-    height: 55px;
-    font-size: $fz-4;
+  min-width: 0;
+  padding: 0 10px;
+  height: 55px;
+  font-size: $fz-4;
+  @include desktop {
+    font-size: 16px;
+    height: 60px;
   }
   
   &.m-recharge {
@@ -128,10 +130,10 @@
   }
   .qty-selector {
     margin-right: 10px;
-    height: 60px;
+    height: 55px;
     font-size: $fz-4;
-    @include mobile {
-      height: 55px;
+    @include desktop {
+      height: 60px;
     }
     .e-controls {
       border-radius: 3px;

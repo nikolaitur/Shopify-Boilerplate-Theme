@@ -13,7 +13,6 @@
       padding-left: 115px;
       position: relative;
       @include desktop {
-        display: block;
         padding-left: unset;
       }
     }
@@ -42,6 +41,9 @@
       &.m-info {
         width: 100%;
         line-height: 1.2;
+        @include desktop {
+          width: auto !important;
+        }
       }
 
       &.m-long {
