@@ -1,12 +1,13 @@
-// Product images:
-.product-images {
-  position: relative;
-  background-size: contain;
-  text-align: left;
-  img {
 
+.product-images {
+  height: auto;
+  @include desktop {
+      position: relative;
+      background-size: contain;
+      text-align: left;
   }
 }
+
 .product-slider {
   visibility: hidden;
   &.is-visible {
@@ -26,12 +27,5 @@
     bottom: $gutter;
     left: $gutter;
     right: $gutter;
-  }
-}
-
-@include mobile {
-
-  .product-images {
-    height: auto;
   }
 }

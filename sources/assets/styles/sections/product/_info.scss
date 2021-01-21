@@ -114,7 +114,7 @@
   right: 0;
 }
 .product-info__bottom-label {
-  margin: 25px (-$gutter*2) 0;
+  margin: 25px (-$gutter) 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,8 +123,8 @@
   font-weight: 600;
   background: $color-grey-lightest;
   text-align: center;
-  @include mobile {
-    margin: 25px (-$gutter) 0;
+  @include desktop {
+    margin: 25px (-$gutter*2) 0;
   }
 }
 
