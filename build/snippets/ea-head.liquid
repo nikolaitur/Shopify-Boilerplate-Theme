@@ -2,7 +2,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="{{ settings.color_primary }}">
-<link rel="canonical" href="{{ canonical_url }}">
+{% assign canoonical_url_modified = canonical_url %}
+{% if template == 'collection' %}
+  {% assign canoonical_url_modified = request.host | append: collection.url | append: '?page=1'  %}
+  {% assign canoonical_url_modified = 'https://' | append: canoonical_url_modified %}
+{% endif %}
+<link rel="canonical" href="{{ canoonical_url_modified }}">
 {% if settings.favicon != blank %}
   <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
 {% endif %}
