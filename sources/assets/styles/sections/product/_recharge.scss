@@ -12,7 +12,7 @@
 .recharge__text {
   margin-left: 10px;
   white-space: nowrap;
-  font-size: $fz-4;
+  font-size: 14px;
 }
 .recharge__price {
   font-size: 14px;
@@ -66,8 +66,8 @@
   }
 }
 
-@include mobile {
+@include desktop {
   .recharge__text {
-    font-size: 14px;
+    font-size: $fz-4;
   }
 }

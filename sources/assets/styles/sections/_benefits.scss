@@ -1,60 +1,69 @@
 .benefits-section {
   border-top: 1px solid $color-grey-light;
   .section__content {
-    padding-top: $gutter*3;
+    padding-top: $gutter * 3;
   }
 }
 .benefits {
   @include row(30px);
-
+  flex-wrap: wrap;
+  .btn.m-underline.m-bold {
+    font-size: $fz-4;
+  }
 }
 .benefits__item {
   @include cell(4, 0 30px);
-  svg, img {
+  svg,
+  img {
     height: 80px;
     max-width: none;
   }
+
+  min-width: 100%;
+  max-width: 100%;
+  margin-top: $gutter * 2;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 .benefits__title {
-  margin-top: $gutter*2;
+  margin-top: $gutter;
   font-size: $fz-4;
-  font-weight: 900;
+  font-weight: bold;
 }
 .benefits__text {
-  font-size: $fz-5;
+  font-size: 14px;
   p {
-    line-height: 1.625
+    line-height: 1.625;
   }
 }
 .benefits__bottom {
-  margin-top: $gutter*3;
+  margin-top: $gutter * 3;
   text-align: center;
 }
 
-@include mobile {
+@include desktop {
   .benefits {
-    flex-wrap: wrap;
+    flex-wrap: inherit;
     .btn.m-underline.m-bold {
-      font-size: $fz-4;
+      font-size: inherit;
     }
   }
   .benefits__item {
-    min-width: 100%;
-    max-width: 100%;
-    margin-top: $gutter*2;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center;
-    &:first-child {
-      margin-top: 0;
-    }
+    min-width: 25%;
+    max-width: 25%;
+    padding: 0 30px;
+    margin-top: 0;
   }
   .benefits__text {
-    font-size: 14px;
+    font-size: $fz-5;
   }
   .benefits__title {
-    margin-top: $gutter;
+    margin-top: $gutter * 2;
     font-size: $fz-4;
-    font-weight: bold;
+    font-weight: 900;
   }
 }

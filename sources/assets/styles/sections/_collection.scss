@@ -1,11 +1,16 @@
 .collection {
   .title {
-    @include mobile {
-      padding-bottom: 0.1em;
-      text-align: center;
-      font-size: $fz-1;
-      font-weight: 600;
-      border-bottom: 1px solid $color-grey-light;
+    padding-bottom: 0.1em;
+    text-align: center;
+    font-size: $fz-1;
+    font-weight: 600;
+    border-bottom: 1px solid $color-grey-light;
+    @include desktop {
+      padding: 0;
+      text-align: left;
+      font-size: 29px;
+      font-weight: 400;
+      border: none;
     }
   }
   .section__content {
@@ -33,14 +38,14 @@
 }
 
 .filter {
-  display: flex;
-  justify-content: space-between;
+  display: block;
+  text-align: center;
   align-items: flex-end;
-  padding: $gutter*3 0;
+  padding: $gutter * 3 0;
   border-bottom: 1px solid $color-brown-light;
-  @include mobile {
-    display: block;
-    text-align: center;
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
   }
   .label {
     margin-bottom: 10px;
@@ -49,12 +54,12 @@
   .nav {
     padding: 0 0 $gutter/2 0;
     @include mobile {
-      margin-top: $gutter*2;
+      margin-top: $gutter * 2;
       justify-content: center;
     }
   }
   .nav__item:not(:first-child) {
-    margin-left: $gutter*3;
+    margin-left: $gutter * 3;
   }
   .nav__link {
     padding: 0 0 0.1em 0;
@@ -76,7 +81,7 @@
 }
 
 .collection__pagination {
-  margin: $gutter*2 0;
+  margin: $gutter * 2 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,4 +95,3 @@
     }
   }
 }
-

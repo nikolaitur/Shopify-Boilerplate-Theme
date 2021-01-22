@@ -1,46 +1,48 @@
 .ceo__image {
-  min-width: 725px;
-  max-width: 725px;
-  @include mobile {
-    min-width: 0;
-    max-width: none;
-    margin: 0 (-$gutter);
+  min-width: 0;
+  max-width: none;
+  margin: 0 (-$gutter);
+  @include desktop {
+    min-width: 725px;
+    max-width: 725px;
+    margin: 0;
   }
 }
 .ceo__text {
   flex: 1;
-  min-width: 480px;
   background: #fef7f1;
   position: relative;
   z-index: 1;
-  @include mobile {
-    min-width: none;
+  min-width: none;
+  @include desktop {
+    min-width: 480px;
   }
   .ceo__image + & {
-    padding: 100px 50px 150px;
-    max-width: 480px;
-    margin-left: -240px;
-    @include mobile {
-      margin: 0 (-$gutter);
-      padding: 25px 45px;
-      max-width: none;
-      min-width: 0;
+    margin: 0 (-$gutter);
+    padding: 25px 45px;
+    max-width: none;
+    min-width: 0;
+    @include desktop {
+      padding: 100px 50px 150px;
+      max-width: 480px;
+      margin-left: -240px;
+      margin-right: 0;
     }
   }
 }
 .ceo__content {
-  display: flex;
-  align-items: center;
-  @include mobile {
-    display: block;
+  display: block;
+  @include desktop {
+    display: flex;
+    align-items: center;
   }
 }
 .ceo__bgimage {
-  width: 250px;
+  width: 100px;
   position: absolute;
   bottom: -50px;
   left: -30px;
   @include mobile {
-    width: 100px
+    width: 250px;
   }
 }

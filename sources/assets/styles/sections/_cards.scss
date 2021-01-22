@@ -3,17 +3,15 @@
     padding: 0;
   }
   .title {
-    margin-bottom: $gutter*2;
+    margin-bottom: $gutter * 2;
   }
   .col {
-    padding-bottom: $gutter*2;
+    padding-bottom: $gutter * 2;
     &.m-no-padding {
       padding: 0;
     }
   }
 }
-
-
 
 .card__inner {
   display: block;
