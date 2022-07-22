@@ -7,6 +7,7 @@
 .benefits {
   @include row(30px);
   flex-wrap: wrap;
+  justify-content: center;
   .btn.m-underline.m-bold {
     font-size: $fz-4;
   }
@@ -16,7 +17,11 @@
   svg,
   img {
     height: 80px;
-    max-width: none;
+    max-width: unset;
+    @include desktop {
+      height: unset;
+      max-width: 100%;
+    }
   }
 
   min-width: 100%;

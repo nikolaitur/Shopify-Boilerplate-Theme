@@ -1,34 +1,40 @@
 .s6 {
-  @include mobile {
 
-    .slider-arrow {
-      margin: 0;
-      color: $color-button;
-      font-size: $fz-6;
-      position: static;
+  .slider-arrow {
+    margin: 0;
+    color: $color-button;
+    font-size: $fz-6;
+    position: static;
+    @include desktop {
+      display: none;
     }
-    .slider-dots {
-      margin: 0 $gutter;
-      li {
-        margin: 0;
-        line-height: 0;
-      }
+  }
+  .slider-dots {
+    margin: 0 $gutter;
+    li {
+      margin: 0;
+      line-height: 0;
+    }
+    @include desktop {
+      display: none;
     }
   }
   .row {
-    @include mobile {
+    @include row(0 (-$gutter/2))
+    @include desktop {
       @include row(0 (-$gutter/2))
     }
   }
   [class^=col] {
     &:nth-child(3n+2) {
-      margin-top: $gutter*5;
-      @include mobile {
-        margin-top: 0;
+      margin-top: 0;
+      @include desktop {
+        margin-top: $gutter*5;
       }
     }
-    @include mobile {
-      @include cell(1, 0 $gutter/2)
+    @include cell(1, 0 $gutter/2)
+    @include desktop {
+      @include cell(1, 0 $gutter)
     }
   }
   .slick-slide {
@@ -36,9 +42,9 @@
     transition: $transition-time;
   }
   .slick-current + .slick-slide {
-    margin-top: $gutter*5;
-    @include mobile {
-      margin-top: 0;
+    margin-top: 0;
+    @include desktop {
+      margin-top: $gutter*5;
     }
   }
   .slider-controls {

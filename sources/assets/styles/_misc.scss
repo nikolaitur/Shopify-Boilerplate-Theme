@@ -64,18 +64,20 @@
 }
 
 .bulk-content {
-  @include mobile {
-    .btn {
-      width: 100%;
+  .btn {
+    width: 100%;
+    @include desktop {
+      width: auto;
     }
   }
 }
 
 .section.m-cta {
-  @include mobile {
-    .title {
-      max-width: 200px;
-      margin: 0 auto;
+  .title {
+    max-width: 200px;
+    margin: 0 auto;
+    @include desktop {
+      max-width: 400px;
     }
   }
 }
@@ -89,17 +91,18 @@
 .skewed-shape {
   display: flex;
   align-items: center;
-  padding-left: $gutter*2;
+  justify-content: center;
   height: 50px;
   font-size: $fz-5;
   text-transform: uppercase;
   background: $color-blue;
   color: $color-white;
-  clip-path: polygon(0 0, 86% 0%, 79% 100%, 0% 100%);
-  @include mobile {
-    padding: 0 $gutter;
-    justify-content: center;
-    clip-path: none;
+  clip-path: none;
+  padding: 0 $gutter;
+  @include desktop {
+    clip-path: polygon(0 0, 86% 0%, 79% 100%, 0% 100%);
+    justify-content: flex-start;
+    padding-left: $gutter*2;
   }
   i {
     animation: mover 0.4s infinite alternate;
@@ -119,32 +122,39 @@
     border: none;
   }
   .benefits__item {
-    @include mobile {
-      min-width: 80%;
-      max-width: 80%;
-      margin-left: 10%;
-      margin-right: 10%;
-      text-align: center;
-      margin-bottom: 30px;
+    min-width: 80%;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    margin-bottom: 30px;
+    @include desktop {
+      max-width: 25%;
+      min-width: 25%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 0;
+
     }
   }
   .promo__img-top {
     display: block;
-    max-width: 977px;
-    margin: 0 auto 88px;
-    @include mobile {
-      max-width: 100%;
-      margin: 0 auto 0;
+    max-width: 100%;
+    margin: 0 auto 0;
+    @include desktop {
+      max-width: 977px;
+      margin: 0 auto 88px;
     }
   }
   .promo__info {
     .title {
-      font-size: 32px !important;
-      text-align: left !important;
-      @include mobile {
-        font-size: 24px !important;
-        text-align: center !important;
-        margin-top: 30px;
+      font-size: 24px !important;
+      text-align: center !important;
+      margin-top: 30px;
+      @include desktop {
+        font-size: 32px !important;
+        margin-top: 15px;
+        text-align: left !important;
       }
     }
     .subtitle {
@@ -168,24 +178,25 @@
       margin: 30px auto 30px;
     }
     .faq-item .faq-item__title {
+      font-size: 16px;
       font-weight: 600;
-      @include mobile {
-        font-size: 16px;
+      @include desktop {
+        font-size: 24px;
       }
     }
   } 
   .faq.m-product .faq-section {
     display: block;
-    max-width: 845px;
+    max-width: 85%;
     margin: 0 auto;
-    @include mobile {
-      max-width: 85%;
+    @include desktop {
+      max-width: 845px;
     }
   } 
   /* Testimonials section */
   .title {
       font-family: $ff-1;
-      font-size: 32px;
+      font-size: 24px;
       font-weight: bold;
       font-stretch: normal;
       font-style: normal;
@@ -193,8 +204,8 @@
       letter-spacing: normal;
       text-align: left;
       color: $color-black;
-      @include mobile {
-        font-size: 24px !important;
+      @include desktop {
+        font-size: 32px;
       }
   }
   .testimonials__text {

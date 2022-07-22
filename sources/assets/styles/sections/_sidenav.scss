@@ -11,7 +11,7 @@
   opacity: 0;
   overflow: auto;
   display: flex !important;
-  flex-direction: column;
+  flex-direction: column; 
   padding: 50px 30px;
   body.is-menu-open & {
     transform: translate(0%, 0);

@@ -6,9 +6,9 @@
   .container.m-short {
     max-width: $container-s;
     .section__content {
-      padding-top: $gutter*3;
-      @include mobile {
-        padding-top: 0;
+      padding-top: $gutter;
+      @include desktop {
+        padding-top: $gutter*3;
       }
     }
   }
@@ -65,62 +65,64 @@
 
 // Grid
 .faq-grid {
-  display: flex;
-  flex-wrap: nowrap;
-  @include mobile {
-    display: block;
+  display: block;
+  @include desktop {
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 
 
 // Topbar
 .faq-topbar {
-  padding: 20px;
   background: #cfdbd5;
-  @include mobile {
+  overflow: auto;
+  padding: 20px;
+  @include desktop {
     padding: 20px 0 $gutter 0;
-    overflow: auto;
   }
   .container {
     display: flex;
+    @include row(0);
+    flex-wrap: nowrap;
     justify-content: space-between;
-    flex-wrap: wrap;
-    @include mobile {
-      @include row(0);
-      flex-wrap: nowrap;
-      width: max-content;
+    width: max-content;
+    @include desktop {
+      flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: auto;
+      width: unset;
     }
   }
 
 }
 .faq-topbar__item {
-  @include mobile {
-    min-width: unset;
-    max-width: unset;
-    padding: 0 20px;
+  min-width: unset;
+  max-width: unset;
+  padding: 0 20px;
+  @include desktop {
+    padding: 0px;
   }
 }
 .faq-topbar__title {
+  cursor: pointer;
+  display: inline-block;
   margin: 0;
   font-size: $fz-4;
   font-weight: 500;
   font-stretch: condensed;
   color: $color-dark-grey;
   transition: $transition-time;
-  cursor: pointer;
-  @include mobile {
-    padding-bottom: 0.2em;
-    display: inline-block;
-    position: relative;
-
+  padding-bottom: 0.2em;
+  position: relative;
+  @include desktop {
+    padding-bottom: 0px;
   }
   &.is-active,
   &:hover {
     color: $color-button;
-    @include mobile {
-      &:after {
-        opacity: 1;
-      }
+    &:after {
+      opacity: 1;
     }
   }
 }
@@ -129,14 +131,15 @@
 .faq-questions {
   flex: 1;
   color: $color-black;
-  .faq-image + & {
-    padding: $gutter*3 0 $gutter*3 $gutter*5;
-    @include mobile {
-      padding: 0;
-    }
+  margin-top: $gutter*2;
+  @include desktop {
+    margin-top: 0px;
   }
-  @include mobile {
-    margin-top: $gutter*2;
+  .faq-image + & {
+    padding: 0;
+    @include desktop {
+      padding: $gutter*3 0 $gutter*3 $gutter*5;
+    }
   }
 }
 
@@ -156,12 +159,13 @@
 
 // Image
 .faq-image {
-  min-width: 500px;
-  max-width: 500px;
-  @include mobile {
-    min-width: 0;
-    max-width: none;
-    margin: 0 (-$gutter);
+  min-width: 0;
+  max-width: none;
+  margin: 0 (-$gutter);
+  @include desktop {
+    min-width: 500px;
+    max-width: 500px;
+    margin: 0;
   }
 }
 
@@ -194,10 +198,10 @@
 .need-help {
 
   text-align: center;
-  margin: 68px 0;
+  margin: 82px;
 
-  @include mobile {
-    margin: 82px;
+  @include desktop {
+    margin: 68px 0;
   }
   
   .title {
@@ -207,19 +211,19 @@
   }
 
   .action-blocks {
-    margin-top: 48px;
+    margin-top: 68px;
     justify-content: center;
 
-    @include mobile {
-      margin-top: 68px;
+    @include desktop {
+      margin-top: 48px;
     }
   }
 
   .action-block {
-    padding: 0 65px;
+    padding: 0 45px;
 
-    @include mobile {
-      padding: 0 45px;
+    @include desktop {
+      padding: 0 65px;
     }
 
     .image {

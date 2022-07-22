@@ -1,21 +1,23 @@
 .s7 {
-  @include mobile {
-    padding: $gutter*2 0 !important;
+  padding: $gutter;
+  @include desktop {
+    padding: $gutter*2 0 0;
   }
   .row {
     margin: 0 -30px;
     >div {
       padding: 0 30px;
-      @include mobile {
-        &:not(:first-child) {
-          margin-top: $gutter*2;
+      &:not(:first-child) {
+        margin-top: $gutter*2;
+        @include desktop {
+          margin-top: $gutter;
         }
       }
     }
     >div:nth-child(2n+1) {
-      margin-top: 130px;
-      @include mobile {
-        margin-top: 0;
+      margin-top: 0;
+      @include desktop {
+        margin-top: 130px;
       }
     }
   }

@@ -2,18 +2,23 @@
   .container {
     position: relative;
     .slider-controls {
-      position: absolute;
+      position: static;
+      transform: none;
+      padding: $gutter*2 $gutter*4 0;
+      justify-content: space-between;
       left: -$gutter*3;
       right: -$gutter*3;
       top: 50%;
       transform: translate(0, -50%);
-      @include mobile {
+      .slider-arrow {
         position: static;
-        transform: none;
-        padding: $gutter*2 $gutter*4 0;
-        justify-content: space-between;
+      }
+      @include desktop {
+        padding: 0;
+        justify-content: flex-start;
+        position: absolute;
         .slider-arrow {
-          position: static;
+          display: none;
         }
       }
     }
@@ -21,47 +26,46 @@
 }
 
 .s5__slide {
-  display: flex !important;
-  @include mobile {
-    display: block !important;
+  display: block !important;
+  @include desktop {
+    display: flex !important;
   }
 }
 
 .s5__text {
-  margin-right: -215px;
-  padding-right: 215px;
-  padding-top: $gutter*10;
-  padding-left: $gutter*8;
   flex: 1;
+  padding: 20px;
+  margin: -150px 30px 0;
   order: 0;
   position: relative;
-  @include mobile {
-    margin: -150px 30px 0;
-    padding: 20px;
-    position: relative;
-    z-index: 99;
+  z-index: 99;
+  @include desktop {
+    padding-right: 215px;
+    padding-top: $gutter*10;
+    padding-left: $gutter*8;
+    margin-right: -215px 15px 0;
   }
 }
 
 .s5__image {
-  padding: $gutter*5 0;
-  min-width: 430px;
-  max-width: 430px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
   position: relative;
   order: 1;
-  @include mobile {
-    padding: 0;
-    min-width: 0;
-    max-width: 100%;
+  @include desktop {
+    min-width: 430px;
+    max-width: 430px;
+    padding: $gutter*5 0;
   }
 }
 
 .s5__product-image {
-  width: 150px;
-  position: absolute;
-  bottom: 75px;
-  right: 250px;
-  @include mobile {
-    display: none;
+  display: none;
+  @include desktop {
+    width: 150px;
+    position: absolute;
+    bottom: 75px;
+    right: 250px;
   }
 }

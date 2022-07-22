@@ -1,7 +1,7 @@
 .hero-container {
-  display: flex;
-  @include mobile {
-    display: block;
+  display: block;
+  @include desktop {
+    display: flex;
   }
 }
 .hero {
@@ -17,11 +17,11 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: calc(50% - #{$container-l}/2);
-  right: calc(50% - #{$container-l}/2);
-  @include mobile {
-    left: 0;
-    right: 0;
+  left: 0;
+  right: 0;
+  @include desktop {
+    left: calc(50% - #{$container-l}/2);
+    right: calc(50% - #{$container-l}/2);
   }
   &.m-half.m-index-1 {
     width: auto;
@@ -35,11 +35,14 @@
   }
 }
 .hero__info {
-  max-width: 60%;
+  max-width: 100%;
   padding: 0 $gutter;
   position: absolute;
   z-index: 1;
   color: $color-hero;
+  @include desktop {
+    max-width: 60%;
+  }
   .pretitle {
     color: $color-brown;
   }
@@ -53,170 +56,169 @@
   $margin-desktop: 50px;
   $margin-mobile: 30px;
 
-
-  &.top-left {
-      text-align: left;
-      top: $margin-desktop;
-      // left: $margin-desktop;
-      left: 0px;
-      right: auto;
-      transform: none;     
+  &.mobile_top-left {
+    text-align: left;
+    top: $margin-mobile;
+    left: 0px;
+    right: auto;
+    transform: none;     
   }
 
-  &.top-center {
-      text-align: center;        
-      margin: auto;
-      top: $margin-desktop;
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);     
+  @include desktop {
+    &.top-left {
+      text-align: left !important;
+      top: $margin-desktop !important;
+      left: 0px !important;
+      right: auto !important;
+      transform: none !important; 
+    }
   }
 
-  &.top-right {
+  &.mobile_top-center {
+    text-align: center;        
+    margin: auto;
+    top: $margin-mobile;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  @include desktop {
+    &.top-center {
+      text-align: center !important; 
+      margin: auto !important;
+      top: $margin-desktop !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+  }
+
+  &.mobile_top-right {
+    text-align: right;        
+    left: auto;
+    right: 0px;
+    top: $margin-mobile;
+  }
+
+  @include desktop {
+    &.top-right {
+      text-align: right !important; 
+      left: auto !important;
+      right: 0px !important;
+      top: $margin-desktop !important;
+    }
+  }
+
+  &.mobile_middle-left {
+    text-align: left;        
+    // left: $margin-mobile;
+    left: 0px;
+    right: auto;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  @include desktop {
+    &.middle-left {
+      text-align: left !important;
+      left: 0px !important;
+      right: auto;
+      transform: translateY(-50%) !important;
+      top: 50% !important;
+    }
+  }
+
+  &.mobile_middle-center {
+    text-align: center;        
+    left: 50%;         
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include desktop {
+    &.middle-center {
+      text-align: center !important;
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+  }
+
+  &.mobile_middle-right {
       text-align: right;        
       left: auto;
-      // right: $margin-desktop;
-      right: 0px;
-      top: 50px;
-  }
-
-  &.middle-left {
-      text-align: left;        
-      // left: $margin-desktop;
-      left: 0px;
-      right: auto;
-      transform: translateY(-50%);
-      top: 50%;
-  }
-
-  &.middle-center {
-      text-align: center;        
-      left: 50%;         
-      top: 50%;
-      transform: translate(-50%, -50%);
-  }
-
-  &.middle-right {
-      text-align: right;        
-      left: auto;
-      // right: $margin-desktop;
       right: 0px;
       top: 50%;
       transform: translateY(-50%);      
   }
 
-  &.bottom-left {
-      text-align: left;        
-      // left: $margin-desktop;
-      left: 0px;
-      right: auto;
-      bottom: 50px;
-      transform: none;      
+  @include desktop {
+    &.middle-right {
+      text-align: right !important;
+      left: auto !important;
+      right: 0px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
   }
 
-  &.bottom-center {
-      text-align: center;        
-      left: 50%;
-      transform: translateX(-50%);
-      right: auto;
-      bottom: $margin-desktop;      
+  &.mobile_bottom-left {
+    text-align: left;        
+    left: 0px;
+    right: auto;
+    bottom: $margin-mobile;
+    top: auto;
+    transform: none;   
+  }   
+
+  @include desktop {
+    &.bottom-left {
+      text-align: left !important;
+      left: 0px !important;
+      right: auto !important;
+      bottom: $margin-desktop !important;
+      top: auto !important;
+      transform: none !important; 
+    }
   }
 
-  &.bottom-right {
-      text-align: right;        
-      left: auto;
-      // right: $margin-desktop;
-      right: 0px;
-      bottom: $margin-desktop;
-      transform: none;      
+  &.mobile_bottom-center {
+    text-align: center;        
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    bottom: $margin-mobile;      
+    top: auto;
   }
 
-  @include mobile {
-    &.mobile_top-left {
-        text-align: left;
-        top: $margin-mobile;
-        // left: $margin-mobile;
-        left: 0px;
-        right: auto;
-        bottom: auto;
-        transform: none;     
+  @include desktop {
+    &.bottom-center {
+      text-align: center !important;     
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      right: auto !important;
+      bottom: $margin-desktop !important;      
+      top: auto !important;
     }
+  }
 
-    &.mobile_top-center {
-        text-align: center;        
-        margin: auto;
-        top: $margin-mobile;
-        left: 50%;
-        right: auto;
-        bottom: auto;
-        transform: translateX(-50%);     
-    }
-
-    &.mobile_top-right {
-        text-align: right;        
-        left: auto;
-        right: auto;
-        // right: $margin-mobile;
-        right: 0px;
-        top: 50px;
-        bottom: auto;
-    }
-
-    &.mobile_middle-left {
-        text-align: left;        
-        // left: $margin-mobile;
-        left: 0px;
-        right: auto;
-        transform: translateY(-50%);
-        top: 50%;
-        bottom: auto;
-    }
-
-    &.mobile_middle-center {
-        text-align: center;        
-        left: 50%;         
-        top: 50%;
-        bottom: auto;
-        transform: translate(-50%, -50%);
-    }
-
-    &.mobile_middle-right {
-        text-align: right;        
-        left: auto;
-        // right: $margin-mobile;
-        right: 0px;
-        top: 50%;
-        bottom: auto;
-        transform: translateY(-50%);      
-    }
-
-    &.mobile_bottom-left {
-        text-align: left;        
-        // left: $margin-mobile;
-        left: 0px;
-        right: auto;
-        bottom: 50px;
-        top: auto;
-        transform: none;      
-    }
-
-    &.mobile_bottom-center {
-        text-align: center;        
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto;
-        bottom: $margin-mobile;      
-        top: auto;
-    }
-
-    &.mobile_bottom-right {
-        text-align: right;        
-        left: auto;
-        // right: $margin-mobile;
-        right: 0px;
-        bottom: $margin-mobile;
-        top: auto;
-        transform: none;      
+  &.mobile_bottom-right {
+    text-align: right;        
+    left: auto;
+    right: 0px;
+    bottom: $margin-mobile;
+    top: auto;
+    transform: none;
+  }
+  
+  @include desktop {
+    &.bottom-right {
+      text-align: right !important;   
+      left: auto !important;
+      right: 0px !important;
+      bottom: $margin-desktop !important;
+      top: auto !important;
+      transform: none !important;
     }
   }
 }
@@ -227,11 +229,17 @@
 }
 .hero__title {
   color: inherit;
+  font-size: 24px;
   .pretitle + & {
     margin-top: 0.33em;
   }
   +.subtitle {
+    font-size: $fz-6;
+    max-width: 100%;
     margin-top: $gutter;
+    @include desktop {
+      font-size: 16px;
+    }
   }
 }
 .hero__text {
@@ -254,8 +262,6 @@
 
 }
 
-
-
 .hero.m-blog {
   min-height: 0;
   height: auto;
@@ -274,32 +280,4 @@
   }
 }
 
-
-
-@include mobile {
-  .hero {
-    
-  }
-  .hero__info {
-    width: 100%;
-    white-space: initial;
-    .subtitle {
-      font-size: $fz-6;
-      max-width: 100%;
-    }
-  }
-  .hero__title {
-    font-size: $fz-2;
-  }
-
-
-  .hero.m-blog {
-    .hero__title {
-      font-size: 24px;
-    }
-    .hero__img {
-      padding: 0 $gutter;
-    }
-  }
-}
 
